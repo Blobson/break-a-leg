@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://buphy8bxp5osq"]
+
+[ext_resource type="Script" path="res://regions/common/base_static_obstacle/BaseStaticObstacle.gd" id="1_vig40"]
+
+[node name="BaseStaticObstacle" type="Node2D"]
+script = ExtResource("1_vig40")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

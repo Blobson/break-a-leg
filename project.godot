@@ -9,16 +9,20 @@
 config_version=5
 
 [application]
-
 config/name="Break-a-leg"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
-
 Game="*res://utils/game_state/game_state.gd"
 
-[rendering]
+[display]
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
 
+[rendering]
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
