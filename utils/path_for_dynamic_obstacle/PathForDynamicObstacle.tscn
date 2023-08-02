@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6dmerqcm3t87"]
-
-[ext_resource type="Script" path="res://utils/path_for_dynamic_obstacle/PathFollow2D.gd" id="2_iyhvn"]
-
-[node name="PathForDynamicObstacle" type="Path2D"]
-scale = Vector2(1.35237, 3.88347)
-
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
-script = ExtResource("2_iyhvn")

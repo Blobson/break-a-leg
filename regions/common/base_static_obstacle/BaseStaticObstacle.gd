@@ -1,5 +1,6 @@
 class_name BaseStaticObstacle extends Node2D
 
+
 func _ready():
 	if $AnimationPlayer.has_animation("idle"):
 		$AnimationPlayer.play("idle")
