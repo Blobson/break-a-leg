@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpfe42qtrckhf"]
+[gd_scene load_steps=2 format=3 uid="uid://cqcpel6yv3kjo"]
 
-[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/BaseStaticObstacle.tscn" id="1_2xcl0"]
 [ext_resource type="Script" path="res://regions/common/base_dynamic_obstacle/BaseDynamicObstacle.gd" id="2_5us44"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4diuf"]
-load_path = "res://.godot/imported/admin.png-895553a5a9f044e8b96a833c18cb90be.ctex"
+[node name="BaseDynamicObstacle" type="Path2D"]
 
-[node name="BaseDynamicObstacle" instance=ExtResource("1_2xcl0")]
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="PathFollow2D"]
 script = ExtResource("2_5us44")
-speed = 100
 
-[node name="Sprite2D" parent="." index="0"]
-texture = SubResource("CompressedTexture2D_4diuf")
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Node2D"]
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D/Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Node2D/Area2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D/Node2D"]
+root_node = NodePath("../..")
