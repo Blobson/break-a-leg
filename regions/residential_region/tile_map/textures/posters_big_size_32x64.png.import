@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv4hci7u33243"
-path="res://.godot/imported/PostersSmallSize_16x32.png-2533f8654c1489ce695ea83d67bad6db.ctex"
+uid="uid://dyrqvpk4sgg2k"
+path="res://.godot/imported/posters_big_size_32x64.png-7c8107ea491b4ca94f9ba1fee9b6a55a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://regions/residential_region/tile_map/textures/PostersSmallSize_16x32.png"
-dest_files=["res://.godot/imported/PostersSmallSize_16x32.png-2533f8654c1489ce695ea83d67bad6db.ctex"]
+source_file="res://regions/residential_region/tile_map/textures/posters_big_size_32x64.png"
+dest_files=["res://.godot/imported/posters_big_size_32x64.png-7c8107ea491b4ca94f9ba1fee9b6a55a.ctex"]
 
 [params]
 
