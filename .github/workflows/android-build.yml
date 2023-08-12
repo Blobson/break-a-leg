@@ -1,0 +1,107 @@
+name: 'Android Build'
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+concurrency: 
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
+env:
+  godotVersion: 4.1.1
+  workDir: .
+  androidSdkRoot: /usr/local/lib/android/sdk
+
+jobs:
+  build-for-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 11
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Configure Android SDK
+        shell: bash
+        run: |-
+          sdkmanager --sdk_root=${{ env.androidSdkRoot }} "platform-tools" "build-tools;33.0.2" "platforms;android-33" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;23.2.8568313"
+
+      - name: Cache Godot files
+        id: cache-godot
+        uses: actions/cache@v3
+        with:
+          path: |-
+            ~/.local/share/godot/**
+            /usr/local/bin/godot
+            ~/.config/godot/**
+            ~/.android/debug.keystore
+          key: ${{ runner.os }}-godot-${{ env.godotVersion }}
+
+      - name: Generate debug.keystore
+        if: steps.cache-godot.outputs.cache-hit != 'true'
+        shell: bash
+        run: |-
+          keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
+          mkdir -p ~/.android
+          mv debug.keystore ~/.android/debug.keystore
+
+      - name: Download and config Godot Engine linux server and templates
+        if: steps.cache-godot.outputs.cache-hit != 'true'
+        shell: bash
+        run: |-
+          wget -q https://downloads.tuxfamily.org/godotengine/${{ env.godotVersion }}/Godot_v${{ env.godotVersion }}-stable_linux.x86_64.zip
+          wget -q https://downloads.tuxfamily.org/godotengine/${{ env.godotVersion }}/Godot_v${{ env.godotVersion }}-stable_export_templates.tpz
+          mkdir ~/.cache
+          mkdir -p ~/.config/godot
+          mkdir -p ~/.local/share/godot/export_templates/${{ env.godotVersion }}.stable
+          unzip Godot_v${{ env.godotVersion }}-stable_linux.x86_64.zip
+          mv Godot_v${{ env.godotVersion }}-stable_linux.x86_64 /usr/local/bin/godot
+          unzip Godot_v${{ env.godotVersion }}-stable_export_templates.tpz
+          mv templates/* ~/.local/share/godot/export_templates/${{ env.godotVersion }}.stable
+          rm -f Godot_v${{ env.godotVersion }}-stable_linux.x86_64.zip Godot_v${{ env.godotVersion }}-stable_export_templates.tpz
+          godot -e -q --headless --quit
+
+      - name: Configure Godot Editor settings
+        if: steps.cache-godot.outputs.cache-hit != 'true'
+        shell: bash
+        run: |-
+          cat <<EOF >> ~/.config/godot/editor_settings-4.tres
+          export/android/android_sdk_path = "${{ env.androidSdkRoot }}"
+          export/android/shutdown_adb_on_exit = true
+          export/android/force_system_user = false
+          export/android/debug_keystore = "${HOME}/.android/debug.keystore"
+          EOF
+          cat ~/.config/godot/editor_settings-4.tres
+
+      - name: Checkout Break-A-Leg
+        uses: actions/checkout@v3
+
+      - name: Install Android build template
+        shell: bash
+        run: |-
+          mkdir -p ${{ env.workDir }}/android/plugins
+          mkdir -p ${{ env.workDir }}/android/build
+          touch ${{ env.workDir }}/android/build/.gdignore
+          echo ${{ env.godotVersion }}.stable >> ${{ env.workDir }}/android/.build_version
+          unzip ~/.local/share/godot/export_templates/${{ env.godotVersion }}.stable/android_source.zip -d ${{ env.workDir }}/android/build
+
+      - name: Build APK
+        shell: bash
+        run: |-
+          build_date=$(date +'%Y-%m-%d')
+          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+          godot --path ${{ env.workDir }} --headless --export-debug Android break-a-leg-${build_date}-${git_hash}.apk
+          ls -la break-a-leg-*.apk
+      
+      - name: Store APK in artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: break-a-leg-android
+          path: break-a-leg-*.apk
+          retention-days: 7
