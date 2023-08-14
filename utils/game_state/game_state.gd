@@ -2,10 +2,18 @@ extends Node
 
 signal coins_updated(from, to)
 signal rating_updated(new_rating)
+signal health_updated(from, to)
 
 
 ## Текущий район
 var region: Node2D
+
+## Текущий уровень
+var level: Node2D
+
+## Ссылка на игрока
+func get_character() -> Character: 
+	return Game.level.get_node("Character") as Character
 
 
 ## Рейтинг игрока
