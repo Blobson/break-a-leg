@@ -1,5 +1,7 @@
 class_name BaseStaticObstacle extends Node2D
 
+@export var damage: int = 5
+
 func _ready():
 	if $AnimationPlayer.has_animation("idle"):
 		$AnimationPlayer.play("idle")
@@ -8,4 +10,5 @@ func _ready():
 func _on_body_entered(body: Node):
 	if $AnimationPlayer.has_animation("activate"):
 		$AnimationPlayer.play("activate")  # анимация активации
-	# TODO: добавить нанесение урона игроку	
+	if body.has_method("take_damage"):
+		body.take_damage(damage)

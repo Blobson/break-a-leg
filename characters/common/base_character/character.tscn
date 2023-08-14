@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc87qxoc5va67"]
+[gd_scene load_steps=4 format=3 uid="uid://cc87qxoc5va67"]
 
 [ext_resource type="Script" path="res://characters/common/base_character/character.gd" id="1_ljhrv"]
+[ext_resource type="Texture2D" uid="uid://3lmvc6mdhcpa" path="res://characters/common/base_character/mutant.png" id="2_tbm2i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ohksd"]
+radius = 33.3333
+height = 113.333
 
 [node name="Character" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_ljhrv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tbm2i")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ohksd")

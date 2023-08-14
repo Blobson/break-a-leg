@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://c4ohnwscfmw1v" path="res://regions/residential_region/tile_map/textures/one_window_tiles.png" id="2_r5nvf"]
 [ext_resource type="Texture2D" uid="uid://prq8v0m4ak48" path="res://regions/residential_region/tile_map/textures/posters_mid_size_32x32.png" id="3_n6sae"]
 [ext_resource type="Texture2D" uid="uid://bv4hci7u33243" path="res://regions/residential_region/tile_map/textures/posters_small_size_16x32.png" id="4_bo54s"]
-[ext_resource type="PackedScene" uid="uid://c4ubrv6mxns6k" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant(example_1)/window_with_thorny_plant(example_1).tscn" id="6_e518h"]
-[ext_resource type="PackedScene" uid="uid://cgka0pjxh155n" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant(example_2)/window_with_thorny_plant(example_2).tscn" id="6_n14qb"]
-[ext_resource type="PackedScene" uid="uid://drnyjjv6coxn5" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant(example_3)/window_with_thorny_plant(example_3).tscn" id="8_x5jbb"]
+[ext_resource type="PackedScene" uid="uid://wytj52ajpkeu" path="res://regions/residential_region/static_obstacles/conditioner.tscn" id="6_ox4e1"]
+[ext_resource type="PackedScene" uid="uid://cc87qxoc5va67" path="res://characters/common/base_character/character.tscn" id="7_nvu3x"]
+[ext_resource type="PackedScene" uid="uid://c4ubrv6mxns6k" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant_1/window_with_thorny_plant_1.tscn" id="8_2megg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b6r7"]
 texture = ExtResource("1_keg3t")
@@ -88,9 +88,9 @@ sources/3 = SubResource("TileSetAtlasSource_thaml")
 sources/4 = SubResource("TileSetAtlasSource_piqg1")
 
 [node name="test_level" type="Node2D"]
+scale = Vector2(2.5, 2.5)
 
 [node name="examples" type="TileMap" parent="."]
-scale = Vector2(2.5, 2.5)
 tile_set = SubResource("TileSet_4fdi7")
 format = 2
 layer_0/name = "building"
@@ -110,14 +110,11 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array()
 
-[node name="WindowWithThornyPlant(example_1)" parent="." instance=ExtResource("6_e518h")]
-position = Vector2(523, 599)
-damage = 5
+[node name="Conditioner" parent="." instance=ExtResource("6_ox4e1")]
+position = Vector2(80, 143.2)
 
-[node name="WindowWithThornyPlant(example_2)" parent="." instance=ExtResource("6_n14qb")]
-position = Vector2(604, 594)
-damage = 5
+[node name="Character" parent="." instance=ExtResource("7_nvu3x")]
+position = Vector2(-1.6, 76)
 
-[node name="WindowWithThornyPlant(example_3)" parent="." instance=ExtResource("8_x5jbb")]
-position = Vector2(681, 604)
-damage = 5
+[node name="WindowWithThornyPlant1" parent="." instance=ExtResource("8_2megg")]
+position = Vector2(22.8, 166.8)

@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgka0pjxh155n"]
+[gd_scene load_steps=7 format=3 uid="uid://cgka0pjxh155n"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/BaseStaticObstacle.tscn" id="1_aej2y"]
-[ext_resource type="Script" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant(example_1)/WindowWithThornyPlant(example_1).gd" id="2_b0raa"]
-[ext_resource type="Texture2D" uid="uid://bii2c85cpfqvj" path="res://regions/residential_region/static_obstacles/textures/prickly_plant(example_2).png" id="3_txioo"]
+[ext_resource type="Texture2D" uid="uid://bii2c85cpfqvj" path="res://regions/residential_region/static_obstacles/textures/thorny_plant_2.png" id="3_txioo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5wbw"]
 size = Vector2(72, 27)
@@ -44,8 +43,7 @@ _data = {
 "idle": SubResource("Animation_4pfyc")
 }
 
-[node name="WindowWithThornyPlant(example_2)" instance=ExtResource("1_aej2y")]
-script = ExtResource("2_b0raa")
+[node name="WindowWithThornyPlant2" instance=ExtResource("1_aej2y")]
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.25, 0.25)

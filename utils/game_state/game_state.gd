@@ -12,8 +12,8 @@ var region: Node2D
 var level: Node2D
 
 ## Ссылка на игрока
-func get_character() -> Character: 
-	return Game.level.get_node("Character") as Character
+#func get_character() -> Character: 
+#	return Game.level.get_node("character") as Character
 
 
 ## Рейтинг игрока
