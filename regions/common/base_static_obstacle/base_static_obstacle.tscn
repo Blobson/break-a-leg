@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://buphy8bxp5osq"]
 
-[ext_resource type="Script" path="res://regions/common/base_static_obstacle/BaseStaticObstacle.gd" id="1_vig40"]
+[ext_resource type="Script" path="res://regions/common/base_static_obstacle/base_static_obstacle.gd" id="1_vig40"]
 
 [node name="BaseStaticObstacle" type="Node2D"]
 script = ExtResource("1_vig40")

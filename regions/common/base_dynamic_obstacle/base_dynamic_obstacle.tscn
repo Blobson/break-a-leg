@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqcpel6yv3kjo"]
 
-[ext_resource type="Script" path="res://regions/common/base_dynamic_obstacle/BaseDynamicObstacle.gd" id="2_5us44"]
+[ext_resource type="Script" path="res://regions/common/base_dynamic_obstacle/base_dynamic_obstacle.gd" id="2_5us44"]
 
 [node name="BaseDynamicObstacle" type="Path2D"]
 

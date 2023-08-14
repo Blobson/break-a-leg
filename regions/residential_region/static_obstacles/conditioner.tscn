@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://wytj52ajpkeu"]
 
-[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/BaseStaticObstacle.tscn" id="1_5h3tk"]
+[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_5h3tk"]
 [ext_resource type="Texture2D" uid="uid://du8dj3k2d7kpl" path="res://regions/residential_region/static_obstacles/textures/conditioner.png" id="2_3el5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ef6k"]
