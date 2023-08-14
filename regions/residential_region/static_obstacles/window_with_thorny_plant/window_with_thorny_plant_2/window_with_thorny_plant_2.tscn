@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgka0pjxh155n"]
+
+[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/BaseStaticObstacle.tscn" id="1_aej2y"]
+[ext_resource type="Script" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant(example_1)/WindowWithThornyPlant(example_1).gd" id="2_b0raa"]
+[ext_resource type="Texture2D" uid="uid://bii2c85cpfqvj" path="res://regions/residential_region/static_obstacles/textures/prickly_plant(example_2).png" id="3_txioo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5wbw"]
+size = Vector2(72, 27)
+
+[sub_resource type="Animation" id="Animation_elmv3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_4pfyc"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfhvn"]
+_data = {
+"RESET": SubResource("Animation_elmv3"),
+"idle": SubResource("Animation_4pfyc")
+}
+
+[node name="WindowWithThornyPlant(example_2)" instance=ExtResource("1_aej2y")]
+script = ExtResource("2_b0raa")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_txioo")
+hframes = 2
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-3, 26.5)
+shape = SubResource("RectangleShape2D_v5wbw")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_vfhvn")
+}
