@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://drnyjjv6coxn5"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_m0rs4"]
-[ext_resource type="Texture2D" uid="uid://ddsf0s7kggjl8" path="res://regions/residential_region/static_obstacles/textures/thorny_plant_3.png" id="3_pho3c"]
+[ext_resource type="Texture2D" uid="uid://bkwisj0hdpyyk" path="res://regions/residential_region/static_obstacles/textures/thorny_plant_small_3.png" id="2_jubw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhxca"]
-size = Vector2(70, 58.5)
+size = Vector2(28, 23)
 
 [sub_resource type="Animation" id="Animation_eweuv"]
 length = 0.001
@@ -46,12 +46,11 @@ _data = {
 [node name="WindowWithThornyPlant3" instance=ExtResource("1_m0rs4")]
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.24, 0.24)
-texture = ExtResource("3_pho3c")
+texture = ExtResource("2_jubw3")
 hframes = 2
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(-2, 3.75)
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_nhxca")
 
 [node name="AnimationPlayer" parent="." index="2"]

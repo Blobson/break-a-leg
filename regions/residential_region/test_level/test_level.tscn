@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cj1jkk4ni344t"]
+[gd_scene load_steps=17 format=3 uid="uid://cj1jkk4ni344t"]
 
 [ext_resource type="Texture2D" uid="uid://c8lciq6c2h8ct" path="res://regions/residential_region/tile_map/textures/tiles.png" id="1_keg3t"]
 [ext_resource type="Texture2D" uid="uid://dyrqvpk4sgg2k" path="res://regions/residential_region/tile_map/textures/posters_big_size_32x64.png" id="2_ec05j"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://prq8v0m4ak48" path="res://regions/residential_region/tile_map/textures/posters_mid_size_32x32.png" id="3_n6sae"]
 [ext_resource type="Texture2D" uid="uid://bv4hci7u33243" path="res://regions/residential_region/tile_map/textures/posters_small_size_16x32.png" id="4_bo54s"]
 [ext_resource type="PackedScene" uid="uid://wytj52ajpkeu" path="res://regions/residential_region/static_obstacles/conditioner.tscn" id="6_kgns3"]
-[ext_resource type="PackedScene" uid="uid://c4ubrv6mxns6k" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant_1/window_with_thorny_plant_1.tscn" id="7_r5jhj"]
 [ext_resource type="PackedScene" uid="uid://cc87qxoc5va67" path="res://characters/common/base_character/character.tscn" id="8_t7h2n"]
+[ext_resource type="PackedScene" uid="uid://c4ubrv6mxns6k" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant_1/window_with_thorny_plant_1.tscn" id="8_tsnmm"]
+[ext_resource type="PackedScene" uid="uid://cgka0pjxh155n" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant_2/window_with_thorny_plant_2.tscn" id="9_apkxk"]
+[ext_resource type="PackedScene" uid="uid://drnyjjv6coxn5" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant_3/window_with_thorny_plant_3.tscn" id="10_3wnfi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b6r7"]
 texture = ExtResource("1_keg3t")
@@ -113,8 +115,14 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Conditioner" parent="." instance=ExtResource("6_kgns3")]
 position = Vector2(46.8, 143.6)
 
-[node name="WindowWithThornyPlant1" parent="." instance=ExtResource("7_r5jhj")]
-position = Vector2(113.6, 136.8)
-
 [node name="Character" parent="." instance=ExtResource("8_t7h2n")]
 position = Vector2(4.8, 100.4)
+
+[node name="WindowWithThornyPlant1" parent="." instance=ExtResource("8_tsnmm")]
+position = Vector2(208.4, 271.6)
+
+[node name="WindowWithThornyPlant2" parent="." instance=ExtResource("9_apkxk")]
+position = Vector2(241.2, 271.2)
+
+[node name="WindowWithThornyPlant3" parent="." instance=ExtResource("10_3wnfi")]
+position = Vector2(272, 273.6)
