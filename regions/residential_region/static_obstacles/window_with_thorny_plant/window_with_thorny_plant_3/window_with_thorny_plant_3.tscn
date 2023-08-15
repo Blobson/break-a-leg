@@ -1,11 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://drnyjjv6coxn5"]
+[gd_scene load_steps=7 format=3 uid="uid://drnyjjv6coxn5"]
 
-[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/BaseStaticObstacle.tscn" id="1_m0rs4"]
-[ext_resource type="Script" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant(example_1)/WindowWithThornyPlant(example_1).gd" id="2_xcern"]
-[ext_resource type="Texture2D" uid="uid://ddsf0s7kggjl8" path="res://regions/residential_region/static_obstacles/textures/prickly_plant(example_3).png" id="3_pho3c"]
+[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_m0rs4"]
+[ext_resource type="Texture2D" uid="uid://ddsf0s7kggjl8" path="res://regions/residential_region/static_obstacles/textures/thorny_plant_3.png" id="3_pho3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhxca"]
 size = Vector2(70, 58.5)
+
+[sub_resource type="Animation" id="Animation_eweuv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_abalv"]
 resource_name = "швду"
@@ -23,29 +37,13 @@ tracks/0/keys = {
 "values": [0, 1, 0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_eweuv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j74us"]
 _data = {
 "RESET": SubResource("Animation_eweuv"),
 "idle": SubResource("Animation_abalv")
 }
 
-[node name="WindowWithThornyPlant(example_3)" instance=ExtResource("1_m0rs4")]
-script = ExtResource("2_xcern")
+[node name="WindowWithThornyPlant3" instance=ExtResource("1_m0rs4")]
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.24, 0.24)
