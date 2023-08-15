@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cc87qxoc5va67"]
 
 [ext_resource type="Script" path="res://characters/common/base_character/character.gd" id="1_ljhrv"]
-[ext_resource type="Texture2D" uid="uid://3lmvc6mdhcpa" path="res://characters/common/base_character/mutant.png" id="2_tbm2i"]
+[ext_resource type="Texture2D" path="res://characters/common/base_character/mutant.png" id="2_tbm2i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ohksd"]
 radius = 33.3333
