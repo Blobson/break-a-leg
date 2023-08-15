@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3lmvc6mdhcpa"
-path="res://.godot/imported/mutant.png-b21e05c70dcdc714f2a986ca8fb89592.ctex"
+uid="uid://dmoxg1dyml43o"
+path="res://.godot/imported/courier_animation.png-cd1cfed067813a75d8a695866b5c9a24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/common/base_character/mutant.png"
-dest_files=["res://.godot/imported/mutant.png-b21e05c70dcdc714f2a986ca8fb89592.ctex"]
+source_file="res://characters/courier/textures/courier_animation.png"
+dest_files=["res://.godot/imported/courier_animation.png-cd1cfed067813a75d8a695866b5c9a24.ctex"]
 
 [params]
 
