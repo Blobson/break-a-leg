@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://53shlo64r24w"]
+
+[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_8gvil"]
+[ext_resource type="Texture2D" uid="uid://bmpp448addnd6" path="res://regions/residential_region/static_obstacles/biting_plant/biting_plant.png" id="2_1k4vh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtutc"]
+
+[sub_resource type="Animation" id="Animation_h7c27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0wxop"]
+resource_name = "activate"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_rsq7g"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2, 1, 0, 0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s2m5p"]
+_data = {
+"RESET": SubResource("Animation_h7c27"),
+"activate": SubResource("Animation_0wxop"),
+"idle": SubResource("Animation_rsq7g")
+}
+
+[node name="BitingPlants" instance=ExtResource("1_8gvil")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_1k4vh")
+hframes = 8
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-1, 5)
+shape = SubResource("RectangleShape2D_wtutc")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_s2m5p")
+}
