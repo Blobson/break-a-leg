@@ -6,13 +6,13 @@ on:
   pull_request:
 
 concurrency: 
-  group: ${{ github.head_ref }}
+  group: android-${{ github.ref }}
   cancel-in-progress: true
 
 env:
-  godotVersion: 4.1.1
-  workDir: .
-  androidSdkRoot: /usr/local/lib/android/sdk
+  GODOT_VERSION: ${{ vars.GODOT_VERSION }}
+  WORK_DIR: .
+  ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
 
 jobs:
   build-for-android:
@@ -30,7 +30,7 @@ jobs:
       - name: Configure Android SDK
         shell: bash
         run: |-
-          sdkmanager --sdk_root=${{ env.androidSdkRoot }} "platform-tools" "build-tools;33.0.2" "platforms;android-33" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;23.2.8568313"
+          sdkmanager --sdk_root=${{ env.ANDROID_SDK_ROOT }} "platform-tools" "build-tools;33.0.2" "platforms;android-33" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;23.2.8568313"
 
       - name: Cache Godot files
         id: cache-godot
@@ -41,7 +41,7 @@ jobs:
             /usr/local/bin/godot
             ~/.config/godot/**
             ~/.android/debug.keystore
-          key: ${{ runner.os }}-godot-${{ env.godotVersion }}
+          key: ${{ runner.os }}-godot-for-android-${{ env.GODOT_VERSION }}
 
       - name: Generate debug.keystore
         if: steps.cache-godot.outputs.cache-hit != 'true'
@@ -55,24 +55,24 @@ jobs:
         if: steps.cache-godot.outputs.cache-hit != 'true'
         shell: bash
         run: |-
-          wget -q https://downloads.tuxfamily.org/godotengine/${{ env.godotVersion }}/Godot_v${{ env.godotVersion }}-stable_linux.x86_64.zip
-          wget -q https://downloads.tuxfamily.org/godotengine/${{ env.godotVersion }}/Godot_v${{ env.godotVersion }}-stable_export_templates.tpz
+          wget -q https://downloads.tuxfamily.org/godotengine/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip
+          wget -q https://downloads.tuxfamily.org/godotengine/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
           mkdir ~/.cache
           mkdir -p ~/.config/godot
-          mkdir -p ~/.local/share/godot/export_templates/${{ env.godotVersion }}.stable
-          unzip Godot_v${{ env.godotVersion }}-stable_linux.x86_64.zip
-          mv Godot_v${{ env.godotVersion }}-stable_linux.x86_64 /usr/local/bin/godot
-          unzip Godot_v${{ env.godotVersion }}-stable_export_templates.tpz
-          mv templates/* ~/.local/share/godot/export_templates/${{ env.godotVersion }}.stable
-          rm -f Godot_v${{ env.godotVersion }}-stable_linux.x86_64.zip Godot_v${{ env.godotVersion }}-stable_export_templates.tpz
-          godot -e -q --headless --quit
+          mkdir -p ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
+          unzip Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip
+          mv Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 /usr/local/bin/godot
+          unzip Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
+          mv templates/* ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
+          rm -f Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
 
       - name: Configure Godot Editor settings
         if: steps.cache-godot.outputs.cache-hit != 'true'
         shell: bash
         run: |-
+          godot -e -q --headless --quit
           cat <<EOF >> ~/.config/godot/editor_settings-4.tres
-          export/android/android_sdk_path = "${{ env.androidSdkRoot }}"
+          export/android/android_sdk_path = "${{ env.ANDROID_SDK_ROOT }}"
           export/android/shutdown_adb_on_exit = true
           export/android/force_system_user = false
           export/android/debug_keystore = "${HOME}/.android/debug.keystore"
@@ -82,21 +82,34 @@ jobs:
       - name: Checkout Break-A-Leg
         uses: actions/checkout@v3
 
+      - name: Validate project
+        shell: bash
+        run: |-
+          godot -e --headless --quit &>godot.log
+          cat godot.log
+          if [ `grep -c 'ERROR: ' godot.log` -ne 0 ]; then
+            exit 1
+          fi        
+
       - name: Install Android build template
         shell: bash
         run: |-
-          mkdir -p ${{ env.workDir }}/android/plugins
-          mkdir -p ${{ env.workDir }}/android/build
-          touch ${{ env.workDir }}/android/build/.gdignore
-          echo ${{ env.godotVersion }}.stable >> ${{ env.workDir }}/android/.build_version
-          unzip ~/.local/share/godot/export_templates/${{ env.godotVersion }}.stable/android_source.zip -d ${{ env.workDir }}/android/build
+          mkdir -p ${{ env.WORK_DIR }}/android/plugins
+          mkdir -p ${{ env.WORK_DIR }}/android/build
+          touch ${{ env.WORK_DIR }}/android/build/.gdignore
+          echo ${{ env.GODOT_VERSION }}.stable >> ${{ env.WORK_DIR }}/android/.build_version
+          unzip ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/android_source.zip -d ${{ env.WORK_DIR }}/android/build
 
       - name: Build APK
         shell: bash
         run: |-
           build_date=$(date +'%Y-%m-%d')
           git_hash=$(git rev-parse --short "$GITHUB_SHA")
-          godot --path ${{ env.workDir }} --headless --export-debug Android break-a-leg-${build_date}-${git_hash}.apk
+          godot --path ${{ env.WORK_DIR }} --headless --export-debug Android break-a-leg-${build_date}-${git_hash}.apk &>export.log
+          cat export.log
+          if [ `echo export.log | grep -v 'were leaked at exit.$' | grep -c 'ERROR: '` -ne 0 ]; then
+            exit 1
+          fi
           ls -la break-a-leg-*.apk
       
       - name: Store APK in artifacts
