@@ -1,0 +1,47 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=10 format=3 uid="uid://bwicktynsfwyn"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_avblp"]
+animation = &"jump_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wiyy"]
+animation = &"left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hvlp2"]
+animation = &"right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cf08p"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_niws3"]
+animation = &"start_level"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cp4u1"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x3l60"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bk82m"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ep76"]
+switch_mode = 2
+advance_mode = 2
+
+[resource]
+states/End/position = Vector2(989, 79)
+states/Start/position = Vector2(374, 266)
+states/jump_up/node = SubResource("AnimationNodeAnimation_avblp")
+states/jump_up/position = Vector2(528, 54)
+states/left/node = SubResource("AnimationNodeAnimation_3wiyy")
+states/left/position = Vector2(374, 163)
+states/right/node = SubResource("AnimationNodeAnimation_hvlp2")
+states/right/position = Vector2(682, 163)
+states/run/node = SubResource("AnimationNodeAnimation_cf08p")
+states/run/position = Vector2(528, 163)
+states/start_level/node = SubResource("AnimationNodeAnimation_niws3")
+states/start_level/position = Vector2(528, 266)
+transitions = ["jump_up", "run", SubResource("AnimationNodeStateMachineTransition_cp4u1"), "left", "run", SubResource("AnimationNodeStateMachineTransition_x3l60"), "right", "run", SubResource("AnimationNodeStateMachineTransition_bk82m"), "start_level", "run", SubResource("AnimationNodeStateMachineTransition_5ep76")]
