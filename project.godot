@@ -30,6 +30,10 @@ window/handheld/orientation=1
 
 import/blender/enabled=false
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3

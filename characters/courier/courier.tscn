@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://cqrdsna5moeu0"]
 
 [ext_resource type="PackedScene" uid="uid://cc87qxoc5va67" path="res://characters/common/base_character/character.tscn" id="1_y42yc"]
-[ext_resource type="Texture2D" uid="uid://dmoxg1dyml43o" path="res://characters/courier/textures/courier_animation.png" id="2_xpwba"]
+[ext_resource type="Texture2D" uid="uid://dmoxg1dyml43o" path="res://characters/courier/courier_animation.png" id="2_2wayk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jppm"]
 height = 33.3333
@@ -91,7 +91,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_f8ihc"]
 resource_name = "jump_up"
-length = 0.75
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -99,15 +99,15 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [36, 37, 38, 39, 40]
+"values": [38, 39]
 }
 
 [sub_resource type="Animation" id="Animation_hty1v"]
 resource_name = "left"
-length = 0.45
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -115,15 +115,15 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1, 2, 3]
+"values": [2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_5necr"]
 resource_name = "right"
-length = 0.45
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -131,10 +131,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [13, 14, 15]
+"values": [14, 15]
 }
 
 [sub_resource type="Animation" id="Animation_7h762"]
@@ -224,10 +224,10 @@ _data = {
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -3.33333)
-texture = ExtResource("2_xpwba")
+texture = ExtResource("2_2wayk")
 hframes = 12
 vframes = 11
-frame = 72
+frame = 24
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -3.33333)
@@ -238,3 +238,6 @@ autoplay = "run"
 libraries = {
 "": SubResource("AnimationLibrary_8mrh4")
 }
+next/jump_up = &"run"
+next/left = &"run"
+next/right = &"run"
