@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkwisj0hdpyyk"
-path="res://.godot/imported/thorny_plant_small_3.png-80b13ef32d539763dc9782f99d79b175.ctex"
+uid="uid://jo2tapx0ofs2"
+path="res://.godot/imported/thorny_plant_2.png-bf8248706e90f8b5198cf7db2fcefbcf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://regions/residential_region/static_obstacles/textures/thorny_plant_small_3.png"
-dest_files=["res://.godot/imported/thorny_plant_small_3.png-80b13ef32d539763dc9782f99d79b175.ctex"]
+source_file="res://regions/residential_region/static_obstacles/thorny_plant_2/thorny_plant_2.png"
+dest_files=["res://.godot/imported/thorny_plant_2.png-bf8248706e90f8b5198cf7db2fcefbcf.ctex"]
 
 [params]
 

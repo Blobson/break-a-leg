@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://c4ohnwscfmw1v" path="res://regions/residential_region/tile_map/textures/one_window_tiles.png" id="2_r5nvf"]
 [ext_resource type="Texture2D" uid="uid://prq8v0m4ak48" path="res://regions/residential_region/tile_map/textures/posters_mid_size_32x32.png" id="3_n6sae"]
 [ext_resource type="Texture2D" uid="uid://bv4hci7u33243" path="res://regions/residential_region/tile_map/textures/posters_small_size_16x32.png" id="4_bo54s"]
-[ext_resource type="PackedScene" uid="uid://wytj52ajpkeu" path="res://regions/residential_region/static_obstacles/conditioner.tscn" id="6_kgns3"]
-[ext_resource type="PackedScene" uid="uid://c4ubrv6mxns6k" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant_1/window_with_thorny_plant_1.tscn" id="8_tsnmm"]
-[ext_resource type="PackedScene" uid="uid://cgka0pjxh155n" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant_2/window_with_thorny_plant_2.tscn" id="9_apkxk"]
+[ext_resource type="PackedScene" uid="uid://wytj52ajpkeu" path="res://regions/residential_region/static_obstacles/conditioner/conditioner.tscn" id="6_kgns3"]
+[ext_resource type="PackedScene" uid="uid://c4ubrv6mxns6k" path="res://regions/residential_region/static_obstacles/thorny_plant_1/thorny_plant_1.tscn" id="9_jj5cp"]
 [ext_resource type="PackedScene" uid="uid://53shlo64r24w" path="res://regions/residential_region/static_obstacles/biting_plant/biting_plants.tscn" id="9_sghc4"]
-[ext_resource type="PackedScene" uid="uid://drnyjjv6coxn5" path="res://regions/residential_region/static_obstacles/window_with_thorny_plant/window_with_thorny_plant_3/window_with_thorny_plant_3.tscn" id="10_3wnfi"]
+[ext_resource type="PackedScene" uid="uid://cgka0pjxh155n" path="res://regions/residential_region/static_obstacles/thorny_plant_2/thorny_plant_2.tscn" id="10_lbrk1"]
 [ext_resource type="PackedScene" uid="uid://cqrdsna5moeu0" path="res://characters/courier/courier.tscn" id="11_hj4hq"]
+[ext_resource type="PackedScene" uid="uid://drnyjjv6coxn5" path="res://regions/residential_region/static_obstacles/thorny_plant_3/thorny_plant_3.tscn" id="11_n8ins"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b6r7"]
 texture = ExtResource("1_keg3t")
@@ -121,20 +121,21 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Conditioner" parent="." instance=ExtResource("6_kgns3")]
 position = Vector2(46.8, 143.6)
 
-[node name="WindowWithThornyPlant1" parent="." instance=ExtResource("8_tsnmm")]
-position = Vector2(208.4, 271.6)
-
-[node name="WindowWithThornyPlant2" parent="." instance=ExtResource("9_apkxk")]
-position = Vector2(241.2, 271.2)
-
-[node name="WindowWithThornyPlant3" parent="." instance=ExtResource("10_3wnfi")]
-position = Vector2(272, 273.6)
-
-[node name="BitingPlants" parent="." instance=ExtResource("9_sghc4")]
-position = Vector2(177.2, 302)
-
 [node name="Courier" parent="." instance=ExtResource("11_hj4hq")]
+
 position = Vector2(412.4, 2054.4)
 
 [node name="Camera2D" type="Camera2D" parent="Courier"]
 position = Vector2(1.19998, 0)
+
+[node name="WindowWithThornyPlant1" parent="." instance=ExtResource("9_jj5cp")]
+position = Vector2(207.6, 271.2)
+
+[node name="WindowWithThornyPlant2" parent="." instance=ExtResource("10_lbrk1")]
+position = Vector2(240.8, 270)
+
+[node name="WindowWithThornyPlant3" parent="." instance=ExtResource("11_n8ins")]
+position = Vector2(272.8, 272.4)
+
+[node name="BitingPlants" parent="." instance=ExtResource("9_sghc4")]
+position = Vector2(177.6, 301.6)
