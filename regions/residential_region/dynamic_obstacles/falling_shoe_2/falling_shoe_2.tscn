@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh3kapw6ihggn"]
+
+[ext_resource type="PackedScene" uid="uid://mu8408gtwp6e" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_base_scene/falling_shoe_base_scene.tscn" id="1_ptu12"]
+[ext_resource type="Texture2D" uid="uid://2lelhykn2dgw" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_2/falling_shoe_2.png" id="2_rf22a"]
+
+[node name="FallingShoe2" instance=ExtResource("1_ptu12")]
+
+[node name="Sprite2D" parent="PathFollow2D/Node2D" index="0"]
+texture = ExtResource("2_rf22a")

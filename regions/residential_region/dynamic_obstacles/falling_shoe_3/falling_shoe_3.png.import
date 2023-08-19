@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qvhlp20lg8rk"
-path="res://.godot/imported/shoes.png-ab95ccfa35ead3a397d82d87a3009c61.ctex"
+uid="uid://dg4imfa44yi44"
+path="res://.godot/imported/falling_shoe_3.png-992bad3270aef90b6f7c2fec7bd41a46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://regions/residential_region/dynamic_obstacles/falling_shoe/shoes.png"
-dest_files=["res://.godot/imported/shoes.png-ab95ccfa35ead3a397d82d87a3009c61.ctex"]
+source_file="res://regions/residential_region/dynamic_obstacles/falling_shoe_3/falling_shoe_3.png"
+dest_files=["res://.godot/imported/falling_shoe_3.png-992bad3270aef90b6f7c2fec7bd41a46.ctex"]
 
 [params]
 
