@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://deskuiqdou54l"]
+
+[ext_resource type="PackedScene" uid="uid://d2kr5335j608r" path="res://regions/residential_region/static_obstacles/spleeping_cat_base_scene/sleeping_cat_base_scene.tscn" id="1_6iik2"]
+[ext_resource type="Script" path="res://regions/residential_region/static_obstacles/spleeping_cat_base_scene/sleeping_cat.gd" id="2_04soo"]
+[ext_resource type="Texture2D" uid="uid://c0u4rb0gp7svn" path="res://regions/residential_region/static_obstacles/sleeping_cat_1/sleeping_cat_1.png" id="3_mgn7s"]
+
+[node name="SpleepingCat1" instance=ExtResource("1_6iik2")]
+script = ExtResource("2_04soo")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_mgn7s")
