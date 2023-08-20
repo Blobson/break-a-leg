@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://c721gsodl61h8" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_3/falling_shoe_3.tscn" id="14_2qbdv"]
 [ext_resource type="PackedScene" uid="uid://bh3kapw6ihggn" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_2/falling_shoe_2.tscn" id="15_s16bo"]
 [ext_resource type="PackedScene" uid="uid://b0g238nwqkxsk" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_1/falling_shoe_1.tscn" id="16_bnsr8"]
+[ext_resource type="PackedScene" uid="uid://cg7glcxum48v8" path="res://regions/residential_region/static_obstacles/sleeping_cat_2/sleeping_cat_2.tscn" id="13_gm8iw"]
+[ext_resource type="PackedScene" uid="uid://deskuiqdou54l" path="res://regions/residential_region/static_obstacles/sleeping_cat_1/sleeping_cat_1.tscn" id="14_wdssj"]
+[ext_resource type="PackedScene" uid="uid://ccjr0qs0rbw7p" path="res://regions/residential_region/static_obstacles/sleeping_cat_3/sleeping_cat_3.tscn" id="15_steao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b6r7"]
 texture = ExtResource("1_keg3t")
@@ -154,3 +157,12 @@ position = Vector2(396.4, 1634.4)
 
 [node name="FallingShoe1" parent="." instance=ExtResource("16_bnsr8")]
 position = Vector2(338.8, 1552.4)
+
+[node name="SpleepingCat2" parent="." instance=ExtResource("13_gm8iw")]
+position = Vector2(367.2, 1937.2)
+
+[node name="SpleepingCat1" parent="." instance=ExtResource("14_wdssj")]
+position = Vector2(431.6, 1933.6)
+
+[node name="SpleepingCat3" parent="." instance=ExtResource("15_steao")]
+position = Vector2(492.4, 1934.4)
