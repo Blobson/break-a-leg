@@ -4,6 +4,7 @@ signal coins_updated(from, to)
 signal rating_updated(new_rating)
 signal health_updated(from, to)
 
+@export var swipe_speed: int = 30
 
 ## Текущий район
 var region: Node2D
