@@ -1,4 +1,4 @@
-class_name FallingShoe extends BaseDynamicObstacle
+class_name FallingObject extends BaseDynamicObstacle
 
 
 func _ready():

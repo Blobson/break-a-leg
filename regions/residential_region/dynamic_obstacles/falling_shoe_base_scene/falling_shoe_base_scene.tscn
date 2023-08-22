@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://mu8408gtwp6e"]
 
 [ext_resource type="PackedScene" uid="uid://cqcpel6yv3kjo" path="res://regions/common/base_dynamic_obstacle/base_dynamic_obstacle.tscn" id="1_0ttwt"]
-[ext_resource type="Script" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_base_scene/falling_shoe.gd" id="2_wgj2l"]
+[ext_resource type="Script" path="res://regions/common/base_dynamic_obstacle/base_falling_object/base_falling_object.gd" id="2_4tp34"]
 
 [sub_resource type="Curve2D" id="Curve2D_0ompv"]
 _data = {
@@ -77,8 +77,7 @@ rotates = false
 loop = false
 
 [node name="Node2D" parent="PathFollow2D" index="0"]
-script = ExtResource("2_wgj2l")
-speed = 450
+script = ExtResource("2_4tp34")
 
 [node name="Sprite2D" parent="PathFollow2D/Node2D" index="0"]
 hframes = 6

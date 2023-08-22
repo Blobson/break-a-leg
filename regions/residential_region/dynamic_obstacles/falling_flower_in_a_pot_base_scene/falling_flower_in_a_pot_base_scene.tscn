@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwy6ewe053ggu"]
+
+[ext_resource type="PackedScene" uid="uid://cqcpel6yv3kjo" path="res://regions/common/base_dynamic_obstacle/base_dynamic_obstacle.tscn" id="1_1cp4t"]
+[ext_resource type="Script" path="res://regions/common/base_dynamic_obstacle/base_falling_object/base_falling_object.gd" id="2_cw8g5"]
+
+[sub_resource type="Curve2D" id="Curve2D_3qoce"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, -1396, 0, 0, 0, 0, 0, 956, 0, 0, 0, 0, -1.20001, -146)
+}
+point_count = 3
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqsed"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_4hvio"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_uq3do"]
+resource_name = "break"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_mk3lf"]
+resource_name = "idle"
+length = 1.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lq1jn"]
+_data = {
+"RESET": SubResource("Animation_4hvio"),
+"activate": SubResource("Animation_uq3do"),
+"idle": SubResource("Animation_mk3lf")
+}
+
+[node name="FallingFlowerInAPotBaseScene" instance=ExtResource("1_1cp4t")]
+curve = SubResource("Curve2D_3qoce")
+
+[node name="PathFollow2D" parent="." index="0"]
+position = Vector2(-1, -1396)
+rotates = false
+loop = false
+
+[node name="Node2D" parent="PathFollow2D" index="0"]
+script = ExtResource("2_cw8g5")
+
+[node name="Sprite2D" parent="PathFollow2D/Node2D" index="0"]
+hframes = 6
+
+[node name="CollisionShape2D" parent="PathFollow2D/Node2D/Area2D" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_jqsed")
+
+[node name="AnimationPlayer" parent="PathFollow2D/Node2D" index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_lq1jn")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="PathFollow2D/Node2D" index="3"]

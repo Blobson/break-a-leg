@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtbyg8u7hu0ax"]
+
+[ext_resource type="PackedScene" uid="uid://cwy6ewe053ggu" path="res://regions/residential_region/dynamic_obstacles/falling_flower_in_a_pot_base_scene/falling_flower_in_a_pot_base_scene.tscn" id="1_ihves"]
+[ext_resource type="Texture2D" uid="uid://qy14htsiuicl" path="res://regions/residential_region/dynamic_obstacles/falling_flower_in_a_pot_4/falling_flower_in_a_pot_4.png" id="2_t6k5q"]
+
+[node name="FallingFlowerInAPot4" instance=ExtResource("1_ihves")]
+
+[node name="Sprite2D" parent="PathFollow2D/Node2D" index="0"]
+texture = ExtResource("2_t6k5q")
