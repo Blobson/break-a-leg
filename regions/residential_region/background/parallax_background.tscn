@@ -13,36 +13,31 @@ scroll_base_scale = Vector2(0.1, 0.1)
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0.8)
+motion_scale = Vector2(0, 0.15)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(340, 870)
 texture = ExtResource("1_p3p26")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0.6)
+motion_scale = Vector2(0, 0.15)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(340, 870)
 texture = ExtResource("2_1h5gg")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0, 0.3)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
-position = Vector2(340, 870)
 texture = ExtResource("3_cvj8p")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0.15)
+motion_scale = Vector2(0, 0.6)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
-position = Vector2(340, 870)
 texture = ExtResource("4_ou5tc")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
-position = Vector2(340, 870)
 texture = ExtResource("5_g51sx")
