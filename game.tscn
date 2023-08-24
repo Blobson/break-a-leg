@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd2tgsc5ao4ix"]
+[gd_scene load_steps=5 format=3 uid="uid://bd2tgsc5ao4ix"]
 
 [ext_resource type="PackedScene" uid="uid://cj1jkk4ni344t" path="res://regions/residential_region/test_level/test_level.tscn" id="1_l7l70"]
 [ext_resource type="PackedScene" uid="uid://dpkpf8sao4qgx" path="res://utils/camera/camera_2d.tscn" id="2_3c6or"]
 [ext_resource type="PackedScene" uid="uid://cqrdsna5moeu0" path="res://characters/courier/courier.tscn" id="2_vnrjk"]
+[ext_resource type="AudioStream" uid="uid://h7dicqvhhdip" path="res://regions/residential_region/audio/residental_theme.ogg" id="3_lima3"]
 
 [node name="Game" type="Node2D"]
 
@@ -15,3 +16,7 @@ move_speed = 64
 [node name="Camera2D" parent="Courier" instance=ExtResource("2_3c6or")]
 position = Vector2(0, -146)
 zoom = Vector2(2, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lima3")
+autoplay = true
