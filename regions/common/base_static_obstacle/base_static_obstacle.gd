@@ -23,5 +23,5 @@ func _on_body_entered(body: Node):
 
 func _deploy_to_target(body):
 	# если позиция объекта правее чем позиция игрока, то поворачиваем модель объекта слева-направо
-	if body.position.x > position.x:
+	if body.global_position.x > global_position.x:
 		$Sprite2D.flip_h = true
