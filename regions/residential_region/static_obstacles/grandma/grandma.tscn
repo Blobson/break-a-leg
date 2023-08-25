@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu1hhlsmhdket"]
+
+[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_0ws32"]
+[ext_resource type="Texture2D" uid="uid://di2rfd2ge05f5" path="res://regions/residential_region/static_obstacles/grandma/grandma.png" id="2_jf5h3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_im26w"]
+size = Vector2(24, 22)
+
+[sub_resource type="Animation" id="Animation_4hh7p"]
+resource_name = "activate"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56, 0.7, 0.84, 0.98, 1.12, 1.26, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kgak1"]
+_data = {
+"activate": SubResource("Animation_4hh7p")
+}
+
+[node name="Grandma" instance=ExtResource("1_0ws32")]
+flippable = true
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_jf5h3")
+hframes = 11
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_im26w")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_kgak1")
+}
