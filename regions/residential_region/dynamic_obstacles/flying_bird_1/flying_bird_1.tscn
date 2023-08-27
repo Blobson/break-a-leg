@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://1nib5qm0rvnb"]
+
+[ext_resource type="PackedScene" uid="uid://x3arjv0jn5h0" path="res://regions/residential_region/dynamic_obstacles/flying_bird_base_scene/flying_bird_base_scene.tscn" id="1_u02hl"]
+
+[node name="FlyingBird_1" instance=ExtResource("1_u02hl")]
+
+[node name="Node2D" parent="PathFollow2D" index="0"]
+script = null

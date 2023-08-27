@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://novwqqn1l66d"]
+
+[ext_resource type="PackedScene" uid="uid://x3arjv0jn5h0" path="res://regions/residential_region/dynamic_obstacles/flying_bird_base_scene/flying_bird_base_scene.tscn" id="1_eohp4"]
+[ext_resource type="Texture2D" uid="uid://bpqqqrnqyi7u4" path="res://regions/residential_region/dynamic_obstacles/flying_bird_2/flying_bird_2.png" id="2_w670d"]
+
+[node name="FlyingBird2" instance=ExtResource("1_eohp4")]
+
+[node name="Sprite2D" parent="PathFollow2D/Node2D" index="0"]
+texture = ExtResource("2_w670d")
