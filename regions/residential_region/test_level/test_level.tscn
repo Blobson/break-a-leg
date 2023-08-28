@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cj1jkk4ni344t"]
+[gd_scene load_steps=39 format=3 uid="uid://cj1jkk4ni344t"]
 
 [ext_resource type="PackedScene" uid="uid://bdigd4mn047nc" path="res://regions/residential_region/background/parallax_background.tscn" id="1_03bbr"]
 [ext_resource type="Texture2D" uid="uid://c8lciq6c2h8ct" path="res://regions/residential_region/tile_map/textures/tiles.png" id="1_keg3t"]
@@ -19,6 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://bh3kapw6ihggn" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_2/falling_shoe_2.tscn" id="15_s16bo"]
 [ext_resource type="PackedScene" uid="uid://ccjr0qs0rbw7p" path="res://regions/residential_region/static_obstacles/sleeping_cat_3/sleeping_cat_3.tscn" id="15_steao"]
 [ext_resource type="PackedScene" uid="uid://b0g238nwqkxsk" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_1/falling_shoe_1.tscn" id="16_bnsr8"]
+[ext_resource type="Texture2D" uid="uid://djw0da2yl6xo0" path="res://regions/residential_region/bottom/statues.png" id="21_4twsa"]
+[ext_resource type="Texture2D" uid="uid://bg0yxiubs60gi" path="res://regions/residential_region/bottom/tiles.png" id="22_frwt2"]
+[ext_resource type="Texture2D" uid="uid://0wt386i2pptc" path="res://regions/residential_region/bottom/background.png" id="22_j5ff0"]
+[ext_resource type="Texture2D" uid="uid://d3i7bsgpt4qn8" path="res://regions/residential_region/bottom/tree.png" id="24_oedxb"]
+[ext_resource type="Texture2D" uid="uid://dikuiaedpvjdm" path="res://regions/residential_region/bottom/asphalt.png" id="25_wmqt8"]
+[ext_resource type="Texture2D" uid="uid://dofiqo55ct2kv" path="res://regions/residential_region/bottom/bushes.png" id="26_fnhl7"]
+[ext_resource type="Texture2D" uid="uid://domyxdxk34m37" path="res://regions/residential_region/bottom/door.png" id="28_rxflg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b6r7"]
 texture = ExtResource("1_keg3t")
@@ -98,6 +105,46 @@ sources/2 = SubResource("TileSetAtlasSource_8726h")
 sources/3 = SubResource("TileSetAtlasSource_thaml")
 sources/4 = SubResource("TileSetAtlasSource_piqg1")
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_mpxds"]
+tile_data = PackedInt32Array(0, 327680, 0, 65536, 262144, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ijxai"]
+tile_data = PackedInt32Array(0, 1, 0, 65536, 1, 1, 1, 65537, 0, 65537, 65537, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_gtekx"]
+tile_data = PackedInt32Array(0, 131073, 0, 65536, 131073, 1, 1, 196609, 0, 65537, 196609, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ju4hu"]
+texture = ExtResource("22_frwt2")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aiyg2"]
+texture = ExtResource("21_4twsa")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pcp40"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_ju4hu")
+sources/1 = SubResource("TileSetAtlasSource_aiyg2")
+pattern_0 = SubResource("TileMapPattern_mpxds")
+pattern_1 = SubResource("TileMapPattern_ijxai")
+pattern_2 = SubResource("TileMapPattern_gtekx")
+
 [node name="test_level" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_v02lm")
@@ -118,7 +165,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(3342340, 131076, 0, 3211268, 131076, 0, 2686980, 131076, 0, 2555908, 131076, 0, 3342352, 131076, 0, 3211280, 131076, 0, 2686992, 131076, 0, 2555920, 131076, 0, 2031620, 131076, 0, 1900548, 131076, 0, 1376260, 131076, 0, 1245188, 131076, 0, 1245200, 131076, 0, 1376272, 131076, 0, 1900560, 131076, 0, 2031632, 131076, 0, 3473413, 65540, 0, 3473423, 65540, 0, 3342349, 4, 0, 3211277, 4, 0, 3211271, 4, 0, 3342343, 4, 0, 2686989, 4, 0, 2555917, 4, 0, 2686983, 4, 0, 2555911, 4, 0, 2031629, 4, 0, 1900557, 4, 0, 2031623, 4, 0, 1900551, 4, 0, 3342346, 131076, 0, 3211274, 131076, 0, 3473418, 65540, 0, 3014671, 4, 0, 2883599, 4, 0, 3014668, 131076, 0, 2883596, 131076, 0, 3014664, 4, 0, 2883592, 4, 0, 3014661, 131076, 0, 2883589, 131076, 0, 2555914, 65540, 0, 2686986, 65540, 0, 2359301, 131076, 0, 2228229, 131076, 0, 2359311, 131076, 0, 2228239, 131076, 0, 2228236, 65540, 0, 2228232, 65540, 0, 2359304, 4, 0, 2359308, 4, 0, 2031626, 131076, 0, 1900554, 131076, 0, 1703941, 131076, 0, 1572869, 131076, 0, 1572879, 131076, 0, 1703951, 131076, 0, 1703948, 4, 0, 1572876, 4, 0, 1703944, 4, 0, 1572872, 4, 0, 1703946, 65540, 0, 1376263, 4, 0, 1245191, 4, 0, 1376269, 4, 0, 1245197, 4, 0, 1376266, 131076, 0, 1245194, 131076, 0, 1048581, 4, 0, 917509, 4, 0, 1048591, 4, 0, 917519, 4, 0, 1048584, 131076, 0, 917512, 131076, 0, 1048588, 131076, 0, 917516, 131076, 0, 1048586, 65540, 0, 720912, 131076, 0, 720900, 131076, 0, 589828, 131076, 0, 589840, 131076, 0, 720909, 4, 0, 589837, 4, 0, 720903, 4, 0, 589831, 4, 0, 720906, 131076, 0, 589834, 131076, 0, 524302, 65540, 0, 524294, 65540, 0, 524298, 65540, 0)
+layer_1/tile_data = PackedInt32Array(3211268, 131076, 0, 2686980, 131076, 0, 2555908, 131076, 0, 3211280, 131076, 0, 2686992, 131076, 0, 2555920, 131076, 0, 2031620, 131076, 0, 1900548, 131076, 0, 1376260, 131076, 0, 1245188, 131076, 0, 1245200, 131076, 0, 1376272, 131076, 0, 1900560, 131076, 0, 2031632, 131076, 0, 3211277, 4, 0, 3211271, 4, 0, 2686989, 4, 0, 2555917, 4, 0, 2686983, 4, 0, 2555911, 4, 0, 2031629, 4, 0, 1900557, 4, 0, 2031623, 4, 0, 1900551, 4, 0, 3211274, 131076, 0, 3014671, 4, 0, 2883599, 4, 0, 3014668, 131076, 0, 2883596, 131076, 0, 3014664, 4, 0, 2883592, 4, 0, 3014661, 131076, 0, 2883589, 131076, 0, 2555914, 65540, 0, 2686986, 65540, 0, 2359301, 131076, 0, 2228229, 131076, 0, 2359311, 131076, 0, 2228239, 131076, 0, 2228236, 65540, 0, 2228232, 65540, 0, 2359304, 4, 0, 2359308, 4, 0, 2031626, 131076, 0, 1900554, 131076, 0, 1703941, 131076, 0, 1572869, 131076, 0, 1572879, 131076, 0, 1703951, 131076, 0, 1703948, 4, 0, 1572876, 4, 0, 1703944, 4, 0, 1572872, 4, 0, 1703946, 65540, 0, 1376263, 4, 0, 1245191, 4, 0, 1376269, 4, 0, 1245197, 4, 0, 1376266, 131076, 0, 1245194, 131076, 0, 1048581, 4, 0, 917509, 4, 0, 1048591, 4, 0, 917519, 4, 0, 1048584, 131076, 0, 917512, 131076, 0, 1048588, 131076, 0, 917516, 131076, 0, 1048586, 65540, 0, 720912, 131076, 0, 720900, 131076, 0, 589828, 131076, 0, 589840, 131076, 0, 720909, 4, 0, 589837, 4, 0, 720903, 4, 0, 589831, 4, 0, 720906, 131076, 0, 589834, 131076, 0, 524302, 65540, 0, 524294, 65540, 0, 524298, 65540, 0)
 layer_2/name = "non_collision_objects"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -128,7 +175,6 @@ layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array()
 
 [node name="CollisionObjects" type="Node2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(-336, -1728)
 
@@ -149,9 +195,6 @@ position = Vector2(527.152, 499.669)
 
 [node name="Conditioner6" parent="CollisionObjects" instance=ExtResource("6_kgns3")]
 position = Vector2(303.311, 402.98)
-
-[node name="WindowWithThornyPlant1" parent="CollisionObjects" instance=ExtResource("9_jj5cp")]
-position = Vector2(336.093, 1648.34)
 
 [node name="WindowWithThornyPlant4" parent="CollisionObjects" instance=ExtResource("9_jj5cp")]
 position = Vector2(175.828, 1167.22)
@@ -189,3 +232,62 @@ position = Vector2(239.404, 943.378)
 
 [node name="SpleepingCat3" parent="CollisionObjects" instance=ExtResource("15_steao")]
 position = Vector2(400.662, 527.484)
+
+[node name="Bottom" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Bottom"]
+position = Vector2(15, 0)
+tile_set = SubResource("TileSet_pcp40")
+format = 2
+layer_0/name = "Background"
+layer_0/tile_data = PackedInt32Array(-65544, 196608, 0, -65543, 65536, 0, -65542, 65536, 0, -65541, 65536, 0, -65540, 65536, 0, -65539, 65536, 0, -65538, 65536, 0, -65537, 65536, 0, -131072, 65536, 0, -131071, 65536, 0, -131070, 65536, 0, -131069, 65536, 0, -131068, 65536, 0, -131067, 65536, 0, -131066, 131072, 0, -8, 196608, 0, -7, 65536, 0, -6, 65536, 0, -5, 65536, 0, -4, 65536, 0, -3, 65536, 0, -2, 65536, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 131072, 0, -65533, 65536, 0)
+layer_1/name = "Edging"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(-8, 458752, 0, -7, 458752, 0, -6, 458752, 0, -5, 458752, 0, -4, 458752, 0, -3, 458752, 0, -2, 458752, 0, -1, 458752, 0, -65536, 458752, 0, -65535, 458752, 0, -65534, 458752, 0, 2, 458752, 0, 3, 458752, 0, 4, 458752, 0, 5, 458752, 0, -65531, 458752, 0, -65530, 458752, 0, -65532, 458752, 0, -65533, 458752, 0)
+layer_2/name = "Statues"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 2
+layer_2/tile_data = PackedInt32Array(-65543, 1, 0, -7, 1, 1, -65542, 65537, 0, -6, 65537, 1, -131068, 131073, 0, -65532, 131073, 1, -131067, 196609, 0, -65531, 196609, 1)
+layer_3/name = "Columns"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 2
+layer_3/tile_data = PackedInt32Array(-131079, 393216, 0, -131074, 393216, 0, -131073, 393216, 0, -196608, 393216, 0, -196607, 393216, 0, -196606, 393216, 0, -196605, 393216, 0, -196604, 393216, 0, -196603, 393216, 0, -196602, 393216, 0, -65533, 262144, 0, -65530, 262144, 0, -131066, 327680, 0, -131069, 327680, 0, -131078, 393216, 0, -131077, 393216, 0, -65541, 327680, 0, -5, 262144, 0, -131076, 393216, 0, -131080, 393216, 0, -65544, 327680, 0, -8, 262144, 0, -131075, 393216, 0, -65539, 327680, 0, -3, 262144, 0, -131071, 327680, 0, -65535, 262144, 0)
+
+[node name="Background" type="Sprite2D" parent="Bottom"]
+z_index = -1
+position = Vector2(-145, -46)
+texture = ExtResource("22_j5ff0")
+
+[node name="Tree1" type="Sprite2D" parent="Bottom"]
+position = Vector2(-290, -111)
+texture = ExtResource("24_oedxb")
+
+[node name="Tree2" type="Sprite2D" parent="Bottom"]
+position = Vector2(291, -111)
+texture = ExtResource("24_oedxb")
+
+[node name="Asphalt" type="Sprite2D" parent="Bottom"]
+top_level = true
+z_index = 100
+position = Vector2(-143, -116)
+texture = ExtResource("25_wmqt8")
+
+[node name="Door" type="Sprite2D" parent="Bottom"]
+z_index = 1
+position = Vector2(-1, -25)
+texture = ExtResource("28_rxflg")
+
+[node name="Bushes" type="Sprite2D" parent="Bottom"]
+z_index = 101
+position = Vector2(-145, -116)
+texture = ExtResource("26_fnhl7")
