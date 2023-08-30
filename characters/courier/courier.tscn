@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dmoxg1dyml43o" path="res://characters/courier/courier_animation.png" id="2_2wayk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jppm"]
-height = 33.3333
+radius = 7.0
+height = 30.6667
 
 [sub_resource type="Animation" id="Animation_itv60"]
 resource_name = "hoverbike_go"
