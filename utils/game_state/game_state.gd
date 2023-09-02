@@ -5,8 +5,6 @@ signal rating_updated(new_rating)
 signal health_updated(from, to)
 signal level_start(width, tile_size)
 
-@export var swipe_speed: int = 30
-
 ## Текущий район
 var region: Node2D
 
