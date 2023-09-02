@@ -11,8 +11,6 @@ extends CharacterBody2D
 @onready var animation = $AnimationPlayer
 var level_width
 var level_tile_size
-enum {NONE, UP, LEFT, RIGHT}   ## move direction
-var swipe = NONE 
 
 
 ## Получение урона
@@ -30,6 +28,7 @@ func _init():
 func _ready():
 	velocity.y = -move_speed
 	velocity.x = 0
+	SwipeDetector.swiped.connect(_on_swipe)
 
 
 ## Ширина уровня и размер тайла
@@ -46,39 +45,30 @@ func _physics_process(delta):
 ## Обработка input
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_up"):
-		move(UP)
+		move(Vector2.UP)
 	elif event.is_action_pressed("ui_left"):
-		move(LEFT)
+		move(Vector2.LEFT)
 	elif event.is_action_pressed("ui_right"):
-		move(RIGHT)	
-	elif event is InputEventScreenDrag:
-		if !swipe:
-			if event.relative.y < -Game.swipe_speed:
-				swipe = UP
-				move(swipe)
-			elif event.relative.x < -Game.swipe_speed:
-				swipe = LEFT
-				move(swipe)
-			elif event.relative.x > Game.swipe_speed:
-				swipe = RIGHT
-				move(swipe)
-	elif event is InputEventScreenTouch:
-		if !event.pressed:
-			swipe = NONE
+		move(Vector2.RIGHT)
+
+
+func _on_swipe(direction: Vector2):
+	if direction in [Vector2.UP, Vector2.LEFT, Vector2.RIGHT]:
+		move(direction)
 
 
 ## Обработка свайпов (tweens & animations)
-func move(type):
+func move(direction: Vector2):
 	var tween = get_tree().create_tween()
-	if type == UP:
+	if direction == Vector2.UP:
 		tween.tween_property(self, "position:y", position.y - level_tile_size.y * 2, animation_time)
 		animation.play("jump_up")	
-	elif type == LEFT:
+	elif direction == Vector2.LEFT:
 		var target_position = position.x - level_tile_size.x
 		if target_position > (-level_width / 2) + (level_tile_size.x / 3):
 			tween.tween_property(self, "position:x", target_position, animation_time)
 			animation.play("left")
-	elif type == RIGHT:
+	elif direction == Vector2.RIGHT:
 		var target_position = position.x + level_tile_size.x
 		if target_position < (level_width / 2) - (level_tile_size.x / 3):
 			tween.tween_property(self, "position:x", target_position, animation_time)
