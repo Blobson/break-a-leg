@@ -1,9 +1,9 @@
 extends Node
 
-signal coins_updated(from, to)
-signal rating_updated(new_rating)
-signal health_updated(from, to)
-signal level_start(width, tile_size)
+signal coins_updated(from: int, to: int)
+signal rating_updated(new_rating: int)
+signal health_updated(from: int, to: int)
+signal level_start(width: int, tile_size: Vector2i)
 
 ## Текущий район
 var region: Node2D
