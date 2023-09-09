@@ -9,13 +9,14 @@ extends CharacterBody2D
 @export var jump_length: float = 1.5
 
 ## Жизни персонажа
-@export var health: int = 30 :
+@export var health: int = 3 :
 	set(value):
 		if health != value:
 			var old_value: int = health
 			health = value
 			Game.health_updated.emit(health, old_value)
-		
+
+
 var level_width: int
 var level_tile_size: Vector2i
 var movement_tween: Tween
@@ -38,7 +39,7 @@ func _ready():
 	velocity.y = -move_speed
 	velocity.x = 0
 	SwipeDetector.swiped.connect(_on_swipe)
-
+	_set_health_bar()
 
 ## Запуск уровня
 func _on_level_start(width, tile_size):
@@ -46,6 +47,10 @@ func _on_level_start(width, tile_size):
 	level_width = width
 	level_tile_size = tile_size
 
+# Установка значков жизней
+func _set_health_bar():
+	$HealthIndicator.set_position(Vector2(find_child("Camera2D").width/(2 * find_child("Camera2D").zoom.x) - $HealthIndicator.size.x,
+	-find_child("Camera2D").height/(2 * find_child("Camera2D").zoom.y) + find_child("Camera2D").position.y))
 
 ## Движение
 func _physics_process(_delta):

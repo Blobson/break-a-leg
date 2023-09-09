@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgdo5ydkbpjh4"]
+
+[ext_resource type="Script" path="res://ui/level_ui/health_indicator/health_indicator.gd" id="1_hscl7"]
+
+[node name="Health" type="Node2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_hscl7")

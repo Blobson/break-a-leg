@@ -1,6 +1,6 @@
 class_name BaseStaticObstacle extends Node2D
 
-@export var damage: int = 5
+@export var damage: int = 1
 @export var flippable: bool = false
 
 enum ObstacleState {IDLE, ACTIVATED}

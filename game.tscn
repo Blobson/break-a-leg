@@ -8,9 +8,10 @@
 [node name="Game" type="Node2D"]
 
 [node name="test_level" parent="." instance=ExtResource("1_l7l70")]
+position = Vector2(0, 0)
 
 [node name="Courier" parent="." instance=ExtResource("2_vnrjk")]
-position = Vector2(1, -18)
+position = Vector2(0, -18)
 move_speed = 64
 
 [node name="Camera2D" parent="Courier" instance=ExtResource("2_3c6or")]
@@ -19,4 +20,5 @@ zoom = Vector2(2, 2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_lima3")
+volume_db = -70.27
 autoplay = true
