@@ -1,0 +1,146 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyivnbg7aul44"]
+
+[ext_resource type="Theme" uid="uid://cjb3iii3t3n56" path="res://ui/themes/main_theme.tres" id="1_7ymt2"]
+
+[node name="Node2D" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+theme = ExtResource("1_7ymt2")
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_7ymt2")
+theme_type_variation = &"MarginAll"
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Header test"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]
+Some multiline
+description text
+[/center]	
+"
+fit_content = true
+shortcut_keys_enabled = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_7ymt2")
+theme_type_variation = &"MarginLR"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 1"
+
+[node name="Label2" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label3" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label4" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label5" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label6" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label7" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label8" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label9" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 1"
+
+[node name="Label10" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label11" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label12" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label13" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label14" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label15" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label16" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label17" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 1"
+
+[node name="Label18" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label19" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label20" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label21" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label22" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label23" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
+
+[node name="Label24" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Street 2"
