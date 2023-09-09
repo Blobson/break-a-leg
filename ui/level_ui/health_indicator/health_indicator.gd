@@ -1,6 +1,6 @@
 class_name HealthIndicator extends Node2D
 
-@onready var size = preload("res://ui/level_ui/health_indicator/health.png").get_size() * scale * Vector2(3,1)
+@onready var size = preload("res://ui/level_ui/health_indicator/health.png").get_size() * scale * Vector2(get_parent().health,1)
 
 func _ready():
 	var signal_health = get_node("/root/Game")
