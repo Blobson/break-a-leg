@@ -1,5 +1,4 @@
 [gd_scene load_steps=5 format=3 uid="uid://23jblkbswsmo"]
-
 [ext_resource type="Script" path="res://ui/level_ui/health_indicator/heart.gd" id="1_r1i4w"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iti4u"]

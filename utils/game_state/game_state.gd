@@ -3,8 +3,11 @@ extends Node
 signal coins_updated(from: int, to: int)
 signal rating_updated(new_rating: int)
 signal health_updated(from: int, to: int)
+signal energy_updated(from: int, to: int)
+signal energy_reserve_updated(from: int, to: int)
 signal level_start(width: int, tile_size: Vector2i)
 signal score_updated(from: int, to: int)
+
 
 ## Текущий район
 var region: Node2D

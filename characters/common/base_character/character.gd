@@ -1,4 +1,6 @@
-extends CharacterBody2D
+class_name Courier extends CharacterBody2D
+
+const ENERGY_PER_SPRINT = 100
 
 @onready var animation = $AnimationPlayer
 
@@ -8,6 +10,7 @@ extends CharacterBody2D
 ## Длина прыжка в тайлах
 @export var jump_length: float = 1.5
 
+
 ## Жизни персонажа
 @export var health: int = 30 :
 	set(value):
@@ -16,7 +19,33 @@ extends CharacterBody2D
 			health = value
 			Game.health_updated.emit(health, old_value)
 
+## Максимальное количество зарядов в индикаторе энергии
+@export var energy_reserve: int = 2 * ENERGY_PER_SPRINT : 
+	set(value):
+		if value < 0:
+			value = 0
+		assert(value % ENERGY_PER_SPRINT == 0, "energy_reserve always should be multiple of 10")
+		if energy_reserve != value:
+			var old_value = energy_reserve
+			energy_reserve = value
+			Game.energy_reserve_updated.emit(energy_reserve, old_value)
+
+## Текущее количество энергии
+var energy: int = energy_reserve : 
+	set(value):
+		if value < 0:
+			value = 0
+		elif value > energy_reserve:
+			value = energy_reserve 
+		if energy != value:
+			var old_value = energy
+			energy = value
+			Game.energy_updated.emit(energy, old_value)
+
+@export var energy_recovery_speed: int = 20
+
 @export var damage_score_losing: int = 20
+
 
 var level_width: int
 var level_tile_size: Vector2i
@@ -36,20 +65,22 @@ func take_damage(damage):
 
 
 func _init():
-	Game.level_start.connect(_on_level_start)
+	Game.level_start.connect(_on_level_start)	
 	SwipeDetector.swiped.connect(_on_swipe)
 
 func _ready():
 	Game.health_updated.emit(health, 0)
 	velocity.y = -move_speed
 	velocity.x = 0
-	
+	$EnergyRecoveryTimer.timeout.connect(_on_energy_recover)
 
 ## Запуск уровня
 func _on_level_start(width, tile_size):
 	# Сохраняем ширину уровня и размер тайла
 	level_width = width
 	level_tile_size = tile_size
+	Game.energy_reserve_updated.emit(energy_reserve)
+	Game.energy_updated.emit(energy, energy)
 
 
 ## Движение
@@ -91,12 +122,14 @@ func _is_moving() -> bool:
 
 func _start_move(direction: Vector2) -> Tween:
 	var target_position: Vector2
-	if direction == Vector2.UP:
+	if direction == Vector2.UP and energy >= ENERGY_PER_SPRINT:
 		animation.play("jump_up")
 		target_position = Vector2(
 			position.x, 
 			position.y - level_tile_size.y * jump_length
 		)
+		energy -= ENERGY_PER_SPRINT
+		$EnergyRecoveryTimer.start()
 	elif direction == Vector2.LEFT:
 		animation.play("left")
 		target_position = Vector2(
@@ -136,3 +169,10 @@ func _end_move():
 ## Прыжок с парашютом по окончании уровня и если health = 0
 func parachute_jump():
 	pass
+
+
+func _on_energy_recover():
+	if energy < energy_reserve:
+		energy = min(energy_reserve, energy + roundi(energy_recovery_speed * $EnergyRecoveryTimer.wait_time))
+		if energy == energy_reserve:
+			$EnergyRecoveryTimer.stop()
