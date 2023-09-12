@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bi45ws51cftba"]
+[gd_scene load_steps=3 format=3 uid="uid://bi45ws51cftba"]
 
 [ext_resource type="PackedScene" uid="uid://b65rukvkd3ps3" path="res://ui/level_ui/score_counter/score_counter.tscn" id="1_4vhlh"]
+[ext_resource type="PackedScene" uid="uid://b2vfurdxvhdr5" path="res://ui/level_ui/health_indicator/heart_indicator.tscn" id="2_e3ela"]
 
 [node name="LevelUI" type="CanvasLayer"]
 layer = 100
@@ -39,6 +40,9 @@ size_flags_vertical = 0
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Control" parent="VBoxContainer/MarginContainer/TopUI/PanelContainer2" instance=ExtResource("2_e3ela")]
+layout_mode = 2
 
 [node name="MiddleUI" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
