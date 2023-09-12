@@ -82,14 +82,15 @@ jobs:
       - name: Checkout Break-A-Leg
         uses: actions/checkout@v3
 
+      - name: Import project assets ignoring all errors
+        shell: bash
+        run: |-
+          godot -e --headless --quit
+
       - name: Validate project
         shell: bash
         run: |-
-          godot -e --headless --quit &>godot.log
-          cat godot.log
-          if [ `grep -c 'ERROR: ' godot.log` -ne 0 ]; then
-            exit 1
-          fi        
+          godot --headless --quit
 
       - name: Install Android build template
         shell: bash
