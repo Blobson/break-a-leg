@@ -242,3 +242,7 @@ libraries = {
 next/jump_up = &"run"
 next/left = &"run"
 next/right = &"run"
+
+[node name="EnergyRecoveryTimer" type="Timer" parent="." index="3"]
+wait_time = 0.25
+autostart = true
