@@ -241,6 +241,30 @@ position = Vector2(239.404, 943.378)
 [node name="SpleepingCat3" parent="CollisionObjects" instance=ExtResource("15_steao")]
 position = Vector2(400.662, 527.484)
 
+[node name="FlyingBird_1" parent="CollisionObjects" instance=ExtResource("27_ud8q0")]
+position = Vector2(1, 1501)
+
+[node name="FlyingBird2" parent="CollisionObjects" instance=ExtResource("28_uljrv")]
+position = Vector2(317, 1382)
+
+[node name="FlyingBird3" parent="CollisionObjects" instance=ExtResource("29_c818p")]
+position = Vector2(99, 1236)
+
+[node name="FlyingBird4" parent="CollisionObjects" instance=ExtResource("30_0m5wf")]
+position = Vector2(0, 1094)
+
+[node name="FlyingBird5" parent="CollisionObjects" instance=ExtResource("31_8ixxd")]
+position = Vector2(331, 916)
+
+[node name="FlyingBird6" parent="CollisionObjects" instance=ExtResource("32_xt4rg")]
+position = Vector2(26, 793)
+
+[node name="FlyingBird7" parent="CollisionObjects" instance=ExtResource("33_2rb7b")]
+position = Vector2(469, 463)
+
+[node name="FlyingBird8" parent="CollisionObjects" instance=ExtResource("34_gljf1")]
+position = Vector2(111, 622)
+
 [node name="Bottom" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Bottom"]
@@ -299,27 +323,3 @@ texture = ExtResource("28_rxflg")
 z_index = 101
 position = Vector2(-145, -116)
 texture = ExtResource("26_fnhl7")
-
-[node name="FlyingBird_1" parent="." instance=ExtResource("27_ud8q0")]
-position = Vector2(-335, -227)
-
-[node name="FlyingBird2" parent="." instance=ExtResource("28_uljrv")]
-position = Vector2(-19, -346)
-
-[node name="FlyingBird3" parent="." instance=ExtResource("29_c818p")]
-position = Vector2(-237, -492)
-
-[node name="FlyingBird4" parent="." instance=ExtResource("30_0m5wf")]
-position = Vector2(-336, -634)
-
-[node name="FlyingBird5" parent="." instance=ExtResource("31_8ixxd")]
-position = Vector2(-5, -812)
-
-[node name="FlyingBird6" parent="." instance=ExtResource("32_xt4rg")]
-position = Vector2(-310, -935)
-
-[node name="FlyingBird7" parent="." instance=ExtResource("33_2rb7b")]
-position = Vector2(133, -1265)
-
-[node name="FlyingBird8" parent="." instance=ExtResource("34_gljf1")]
-position = Vector2(-225, -1106)

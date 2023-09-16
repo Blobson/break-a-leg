@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animation = $AnimationPlayer
 
 ## Скорость движения
-@export var move_speed: int = 200
+@export var move_speed: int = 0
 
 ## Длина прыжка в тайлах
 @export var jump_length: float = 1.5
@@ -15,19 +15,24 @@ extends CharacterBody2D
 			var old_value: int = health
 			health = value
 			Game.health_updated.emit(health, old_value)
-		
+
+@export var damage_score_losing: int = 20
+
 var level_width: int
 var level_tile_size: Vector2i
 var movement_tween: Tween
 var next_move: Vector2 = Vector2.ZERO
+var last_tile: int = 0
 
 
 ## Получение урона
 func take_damage(damage):
 	if health > 0:
 		health -= damage
+		Game.score -= damage_score_losing
 		if health <= 0:
 			parachute_jump()
+			Game.score -= int(Game.score / 2)
 
 
 func _init():
@@ -50,6 +55,10 @@ func _on_level_start(width, tile_size):
 ## Движение
 func _physics_process(_delta):
 	move_and_slide()
+	var new_tile = floor(-position.y / level_tile_size.y)
+	if last_tile < new_tile:
+		Game.score += (new_tile - last_tile)
+		last_tile = new_tile
 
 
 ## Обработка input
