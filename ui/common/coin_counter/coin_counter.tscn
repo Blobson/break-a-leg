@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0uhgmvgglocy"]
+
+[ext_resource type="Script" path="res://ui/common/coin_counter/coin_counter.gd" id="1_xh7ce"]
+[ext_resource type="Theme" uid="uid://cjb3iii3t3n56" path="res://ui/themes/main_theme.tres" id="2_dpx0m"]
+[ext_resource type="Texture2D" uid="uid://duocw8bwntsi6" path="res://ui/common/coin_counter/textures/gold_сoin1.png" id="3_dg71q"]
+[ext_resource type="Texture2D" uid="uid://ci77n2iv3bqlp" path="res://ui/common/coin_counter/textures/gold_сoin2.png" id="4_uyrwj"]
+[ext_resource type="Texture2D" uid="uid://c86qnfgemynul" path="res://ui/common/coin_counter/textures/gold_сoin3.png" id="5_ax6or"]
+[ext_resource type="Texture2D" uid="uid://dcmxmaloxd3yi" path="res://ui/common/coin_counter/textures/gold_сoin4.png" id="6_ha25p"]
+[ext_resource type="Texture2D" uid="uid://ep72fimoe8ed" path="res://ui/common/coin_counter/textures/gold_сoin5.png" id="7_sakb1"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_i614p"]
+frames = 5
+frame_0/texture = ExtResource("3_dg71q")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("4_uyrwj")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("5_ax6or")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("6_ha25p")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("7_sakb1")
+frame_4/duration = 0.1
+
+[node name="CoinCounter" type="HBoxContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_bottom = 68.0
+grow_horizontal = 0
+script = ExtResource("1_xh7ce")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("2_dpx0m")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "0
+"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = SubResource("AnimatedTexture_i614p")
