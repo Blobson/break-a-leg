@@ -37,13 +37,13 @@ func take_damage(damage):
 
 func _init():
 	Game.level_start.connect(_on_level_start)
-
-
-func _ready():
-	velocity.y = -move_speed
-	velocity.x = 0
 	SwipeDetector.swiped.connect(_on_swipe)
 
+func _ready():
+	Game.health_updated.emit(health, 0)
+	velocity.y = -move_speed
+	velocity.x = 0
+	
 
 ## Запуск уровня
 func _on_level_start(width, tile_size):

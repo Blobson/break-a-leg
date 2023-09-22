@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://23jblkbswsmo"]
+
+[ext_resource type="Script" path="res://ui/level_ui/health_indicator/heart.gd" id="1_r1i4w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iti4u"]
+load_path = "res://.godot/imported/heart.png-e97679e1f96f8d995b66263ce5bd6a75.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ai8jb"]
+load_path = "res://.godot/imported/heart_broken.png-d458c70c189543d354d2c32ceb4c3cb8.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_t8vun"]
+frames = 2
+frame_0/texture = SubResource("CompressedTexture2D_iti4u")
+frame_0/duration = 0.0
+frame_1/texture = SubResource("CompressedTexture2D_ai8jb")
+frame_1/duration = 0.0
+
+[node name="Heart" type="MarginContainer"]
+script = ExtResource("1_r1i4w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_t8vun")
