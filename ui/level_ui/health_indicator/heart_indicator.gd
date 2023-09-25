@@ -6,7 +6,7 @@ const HEALTH_PER_HEART = 10
 func _init():
 	Game.health_updated.connect(_health_change)
 
-func _health_change(health, old_value):
+func _health_change(health, _old_value):
 	var needed_hearts = ceil(health / float(HEALTH_PER_HEART))
 	var existing_hearts = get_child_count()
 	# Удаляем лишние сердца

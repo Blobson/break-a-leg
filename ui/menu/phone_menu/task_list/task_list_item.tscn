@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://blcm1i8hgyngr"]
+
+[ext_resource type="Theme" uid="uid://cjb3iii3t3n56" path="res://ui/themes/main_theme.tres" id="1_agf5k"]
+[ext_resource type="Script" path="res://ui/menu/phone_menu/task_list/task_list_item.gd" id="1_cm1hx"]
+[ext_resource type="Texture2D" uid="uid://p503jquusshn" path="res://regions/residential_region/icon.png" id="2_8fnk7"]
+
+[node name="TaskListItem" type="PanelContainer"]
+clip_contents = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 94.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+focus_mode = 2
+theme = ExtResource("1_agf5k")
+script = ExtResource("1_cm1hx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="RegionIcon" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_8fnk7")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="TextBox" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 0
+
+[node name="Address" type="Label" parent="HBoxContainer/TextBox"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_type_variation = &"TextLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.164706, 0.164706, 0.164706, 1)
+theme_override_constants/outline_size = 5
+text = "123 Sixth Ave."
+vertical_alignment = 2
+text_overrun_behavior = 3
+
+[node name="Packages" type="Label" parent="HBoxContainer/TextBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"HeaderSmall"
+text = "packages: 12"
+
+[node name="BidBox" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="BidLabel" type="Label" parent="HBoxContainer/BidBox"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_type_variation = &"HeaderSmall"
+text = "bid "
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="BidText" type="Label" parent="HBoxContainer/BidBox"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.768627, 0.509804, 0, 1)
+text = "12"
+horizontal_alignment = 2

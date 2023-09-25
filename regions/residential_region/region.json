@@ -1,0 +1,16 @@
+{
+	"icon": "icon.png",
+	"difficulty": 1,
+	"streets": [
+		"Chicken Rd.",
+		"South Palm Ave.",
+		"Muffin Way",
+		"Green Ave.",
+		"Oldtown St.",
+		"Calmly St.",
+		"Whiteberry Rd.",
+		"Winslow Drv.",
+		"South River St.",
+		"Bridge St."
+	]
+}
