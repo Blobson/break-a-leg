@@ -1,19 +1,46 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cjb3iii3t3n56"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cjb3iii3t3n56"]
 
 [ext_resource type="FontFile" uid="uid://rki133lsk222" path="res://ui/fonts/04B24.ttf" id="1_3435e"]
 [ext_resource type="FontFile" uid="uid://bxab0j03p0a0b" path="res://ui/fonts/AtlantisInternational.ttf" id="1_fxe6l"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2qbn"]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 20.0
+content_margin_bottom = 15.0
+bg_color = Color(0.184314, 0.313726, 0.423529, 1)
+
 [resource]
 default_font = ExtResource("1_fxe6l")
-default_font_size = 64
+default_font_size = 32
 HeaderLarge/base_type = &"Label"
-HeaderLarge/font_sizes/font_size = 84
+HeaderLarge/font_sizes/font_size = 64
 HeaderLarge/fonts/font = ExtResource("1_3435e")
+HeaderMedium/base_type = &"Label"
+HeaderMedium/font_sizes/font_size = 32
+HeaderMedium/fonts/font = ExtResource("1_3435e")
+HeaderSmall/base_type = &"Label"
+HeaderSmall/font_sizes/font_size = 18
+HeaderSmall/fonts/font = ExtResource("1_3435e")
+Label/colors/font_color = Color(0.6, 0.6, 0.6, 1)
+Label/colors/font_outline_color = Color(0.164706, 0.164706, 0.164706, 1)
+Label/constants/line_spacing = -1
+Label/constants/outline_size = 4
 MarginAll/base_type = &"MarginContainer"
-MarginAll/constants/margin_bottom = 30
-MarginAll/constants/margin_left = 30
-MarginAll/constants/margin_right = 30
-MarginAll/constants/margin_top = 30
+MarginAll/constants/margin_bottom = 10
+MarginAll/constants/margin_left = 20
+MarginAll/constants/margin_right = 20
+MarginAll/constants/margin_top = 10
 MarginLR/base_type = &"MarginContainer"
-MarginLR/constants/margin_left = 30
-MarginLR/constants/margin_right = 30
+MarginLR/constants/margin_left = 20
+MarginLR/constants/margin_right = 20
+MarginTB/base_type = &"MarginContainer"
+MarginTB/constants/margin_bottom = 15
+MarginTB/constants/margin_top = 15
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_o2qbn")
+TextLarge/base_type = &"Label"
+TextLarge/font_sizes/font_size = 60
+TextMedium/base_type = &"Label"
+TextMedium/font_sizes/font_size = 42
+TextSmall/base_type = &"Label"
+TextSmall/font_sizes/font_size = 28

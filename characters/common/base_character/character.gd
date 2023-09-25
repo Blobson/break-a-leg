@@ -61,6 +61,7 @@ func take_damage(damage):
 		Game.score -= damage_score_losing
 		if health <= 0:
 			parachute_jump()
+			@warning_ignore("integer_division")
 			Game.score -= int(Game.score / 2)
 
 
