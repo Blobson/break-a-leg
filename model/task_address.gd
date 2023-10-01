@@ -9,9 +9,9 @@ func _to_string():
 	return "%s, %s %s" % [ region, building, street ]
 
 
-static func generate(rnd: RandomNumberGenerator, player_expirience: int):
+static func generate(player_experience: int):
 	var address = TaskAddress.new()
-	address.region = Region.generate(rnd, player_expirience)
-	address.street = address.region.generate_street(rnd)
-	address.building = str(rnd.randi_range(1, 300))
+	address.region = Region.generate(player_experience)
+	address.street = address.region.generate_street()
+	address.building = str(randi_range(1, 300))
 	return address

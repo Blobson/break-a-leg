@@ -1,30 +1,51 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cjb3iii3t3n56"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cjb3iii3t3n56"]
 
 [ext_resource type="FontFile" uid="uid://rki133lsk222" path="res://ui/fonts/04B24.ttf" id="1_3435e"]
 [ext_resource type="FontFile" uid="uid://bxab0j03p0a0b" path="res://ui/fonts/AtlantisInternational.ttf" id="1_fxe6l"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwewn"]
+bg_color = Color(0.164706, 0.164706, 0.164706, 0.956863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8cih"]
+bg_color = Color(0.32549, 0.505882, 0.658824, 1)
+border_width_bottom = 1
+border_color = Color(0.14582, 0.256095, 0.349545, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2qbn"]
-content_margin_left = 20.0
-content_margin_top = 15.0
-content_margin_right = 20.0
-content_margin_bottom = 15.0
 bg_color = Color(0.184314, 0.313726, 0.423529, 1)
+border_width_bottom = 1
+border_color = Color(0.14582, 0.256095, 0.349545, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukeim"]
+bg_color = Color(0.768627, 0.509804, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a816b"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0784314)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [resource]
 default_font = ExtResource("1_fxe6l")
 default_font_size = 32
 HeaderLarge/base_type = &"Label"
+HeaderLarge/constants/outline_size = 8
 HeaderLarge/font_sizes/font_size = 64
 HeaderLarge/fonts/font = ExtResource("1_3435e")
 HeaderMedium/base_type = &"Label"
-HeaderMedium/font_sizes/font_size = 32
+HeaderMedium/font_sizes/font_size = 42
 HeaderMedium/fonts/font = ExtResource("1_3435e")
 HeaderSmall/base_type = &"Label"
-HeaderSmall/font_sizes/font_size = 18
+HeaderSmall/font_sizes/font_size = 24
 HeaderSmall/fonts/font = ExtResource("1_3435e")
 Label/colors/font_color = Color(0.6, 0.6, 0.6, 1)
 Label/colors/font_outline_color = Color(0.164706, 0.164706, 0.164706, 1)
-Label/constants/line_spacing = -1
+Label/constants/line_spacing = 0
 Label/constants/outline_size = 4
 MarginAll/base_type = &"MarginContainer"
 MarginAll/constants/margin_bottom = 10
@@ -37,9 +58,15 @@ MarginLR/constants/margin_right = 20
 MarginTB/base_type = &"MarginContainer"
 MarginTB/constants/margin_bottom = 15
 MarginTB/constants/margin_top = 15
+Mask/base_type = &"PanelContainer"
+Mask/styles/panel = SubResource("StyleBoxFlat_fwewn")
+PanelContainer/styles/hover = SubResource("StyleBoxFlat_p8cih")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_o2qbn")
+ProgressBar/styles/accent = SubResource("StyleBoxFlat_ukeim")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_a816b")
 TextLarge/base_type = &"Label"
-TextLarge/font_sizes/font_size = 60
+TextLarge/constants/outline_size = 8
+TextLarge/font_sizes/font_size = 58
 TextMedium/base_type = &"Label"
 TextMedium/font_sizes/font_size = 42
 TextSmall/base_type = &"Label"

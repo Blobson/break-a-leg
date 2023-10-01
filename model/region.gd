@@ -13,15 +13,15 @@ func _to_string():
 	return dir.to_pascal_case()
 
 
-func generate_street(rnd: RandomNumberGenerator) -> String:
-	return streets[rnd.randi() % streets.size()]
+func generate_street() -> String:
+	return streets[randi() % streets.size()]
 
 
-static func generate(rnd: RandomNumberGenerator, _player_expirience: int):
+static func generate(_player_experience: int):
 	if not regions:
 		_load_regions()
 	if regions.size():
-		return regions[rnd.randi() % regions.size()]
+		return regions[randi() % regions.size()]
 	return null
 
 

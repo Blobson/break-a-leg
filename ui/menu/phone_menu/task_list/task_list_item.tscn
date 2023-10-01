@@ -1,25 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://blcm1i8hgyngr"]
+[gd_scene load_steps=5 format=3 uid="uid://blcm1i8hgyngr"]
 
 [ext_resource type="Theme" uid="uid://cjb3iii3t3n56" path="res://ui/themes/main_theme.tres" id="1_agf5k"]
 [ext_resource type="Script" path="res://ui/menu/phone_menu/task_list/task_list_item.gd" id="1_cm1hx"]
 [ext_resource type="Texture2D" uid="uid://p503jquusshn" path="res://regions/residential_region/icon.png" id="2_8fnk7"]
+[ext_resource type="PackedScene" uid="uid://fbdkffncwglq" path="res://ui/menu/phone_menu/task_list/task_bid.tscn" id="4_31eu8"]
 
 [node name="TaskListItem" type="PanelContainer"]
 clip_contents = true
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 94.0
+offset_bottom = 163.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 focus_mode = 2
-theme = ExtResource("1_agf5k")
+mouse_default_cursor_shape = 2
 script = ExtResource("1_cm1hx")
+metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Frame" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
 
-[node name="RegionIcon" type="TextureRect" parent="HBoxContainer"]
+[node name="VBox" type="VBoxContainer" parent="Frame"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Address" type="Label" parent="Frame/VBox"]
+layout_mode = 2
+theme_type_variation = &"TextLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "123 Sixth Ave."
+text_overrun_behavior = 3
+
+[node name="HBox" type="HBoxContainer" parent="Frame/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="RegionIcon" type="TextureRect" parent="Frame/VBox/HBox"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -28,47 +48,48 @@ texture = ExtResource("2_8fnk7")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="TextBox" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Info" type="VBoxContainer" parent="Frame/VBox/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 2.0
-theme_override_constants/separation = 0
 
-[node name="Address" type="Label" parent="HBoxContainer/TextBox"]
+[node name="Difficulty" type="Label" parent="Frame/VBox/HBox/Info"]
 layout_mode = 2
-size_flags_vertical = 8
-theme_type_variation = &"TextLarge"
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.164706, 0.164706, 0.164706, 1)
-theme_override_constants/outline_size = 5
-text = "123 Sixth Ave."
-vertical_alignment = 2
-text_overrun_behavior = 3
+theme_type_variation = &"HeaderSmall"
+text = "hard"
 
-[node name="Packages" type="Label" parent="HBoxContainer/TextBox"]
+[node name="Packages" type="Label" parent="Frame/VBox/HBox/Info"]
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "packages: 12"
 
-[node name="BidBox" type="VBoxContainer" parent="HBoxContainer"]
+[node name="BidBox" type="VBoxContainer" parent="Frame/VBox/HBox"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="BidLabel" type="Label" parent="HBoxContainer/BidBox"]
+[node name="BidLabel" type="Label" parent="Frame/VBox/HBox/BidBox"]
 layout_mode = 2
-size_flags_vertical = 8
 theme_type_variation = &"HeaderSmall"
 text = "bid "
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="BidText" type="Label" parent="HBoxContainer/BidBox"]
+[node name="TaskBid" parent="Frame/VBox/HBox/BidBox" instance=ExtResource("4_31eu8")]
 layout_mode = 2
-size_flags_vertical = 8
-theme_type_variation = &"HeaderLarge"
+
+[node name="StatusMask" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_agf5k")
+theme_type_variation = &"Mask"
+
+[node name="Status" type="Label" parent="StatusMask"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderMedium"
 theme_override_colors/font_color = Color(0.768627, 0.509804, 0, 1)
-text = "12"
-horizontal_alignment = 2
+text = "CANCELLED BY USER!"
