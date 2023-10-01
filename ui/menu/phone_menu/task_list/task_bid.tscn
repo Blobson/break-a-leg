@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://fbdkffncwglq"]
+
+[ext_resource type="Script" path="res://ui/menu/phone_menu/task_list/task_bid.gd" id="1_cfmwg"]
+
+[node name="TaskBid" type="HBoxContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -99.0
+offset_bottom = 64.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme_type_variation = &"HeaderLarge"
+script = ExtResource("1_cfmwg")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"HeaderLarge"
+text = "128"
+horizontal_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(7, 50)
+layout_mode = 2
+fill_mode = 3
+show_percentage = false
