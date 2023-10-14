@@ -1,0 +1,600 @@
+[gd_scene load_steps=55 format=3 uid="uid://d0cg45u6bvkig"]
+
+[ext_resource type="Script" path="res://ui/screens_passing_the_level/successfull_completion/level_finish.gd" id="1_0the0"]
+[ext_resource type="PackedScene" uid="uid://i0o4ggge2prr" path="res://ui/screens_passing_the_level/successfull_completion/board/board.tscn" id="2_il5sa"]
+[ext_resource type="Texture2D" uid="uid://dgx7b0vtjxlgr" path="res://ui/screens_passing_the_level/successfull_completion/images/courier_icon.png" id="3_v6f4o"]
+[ext_resource type="PackedScene" uid="uid://xgklplxyavvx" path="res://ui/screens_passing_the_level/successfull_completion/board/middle_confetti.tscn" id="4_osrr8"]
+[ext_resource type="Texture2D" uid="uid://doo6rlcxtpt8f" path="res://ui/screens_passing_the_level/successfull_completion/images/counter.png" id="5_3omws"]
+[ext_resource type="Texture2D" uid="uid://fhyagf0edu0x" path="res://ui/screens_passing_the_level/successfull_completion/images/coin.png" id="7_5oq0k"]
+[ext_resource type="Texture2D" uid="uid://dfjfiv5x6pmi4" path="res://ui/screens_passing_the_level/successfull_completion/images/package.png" id="8_qpdqg"]
+[ext_resource type="Texture2D" uid="uid://wyvkhf871v67" path="res://ui/screens_passing_the_level/successfull_completion/images/bowl.png" id="9_8uath"]
+[ext_resource type="Texture2D" uid="uid://b61lwo033l1qm" path="res://ui/screens_passing_the_level/successfull_completion/images/empty_star.png" id="10_12vtg"]
+[ext_resource type="Texture2D" uid="uid://8v5nvlow8xer" path="res://ui/screens_passing_the_level/successfull_completion/images/full_star.png" id="10_lvbbk"]
+[ext_resource type="Texture2D" uid="uid://bon0bd50fbckq" path="res://ui/screens_passing_the_level/successfull_completion/images/phone.png" id="12_6ekgv"]
+[ext_resource type="Texture2D" uid="uid://umgys5ct165r" path="res://ui/screens_passing_the_level/failure_completion/images/board.png" id="12_ns3wg"]
+[ext_resource type="Texture2D" uid="uid://bjllhqo6ptd50" path="res://ui/screens_passing_the_level/successfull_completion/images/cursor.png" id="12_vt51n"]
+[ext_resource type="Texture2D" uid="uid://ohnoohlwj0cq" path="res://ui/screens_passing_the_level/failure_completion/images/courier_icon.png" id="13_og11s"]
+[ext_resource type="Texture2D" uid="uid://cm5xdbrr6fq5k" path="res://ui/screens_passing_the_level/failure_completion/images/coin.png" id="14_8kmr3"]
+[ext_resource type="Texture2D" uid="uid://b26r4wlihvcq5" path="res://ui/screens_passing_the_level/failure_completion/images/package.png" id="15_sslr1"]
+[ext_resource type="Texture2D" uid="uid://cavlfycf1famp" path="res://ui/screens_passing_the_level/failure_completion/images/bowl.png" id="16_cqeos"]
+[ext_resource type="Texture2D" uid="uid://c30l3fl8blwei" path="res://ui/screens_passing_the_level/failure_completion/images/star.png" id="17_x3cqh"]
+[ext_resource type="Texture2D" uid="uid://bvh3swg387b3h" path="res://ui/screens_passing_the_level/failure_completion/images/cursor.png" id="18_27xd0"]
+[ext_resource type="Texture2D" uid="uid://b1ipmsjlqyte8" path="res://ui/screens_passing_the_level/failure_completion/images/phone.png" id="19_iwg5l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x04mj"]
+bg_color = Color(0.454902, 0.262745, 0.360784, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo4us"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(0, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpddk"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(120, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig0qk"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(240, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5hg0"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(360, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwgtk"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(480, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1omf"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(600, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k5u5"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(720, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j7o7"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(840, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqem1"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(960, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_caaod"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(1080, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr165"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(1200, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dms6e"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(1320, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwybc"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(1440, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hayxs"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(1560, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1aov"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(1680, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhev4"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(1800, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x88j"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(1920, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abv1e"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(2040, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntpp5"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(2160, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ue8i"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(2280, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8pry"]
+atlas = ExtResource("3_v6f4o")
+region = Rect2(2400, 0, 120, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgnxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo4us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpddk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig0qk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5hg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwgtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1omf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k5u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j7o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqem1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_caaod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr165")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dms6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwybc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hayxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1aov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhev4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x88j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abv1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntpp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ue8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8pry")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tebg1"]
+atlas = ExtResource("13_og11s")
+region = Rect2(0, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c0fc"]
+atlas = ExtResource("13_og11s")
+region = Rect2(120, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ipaa"]
+atlas = ExtResource("13_og11s")
+region = Rect2(240, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8atpo"]
+atlas = ExtResource("13_og11s")
+region = Rect2(360, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dq8j"]
+atlas = ExtResource("13_og11s")
+region = Rect2(480, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c27gg"]
+atlas = ExtResource("13_og11s")
+region = Rect2(600, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfhrt"]
+atlas = ExtResource("13_og11s")
+region = Rect2(720, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfs4b"]
+atlas = ExtResource("13_og11s")
+region = Rect2(840, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfqfp"]
+atlas = ExtResource("13_og11s")
+region = Rect2(960, 0, 120, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vomj"]
+atlas = ExtResource("13_og11s")
+region = Rect2(1080, 0, 120, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u18ww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tebg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c0fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ipaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8atpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dq8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c27gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfhrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfs4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfqfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vomj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="LevelFinish" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x04mj")
+script = ExtResource("1_0the0")
+
+[node name="Success" type="Node2D" parent="."]
+
+[node name="Board" parent="Success" instance=ExtResource("2_il5sa")]
+position = Vector2(270, 480)
+frame = 0
+frame_progress = 0.0
+
+[node name="CourierIcon" type="AnimatedSprite2D" parent="Success/Board"]
+position = Vector2(0, -125)
+sprite_frames = SubResource("SpriteFrames_lgnxl")
+autoplay = "default"
+
+[node name="MiddleConfetti" parent="Success/Board" instance=ExtResource("4_osrr8")]
+position = Vector2(-0.526323, -2.10526)
+scale = Vector2(0.857053, 1.03222)
+
+[node name="CoinCounter" type="Sprite2D" parent="Success/Board"]
+position = Vector2(-41.579, 28.947)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("5_3omws")
+
+[node name="Label" type="Label" parent="Success/Board/CoinCounter"]
+custom_minimum_size = Vector2(100, 40)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.861
+offset_top = -66.8695
+offset_right = -16.8614
+offset_bottom = -16.8695
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.239216, 0.0666667, 0.0156863, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PackageCounter" type="Sprite2D" parent="Success/Board"]
+position = Vector2(-41.579, 66.316)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("5_3omws")
+
+[node name="Label" type="Label" parent="Success/Board/PackageCounter"]
+custom_minimum_size = Vector2(100, 40)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -66.662
+offset_right = -17.0
+offset_bottom = -16.662
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.239216, 0.0666667, 0.0156863, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinIcon" type="Sprite2D" parent="Success/Board"]
+position = Vector2(46.316, 24.2101)
+texture = ExtResource("7_5oq0k")
+
+[node name="PackageIcon" type="Sprite2D" parent="Success/Board"]
+position = Vector2(46.316, 66.316)
+texture = ExtResource("8_qpdqg")
+
+[node name="Raiting" type="Sprite2D" parent="Success/Board"]
+position = Vector2(-0.578949, 101)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("9_8uath")
+
+[node name="Label" type="Label" parent="Success/Board/Raiting"]
+custom_minimum_size = Vector2(30, 20)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.5341
+offset_top = -47.2848
+offset_right = 28.4659
+offset_bottom = 2.71518
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.238281, 0.0664063, 0.015625, 1)
+theme_override_colors/font_outline_color = Color(0.847059, 0.847059, 0.847059, 1)
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+text_direction = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Stars" type="Node2D" parent="Success/Board"]
+position = Vector2(0, -250)
+
+[node name="Star" type="Sprite2D" parent="Success/Board/Stars"]
+visible = false
+position = Vector2(-75.2632, -59.4737)
+texture = ExtResource("10_lvbbk")
+
+[node name="Star1" type="Sprite2D" parent="Success/Board/Stars"]
+visible = false
+position = Vector2(-39.4737, -41.0526)
+texture = ExtResource("10_lvbbk")
+
+[node name="Star2" type="Sprite2D" parent="Success/Board/Stars"]
+visible = false
+position = Vector2(-4.21053, -27.8947)
+texture = ExtResource("10_lvbbk")
+
+[node name="Star3" type="Sprite2D" parent="Success/Board/Stars"]
+visible = false
+position = Vector2(30.5263, -38.4211)
+texture = ExtResource("10_lvbbk")
+
+[node name="Star4" type="Sprite2D" parent="Success/Board/Stars"]
+visible = false
+position = Vector2(67.3684, -55.7895)
+texture = ExtResource("10_lvbbk")
+
+[node name="EmtyStars" type="Node2D" parent="Success/Board"]
+position = Vector2(0, -27.8947)
+scale = Vector2(0.526316, 0.526316)
+
+[node name="EmtyStar" type="Sprite2D" parent="Success/Board/EmtyStars"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-142.263, -59.474)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("10_12vtg")
+
+[node name="EmtyStar1" type="Sprite2D" parent="Success/Board/EmtyStars"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-75, -25)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("10_12vtg")
+
+[node name="EmtyStar2" type="Sprite2D" parent="Success/Board/EmtyStars"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-8, -1.52588e-05)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("10_12vtg")
+
+[node name="EmtyStar3" type="Sprite2D" parent="Success/Board/EmtyStars"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(58, -19)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("10_12vtg")
+
+[node name="EmtyStar4" type="Sprite2D" parent="Success/Board/EmtyStars"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(128, -53)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("10_12vtg")
+
+[node name="Cursor" type="Sprite2D" parent="Success"]
+position = Vector2(290, 780)
+scale = Vector2(1.3, 1.2)
+texture = ExtResource("12_vt51n")
+
+[node name="Phone" type="Sprite2D" parent="Success"]
+position = Vector2(210, 780)
+scale = Vector2(1.4, 1.3)
+texture = ExtResource("12_6ekgv")
+
+[node name="TextureButton" type="TextureButton" parent="Success/Phone"]
+offset_left = -23.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = 33.0
+action_mode = 0
+
+[node name="Failure" type="Node2D" parent="."]
+visible = false
+
+[node name="Board" type="Sprite2D" parent="Failure"]
+position = Vector2(259, 509)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("12_ns3wg")
+
+[node name="CourierIcon" type="AnimatedSprite2D" parent="Failure/Board"]
+position = Vector2(5.78947, -132.632)
+sprite_frames = SubResource("SpriteFrames_u18ww")
+autoplay = "default"
+
+[node name="CoinCounter" type="Sprite2D" parent="Failure/Board"]
+position = Vector2(-34.7369, 1.05219)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("5_3omws")
+
+[node name="Label" type="Label" parent="Failure/Board/CoinCounter"]
+custom_minimum_size = Vector2(100, 40)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -72.2161
+offset_right = -17.0
+offset_bottom = -12.2161
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"TextMedium"
+theme_override_colors/font_color = Color(0.203125, 0.203125, 0.203125, 1)
+theme_override_colors/font_outline_color = Color(0.862745, 0.862745, 0.862745, 1)
+theme_override_font_sizes/font_size = 55
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PackageCounter" type="Sprite2D" parent="Failure/Board"]
+position = Vector2(-34.7368, 38.4211)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("5_3omws")
+
+[node name="Label" type="Label" parent="Failure/Board/PackageCounter"]
+custom_minimum_size = Vector2(100, 40)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -67.7701
+offset_right = -17.0
+offset_bottom = -17.7701
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"TextMedium"
+theme_override_colors/font_color = Color(0.203125, 0.203125, 0.203125, 1)
+theme_override_colors/font_outline_color = Color(0.862745, 0.862745, 0.862745, 1)
+theme_override_font_sizes/font_size = 55
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinIcon" type="Sprite2D" parent="Failure/Board"]
+position = Vector2(53.1579, -1.57901)
+texture = ExtResource("14_8kmr3")
+
+[node name="PackageIcon" type="Sprite2D" parent="Failure/Board"]
+position = Vector2(52.1053, 42.6316)
+texture = ExtResource("15_sslr1")
+
+[node name="Raiting" type="Sprite2D" parent="Failure/Board"]
+position = Vector2(8.94737, 74.7368)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("16_cqeos")
+
+[node name="Label" type="Label" parent="Failure/Board/Raiting"]
+custom_minimum_size = Vector2(30, 20)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -43.7322
+offset_top = -41.8808
+offset_right = 26.2678
+offset_bottom = 8.1192
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.203922, 0.203922, 0.203922, 1)
+theme_override_colors/font_outline_color = Color(0.996094, 0.996094, 0.996094, 1)
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="EmtyStars" type="Node2D" parent="Failure/Board"]
+
+[node name="EmptyStar" type="Sprite2D" parent="Failure/Board/EmtyStars"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-65.263, -68.9477)
+texture = ExtResource("17_x3cqh")
+
+[node name="EmptyStar1" type="Sprite2D" parent="Failure/Board/EmtyStars"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-30.5262, -49.474)
+texture = ExtResource("17_x3cqh")
+
+[node name="EmptyStar2" type="Sprite2D" parent="Failure/Board/EmtyStars"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(4.21073, -37.8951)
+texture = ExtResource("17_x3cqh")
+
+[node name="EmptyStar3" type="Sprite2D" parent="Failure/Board/EmtyStars"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(40.0002, -50.5266)
+texture = ExtResource("17_x3cqh")
+
+[node name="EmptyStar4" type="Sprite2D" parent="Failure/Board/EmtyStars"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(75.7897, -70.5266)
+texture = ExtResource("17_x3cqh")
+
+[node name="Cursor" type="Sprite2D" parent="Failure"]
+position = Vector2(290, 780.001)
+scale = Vector2(1.28829, 1.265)
+texture = ExtResource("18_27xd0")
+
+[node name="Phone" type="Sprite2D" parent="Failure"]
+position = Vector2(210, 780.5)
+scale = Vector2(1.40541, 1.3125)
+texture = ExtResource("19_iwg5l")
+
+[node name="TextureButton" type="TextureButton" parent="Failure/Phone"]
+offset_left = -22.9115
+offset_top = -32.0762
+offset_right = 20.0885
+offset_bottom = 32.9238
+action_mode = 0

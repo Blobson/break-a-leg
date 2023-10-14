@@ -1,5 +1,7 @@
 extends Node
 
+const MAX_PACKAGE = 5
+
 signal coins_updated(from: int, to: int)
 signal rating_updated(from: int, to: int)
 signal health_updated(from: int, to: int)
@@ -8,6 +10,8 @@ signal energy_reserve_updated(from: int, to: int)
 signal level_start(width: int, tile_size: Vector2i)
 signal score_updated(from: int, to: int)
 signal task_accepted(task: Task)
+signal stars_updated(from: int, to: int)
+signal packages_updated(from: int, to: int)
 
 const MAIN_SCREEN = preload("res://ui/main_screen/main_screen.tscn")
 const PHONE_MENU = preload("res://ui/menu/phone_menu/phone_menu.tscn")
@@ -44,6 +48,17 @@ var coins: int = 0 :
 			var old = coins
 			coins = value
 			coins_updated.emit(old, coins)
+
+
+## Количество доставленных посылок
+var packages: int = 0 :
+	set(value):
+		if value < 0:
+			value = 0
+		if packages != value:
+			var old = packages
+			packages = value
+			packages_updated.emit(old, packages)
 
 
 func _init():
