@@ -39,7 +39,6 @@ func _ready():
 
 
 func _on_focus_entered():
-	
 	add_theme_stylebox_override('panel', hover_panel_style)
 	_ui_address.add_theme_color_override("font_color", normal_panel_style.bg_color)
 	_ui_address.add_theme_color_override("font_outline_color", Color8(255, 255, 255, 255))
@@ -88,7 +87,9 @@ func _sold():
 		text = "You WON!"
 		task_list.player_bid = null
 	_disable(TaskState.SOLD, text)
-	# TODO: запустить уровень, если игрок выиграл ставку
+	if task_list.player_bid == self:
+		# TODO: запустить уровень, если игрок выиграл ставку
+		pass
 	create_tween().tween_interval(DISAPPEAR_TIMEOUT).finished.connect(_remove)
 
 
