@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b3d7a0uwnbdnc"]
 
-[ext_resource type="Texture2D" uid="uid://dt54fy8qm8mb0" path="res://ui/main_screen/order_button/order-dark-btn.png" id="1_irb2g"]
-[ext_resource type="Script" path="res://ui/main_screen/order_button/order_button.gd" id="2_5jk45"]
+[ext_resource type="Texture2D" uid="uid://dt54fy8qm8mb0" path="res://ui/main_screen/menu_button/menu-dark-btn.png" id="1_irb2g"]
+[ext_resource type="Script" path="res://ui/main_screen/menu_button/menu_button.gd" id="2_5jk45"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wor0"]
 atlas = ExtResource("1_irb2g")
@@ -64,7 +64,7 @@ _data = {
 "rotate": SubResource("Animation_5peqb")
 }
 
-[node name="OrderButton" type="AnimatedSprite2D"]
+[node name="MenuButton" type="AnimatedSprite2D"]
 rotation = 0.122173
 sprite_frames = SubResource("SpriteFrames_e44el")
 autoplay = "default"

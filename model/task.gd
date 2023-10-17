@@ -67,9 +67,9 @@ func current_bid() -> int:
 ##  - конкуренции (большая конкуренция увеличивает вероятность)
 ##  - сложности задания (большая сложность уменьшает вероятность)
 ##  - текущей ставки (удаленность от максимальной ставки уменьшает вероятность)
-func check_bid_probability(competition: int, max_bid: int, max_difficulty: int) -> bool:
+func check_bid_probability(competition: int, max_bid: int, _max_difficulty: int) -> bool:
 	var comp_delta = competition - MAX_COMPETITION # -2..0 
-	var diff_delta = difficulty - max_difficulty # -3..0
+	# var diff_delta = difficulty - max_difficulty # -3..0
 	var bid_delta = (start_bid() - current_bid()) + (max_bid - current_bid())
 	var probability = 10 + max(0, bid_delta + comp_delta + difficulty)
 	return randi_range(1, probability) == 1

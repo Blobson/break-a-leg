@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7hor218yg6nl"]
+
+[ext_resource type="Texture2D" uid="uid://babgqss7o14q0" path="res://ui/menu/phone_menu/bg_violet.png" id="1_b1gdd"]
+[ext_resource type="Script" path="res://ui/menu/phone_menu/phone_menu.gd" id="2_ncw2f"]
+[ext_resource type="PackedScene" uid="uid://bpwuqbql07ixw" path="res://ui/menu/phone_menu/task_list/task_list.tscn" id="2_xdwds"]
+[ext_resource type="PackedScene" uid="uid://c3mka43fn7n45" path="res://ui/menu/phone_menu/phone_toolbar/phone_toolbar.tscn" id="3_5ptrm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c7fgt"]
+texture = ExtResource("1_b1gdd")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="PhoneMenu" type="PanelContainer"]
+anchors_preset = -1
+anchor_left = -1.0
+anchor_right = 2.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c7fgt")
+script = ExtResource("2_ncw2f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Contents" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopPane" type="VBoxContainer" parent="VBoxContainer/Contents"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Contents/ShopPane"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.996078, 0.752941, 0.027451, 1)
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TasksPane" type="VBoxContainer" parent="VBoxContainer/Contents"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Contents/TasksPane"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.996078, 0.752941, 0.027451, 1)
+text = "Tasks"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TaskList" parent="VBoxContainer/Contents/TasksPane" instance=ExtResource("2_xdwds")]
+layout_mode = 2
+scroll_deadzone = 50
+
+[node name="RatingPane" type="VBoxContainer" parent="VBoxContainer/Contents"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Contents/RatingPane"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.996078, 0.752941, 0.027451, 1)
+text = "Rating"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PhoneToolbar" parent="VBoxContainer" instance=ExtResource("3_5ptrm")]
+layout_mode = 2
