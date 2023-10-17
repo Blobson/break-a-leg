@@ -48,7 +48,6 @@ func _generate_task():
 		last = $VBoxContainer.get_child($VBoxContainer.get_child_count() - 1)
 	var item = task_list_item_scene.instantiate()
 	item.task = Task.generate(Game.rating)
-	item.task_list = self
 	$VBoxContainer.add_child(item)
 	if last:
 		last.focus_neighbor_bottom = item.get_path()

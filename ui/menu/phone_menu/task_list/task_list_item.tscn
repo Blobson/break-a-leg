@@ -14,6 +14,7 @@ grow_horizontal = 2
 size_flags_horizontal = 3
 focus_mode = 2
 mouse_default_cursor_shape = 2
+theme = ExtResource("1_agf5k")
 script = ExtResource("1_cm1hx")
 metadata/_edit_use_anchors_ = true
 

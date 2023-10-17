@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3mka43fn7n45"]
+
+[ext_resource type="Script" path="res://ui/menu/phone_menu/phone_toolbar/phone_toolbar.gd" id="1_4viw2"]
+[ext_resource type="Texture2D" uid="uid://dyknifbpcieg4" path="res://ui/menu/phone_menu/phone_toolbar/btn_back.png" id="1_jcpsj"]
+[ext_resource type="ButtonGroup" uid="uid://we2pb1rxonil" path="res://ui/menu/phone_menu/phone_toolbar/button_group.tres" id="2_h0vio"]
+[ext_resource type="Texture2D" uid="uid://1mbtlnyy3d0o" path="res://ui/menu/phone_menu/phone_toolbar/btn_shop.png" id="2_rt3vg"]
+[ext_resource type="Texture2D" uid="uid://cua1htynug813" path="res://ui/menu/phone_menu/phone_toolbar/btn_tasks.png" id="3_quq3y"]
+[ext_resource type="Texture2D" uid="uid://2oqyngbvnpfo" path="res://ui/menu/phone_menu/phone_toolbar/btn_back_pressed.png" id="3_rhdot"]
+[ext_resource type="Texture2D" uid="uid://oktku2d3iqxr" path="res://ui/menu/phone_menu/phone_toolbar/btn_rating.png" id="4_5rjvv"]
+[ext_resource type="Texture2D" uid="uid://den1vy7glo3ou" path="res://ui/menu/phone_menu/phone_toolbar/btn_shop_pressed.png" id="6_vlhjg"]
+[ext_resource type="Texture2D" uid="uid://0aq3xwymum8y" path="res://ui/menu/phone_menu/phone_toolbar/btn_tasks_pressed.png" id="7_3xarn"]
+[ext_resource type="Texture2D" uid="uid://cpivcbo4jks50" path="res://ui/menu/phone_menu/phone_toolbar/btn_rating_pressed.png" id="9_yq4np"]
+
+[node name="PhoneToolbar" type="MarginContainer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_4viw2")
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="BackButton" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("1_jcpsj")
+texture_pressed = ExtResource("3_rhdot")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="ShopButton" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("2_h0vio")
+texture_normal = ExtResource("2_rt3vg")
+texture_pressed = ExtResource("6_vlhjg")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TasksButton" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = ExtResource("2_h0vio")
+texture_normal = ExtResource("3_quq3y")
+texture_pressed = ExtResource("7_3xarn")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="RatingButton" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("2_h0vio")
+texture_normal = ExtResource("4_5rjvv")
+texture_pressed = ExtResource("9_yq4np")
+ignore_texture_size = true
+stretch_mode = 4

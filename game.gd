@@ -7,6 +7,7 @@ signal energy_updated(from: int, to: int)
 signal energy_reserve_updated(from: int, to: int)
 signal level_start(width: int, tile_size: Vector2i)
 signal score_updated(from: int, to: int)
+signal task_accepted(task: Task)
 
 
 ## Текущий район
@@ -55,6 +56,11 @@ var coins: int = 0 :
 
 func _init():
 	level_start.connect(_on_level_start)
+	task_accepted.connect(_start_level)
+
+
+func _start_level(_task: Task):
+	get_tree().change_scene_to_file("res://game.tscn")
 
 
 func _on_level_start(_width, _tile_size):
