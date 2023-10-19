@@ -1,0 +1,142 @@
+{
+	"abilities": [
+		{
+			"name": "grappling hook",
+			"price": 40,
+			"icon": "n/a"
+		},
+		{
+			"name": "shield",
+			"price": 80,
+			"icon": "n/a"
+		}
+	],
+	"upgrades": [
+		{
+			"name": "health",
+			"description": "maximum health count",
+			"items": [	
+				{
+				"icon": "n/a",
+				"value": 2,
+				"price": 0
+				},
+				{
+				"icon": "n/a",
+				"value": 3,
+				"price": 300
+				},
+				{
+				"icon": "n/a",
+				"value": 4,
+				"price": 800
+				}
+			]
+		},
+		{
+			"name": "enegry",
+			"description": "maximum energy reserve",
+			"items": [
+				{
+				"icon": "n/a",
+				"value": 3,
+				"price": 0
+				},	
+				{
+				"icon": "n/a",
+				"value": 3,
+				"price": 500
+				},
+				{
+				"icon": "n/a",
+				"value": 4,
+				"price": 1000
+				}
+			]
+		},
+		{
+			"name": "backpack",
+			"description": "maximum number of orders",
+			"items": [
+				{
+				"icon": "n/a",
+				"value": 3,
+				"price": 0
+				},	
+				{
+				"icon": "n/a",
+				"value": 7,
+				"price": 1500
+				},
+				{
+				"icon": "n/a",
+				"value": 12,
+				"price": 2500
+				}
+			]
+		},
+		{
+			"name": "grappling hook",
+			"description": "hook range",
+			"icon": "n/a",
+			"items": [	
+				{
+				"icon": "n/a",
+				"value": 3,
+				"price": 0
+				},	
+				{
+				"icon": "n/a",
+				"value": 9,
+				"price": 2500
+				},
+				{
+				"icon": "n/a",
+				"value": 12,
+				"price": 5000
+				}
+			]
+		},
+		{
+			"name": "shield",
+			"description": "shield range",
+			"items": [
+				{
+				"icon": "n/a",
+				"value": 1,
+				"price": 0
+				},	
+				{
+				"icon": "n/a",
+				"value": 2,
+				"price": 2000
+				},
+				{
+				"icon": "n/a",
+				"value": 3,
+				"price": 4000
+				}
+			]
+		}
+	],
+	"skins": [
+		{
+			"name": "standart",
+			"description": "standart prety uniform",
+			"price": 0,
+			"icon": "pass"
+		},
+		{
+			"name": "gray",
+			"description": "I'm a cloud, I'm not a bear",
+			"price": 4000,
+			"icon": "pass"
+		},
+		{
+			"name": "insect",
+			"description": "Bug?",
+			"price": 5000,
+			"icon": "pass"
+		}
+	]
+}
