@@ -7,37 +7,39 @@
 [ext_resource type="Texture2D" uid="uid://cdwlkugyyudtn" path="res://regions/residential_region/background/01.png" id="5_g51sx"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
-layer = -1
-follow_viewport_enabled = true
-scroll_base_scale = Vector2(0.1, 0.1)
-scroll_ignore_camera_zoom = true
+offset = Vector2(0, -860)
+transform = Transform2D(1, 0, 0, 1, 0, -860)
+scroll_base_scale = Vector2(1, 0.1)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0.15)
+motion_scale = Vector2(1, 0.1)
+motion_offset = Vector2(0, 500)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 texture = ExtResource("1_p3p26")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0.15)
+motion_scale = Vector2(1, 0.3)
+motion_offset = Vector2(0, 250)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
 texture = ExtResource("2_1h5gg")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0.3)
+motion_scale = Vector2(1, 0.35)
+motion_offset = Vector2(0, 200)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
 texture = ExtResource("3_cvj8p")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0.6)
+motion_scale = Vector2(1, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
 texture = ExtResource("4_ou5tc")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0)
+motion_scale = Vector2(1, 0.55)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
 texture = ExtResource("5_g51sx")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqcpel6yv3kjo"]
+
+[ext_resource type="Script" path="res://regions/common/base_flying_threat/base_flying_threat.gd" id="1_3x373"]
+[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_4xz32"]
+
+[node name="BaseFlyingThreat" instance=ExtResource("1_4xz32")]
+script = ExtResource("1_3x373")
+speed = 300

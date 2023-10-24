@@ -36,7 +36,7 @@ func _value_update():
 		energy_item.value = current_energy
 
 
-func _on_energy_update(energy, old_value):
+func _on_energy_update(energy, _old_value):
 	if current_energy != energy:
 		current_energy = energy
 		_value_update()

@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddj7f3l44ut4e"]
+
+[ext_resource type="PackedScene" uid="uid://bi45ws51cftba" path="res://ui/level_ui/level_ui.tscn" id="2_nk6t0"]
+[ext_resource type="Script" path="res://utils/level_generator/level_generator.gd" id="3_beqs5"]
+[ext_resource type="PackedScene" uid="uid://cqrdsna5moeu0" path="res://characters/courier/courier.tscn" id="12_ty2qk"]
+[ext_resource type="PackedScene" uid="uid://dpkpf8sao4qgx" path="res://utils/camera/camera_2d.tscn" id="13_duur2"]
+
+[node name="BaseLevel" type="Node2D"]
+
+[node name="LevelUI" parent="." instance=ExtResource("2_nk6t0")]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-16, 0)
+format = 2
+layer_0/name = "walls"
+layer_1/name = "decor"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "windows"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "obstacles"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 0
+layer_3/tile_data = PackedInt32Array()
+script = ExtResource("3_beqs5")
+
+[node name="UpdateTimer" type="Timer" parent="TileMap"]
+wait_time = 0.5
+autostart = true
+
+[node name="Obstacles" type="Node2D" parent="TileMap"]
+z_index = 10
+
+[node name="Bottom" type="Node2D" parent="."]
+z_index = 1
+
+[node name="TileMap" type="TileMap" parent="Bottom"]
+position = Vector2(-16, 0)
+format = 2
+
+[node name="Courier" parent="." instance=ExtResource("12_ty2qk")]
+position = Vector2(0, -16)
+move_speed = 64
+
+[node name="Camera2D" parent="Courier" instance=ExtResource("13_duur2")]
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
+autoplay = true

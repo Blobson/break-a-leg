@@ -13,7 +13,7 @@ func _ready():
 
 
 func _exit_menu():
-	get_tree().change_scene_to_file("res://ui/main_screen/main_screen.tscn")
+	Game.show_main_screen()
 
 
 func _show_pane(index: int):

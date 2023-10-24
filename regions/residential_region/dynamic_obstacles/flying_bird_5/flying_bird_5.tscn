@@ -5,5 +5,5 @@
 
 [node name="FlyingBird5" instance=ExtResource("1_ehx5e")]
 
-[node name="Sprite2D" parent="PathFollow2D/Node2D" index="0"]
+[node name="Sprite2D" parent="."]
 texture = ExtResource("2_fccm6")

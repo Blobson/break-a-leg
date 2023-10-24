@@ -9,4 +9,4 @@ func _unhandled_input(event):
 
 
 func _show_menu():
-	get_tree().change_scene_to_file("res://ui/menu/phone_menu/phone_menu.tscn")
+	Game.show_phone_menu()

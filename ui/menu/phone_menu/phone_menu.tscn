@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7hor218yg6nl"]
+[gd_scene load_steps=7 format=3 uid="uid://c7hor218yg6nl"]
 
 [ext_resource type="Texture2D" uid="uid://babgqss7o14q0" path="res://ui/menu/phone_menu/bg_violet.png" id="1_b1gdd"]
 [ext_resource type="Script" path="res://ui/menu/phone_menu/phone_menu.gd" id="2_ncw2f"]
 [ext_resource type="PackedScene" uid="uid://bpwuqbql07ixw" path="res://ui/menu/phone_menu/task_list/task_list.tscn" id="2_xdwds"]
 [ext_resource type="PackedScene" uid="uid://c3mka43fn7n45" path="res://ui/menu/phone_menu/phone_toolbar/phone_toolbar.tscn" id="3_5ptrm"]
+[ext_resource type="PackedScene" uid="uid://dt32m5rthd35v" path="res://ui/menu_audio/menu_audio.tscn" id="5_ofuaa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c7fgt"]
 texture = ExtResource("1_b1gdd")
@@ -73,3 +74,5 @@ vertical_alignment = 1
 
 [node name="PhoneToolbar" parent="VBoxContainer" instance=ExtResource("3_5ptrm")]
 layout_mode = 2
+
+[node name="MenuAudio" parent="." instance=ExtResource("5_ofuaa")]

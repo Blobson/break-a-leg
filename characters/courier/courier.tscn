@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jppm"]
 radius = 7.0
-height = 30.6667
+height = 20.0
 
 [sub_resource type="Animation" id="Animation_itv60"]
 resource_name = "hoverbike_go"
@@ -231,7 +231,7 @@ vframes = 11
 frame = 24
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -3.33333)
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_8jppm")
 
 [node name="AnimationPlayer" parent="." index="2"]

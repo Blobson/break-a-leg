@@ -3,4 +3,8 @@
 [ext_resource type="Script" path="res://utils/camera/camera_2d.gd" id="1_d0pcc"]
 
 [node name="Camera2D" type="Camera2D"]
+offset = Vector2(0, -200)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
 script = ExtResource("1_d0pcc")

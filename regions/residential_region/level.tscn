@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6tk7itsufxa4"]
+
+[ext_resource type="PackedScene" uid="uid://ddj7f3l44ut4e" path="res://regions/common/base_level/base_level.tscn" id="1_8t8cb"]
+[ext_resource type="PackedScene" uid="uid://bdigd4mn047nc" path="res://regions/residential_region/background/parallax_background.tscn" id="2_8wklv"]
+[ext_resource type="TileSet" uid="uid://dxx1dxcuaajk6" path="res://regions/residential_region/tiles/building_tile_set.tres" id="3_o37xn"]
+[ext_resource type="TileSet" uid="uid://bvbyabn85siop" path="res://regions/residential_region/tiles/bottom_tile_set.tres" id="4_inkkf"]
+[ext_resource type="AudioStream" uid="uid://h7dicqvhhdip" path="res://regions/residential_region/audio/residental_theme.ogg" id="10_ulsjt"]
+[ext_resource type="Texture2D" uid="uid://0wt386i2pptc" path="res://regions/residential_region/bottom/background.png" id="26_e3waa"]
+[ext_resource type="Texture2D" uid="uid://d3i7bsgpt4qn8" path="res://regions/residential_region/bottom/tree.png" id="27_bgqmu"]
+[ext_resource type="Texture2D" uid="uid://dikuiaedpvjdm" path="res://regions/residential_region/bottom/asphalt.png" id="28_le8dg"]
+[ext_resource type="Texture2D" uid="uid://domyxdxk34m37" path="res://regions/residential_region/bottom/door.png" id="29_brn5k"]
+[ext_resource type="Texture2D" uid="uid://dofiqo55ct2kv" path="res://regions/residential_region/bottom/bushes.png" id="30_c12fr"]
+
+[node name="Level" instance=ExtResource("1_8t8cb")]
+
+[node name="ParallaxBackground" parent="Background" index="0" instance=ExtResource("2_8wklv")]
+
+[node name="TileMap" parent="." index="2"]
+tile_set = ExtResource("3_o37xn")
+
+[node name="TileMap" parent="Bottom" index="0"]
+tile_set = ExtResource("4_inkkf")
+layer_0/name = "Background"
+layer_0/tile_data = PackedInt32Array(-65543, 196608, 0, -7, 196608, 0, -65542, 65536, 0, -6, 65536, 0, -65541, 65536, 0, -5, 65536, 0, -65540, 65536, 0, -4, 65536, 0, -65539, 65536, 0, -3, 65536, 0, -65538, 65536, 0, -2, 65536, 0, -65537, 65536, 0, -1, 65536, 0, -131072, 65536, 0, -65536, 65536, 0, -131071, 65536, 0, -65535, 65536, 0, -131070, 65536, 0, -65534, 65536, 0, -131069, 65536, 0, -65533, 65536, 0, -131068, 65536, 0, -65532, 65536, 0, -131067, 65536, 0, -65531, 65536, 0, -131066, 65536, 0, -65530, 65536, 0, -131065, 131072, 0, -65529, 131072, 0)
+layer_1/name = "Edging"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(-7, 458752, 0, -6, 458752, 0, -5, 458752, 0, -4, 458752, 0, -3, 458752, 0, -2, 458752, 0, -1, 458752, 0, -65536, 458752, 0, -65535, 458752, 0, -65534, 458752, 0, -65533, 458752, 0, -65532, 458752, 0, -65531, 458752, 0, -65530, 458752, 0, -65529, 458752, 0)
+layer_2/name = "Statues"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(-65542, 1, 0, -6, 1, 1, -65541, 65537, 0, -5, 65537, 1, -131067, 131073, 0, -65531, 131073, 1, -131066, 196609, 0, -65530, 196609, 1)
+layer_3/name = "Columns"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 0
+layer_3/tile_data = PackedInt32Array(-131079, 393216, 0, -131078, 393216, 0, -131077, 393216, 0, -131076, 393216, 0, -131075, 393216, 0, -131074, 393216, 0, -131073, 393216, 0, -196608, 393216, 0, -196607, 393216, 0, -196606, 393216, 0, -196605, 393216, 0, -196604, 393216, 0, -196603, 393216, 0, -196602, 393216, 0, -65543, 327680, 0, -7, 262144, 0, -65540, 327680, 0, -4, 262144, 0, -65538, 327680, 0, -2, 262144, 0, -131070, 327680, 0, -65534, 262144, 0, -131068, 327680, 0, -65532, 262144, 0, -196601, 393216, 0, -131065, 327680, 0, -65529, 262144, 0)
+
+[node name="Background" type="Sprite2D" parent="Bottom" index="1"]
+z_index = -1
+position = Vector2(-145, -46)
+texture = ExtResource("26_e3waa")
+
+[node name="Tree1" type="Sprite2D" parent="Bottom" index="2"]
+position = Vector2(-290, -111)
+texture = ExtResource("27_bgqmu")
+
+[node name="Tree2" type="Sprite2D" parent="Bottom" index="3"]
+position = Vector2(291, -111)
+texture = ExtResource("27_bgqmu")
+
+[node name="Asphalt" type="Sprite2D" parent="Bottom" index="4"]
+position = Vector2(-143, -116)
+texture = ExtResource("28_le8dg")
+
+[node name="Door" type="Sprite2D" parent="Bottom" index="5"]
+z_index = 1
+position = Vector2(-1, -25)
+texture = ExtResource("29_brn5k")
+
+[node name="Bushes" type="Sprite2D" parent="Bottom" index="6"]
+position = Vector2(-145, -116)
+texture = ExtResource("30_c12fr")
+
+[node name="Camera2D" parent="Courier" index="4"]
+limit_left = -325
+limit_right = 325
+limit_smoothed = true
+
+[node name="BackgroundAudio" parent="." index="5"]
+stream = ExtResource("10_ulsjt")
