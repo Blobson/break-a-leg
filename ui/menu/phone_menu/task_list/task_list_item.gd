@@ -2,7 +2,7 @@ class_name TaskListItem extends PanelContainer
 
 enum TaskState { AVAILABLE, SOLD, CANCELLED }
 
-const DISAPPEAR_TIMEOUT = 2
+const DISAPPEAR_TIMEOUT = 0.7
 const MIN_BID_INTERVAL = 2
 const ACTIVE_COLOR = Color8(47, 80, 108, 255)
 const ACTIVE_OUTLINE_COLOR = Color8(255, 255, 255, 255)
@@ -32,22 +32,31 @@ func _ready():
 	task_list = get_parent().get_parent()
 	next_bid = task.start_bid()
 	$Frame/VBox/HBox/RegionIcon.texture = task.address.region.icon
-	$Frame/VBox/HBox/Info/Packages.text = "packages: %d" % [task.packages]
-	$Frame/VBox/HBox/Info/Difficulty.text = task.difficulty_text()
-	$Frame/VBox/HBox/Info/Difficulty.add_theme_color_override("font_color", task.difficulty_color())
+	$Frame/VBox/HBox/HBox/Info/Packages.text = "packages: %d" % [task.packages]
+	$Frame/VBox/HBox/HBox/Info/Difficulty.text = task.difficulty_text()
+	$Frame/VBox/HBox/HBox/Info/Difficulty.add_theme_color_override("font_color", task.difficulty_color())
+	$Frame/VBox/HBox/HBox/DeliverButton.pressed.connect(_on_deliver_pressed)
+	$Frame/VBox/HBox/HBox/DeliverButton.visible = false
 	_ui_address.text = "%s %s" % [ task.address.building, task.address.street ]
 	_ui_bid.set_bid(next_bid)
 	_ui_bid.gui_input.connect(_on_bid_input)
 	address_color = _ui_address.get_theme_color("font_color")
 
 
+func _on_deliver_pressed():
+	_place_player_bid(next_bid)
+	_sold()
+
+
 func _on_focus_entered():
+	$Frame/VBox/HBox/HBox/DeliverButton.visible = true
 	add_theme_stylebox_override('panel', hover_panel_style)
 	_ui_address.add_theme_color_override("font_color", ACTIVE_COLOR)
 	_ui_address.add_theme_color_override("font_outline_color", ACTIVE_OUTLINE_COLOR)
 
 
 func _on_focus_exited():
+	$Frame/VBox/HBox/HBox/DeliverButton.visible = false
 	add_theme_stylebox_override('panel', normal_panel_style)
 	_ui_address.add_theme_color_override("font_color", address_color)
 	_ui_address.remove_theme_color_override("font_outline_color")
@@ -102,8 +111,9 @@ func _sold():
 
 
 func _on_bid_input(event: InputEvent):
-	if event is InputEventScreenTouch and event.pressed:
-		_place_player_bid(next_bid)
+	#if event is InputEventScreenTouch and event.pressed:
+	#	_place_player_bid(next_bid)
+	pass
 
 
 func _cancel_player_bid():

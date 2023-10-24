@@ -49,22 +49,32 @@ texture = ExtResource("2_8fnk7")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="Info" type="VBoxContainer" parent="Frame/VBox/HBox"]
+[node name="HBox" type="HBoxContainer" parent="Frame/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Info" type="VBoxContainer" parent="Frame/VBox/HBox/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 2.0
 
-[node name="Difficulty" type="Label" parent="Frame/VBox/HBox/Info"]
+[node name="Difficulty" type="Label" parent="Frame/VBox/HBox/HBox/Info"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "hard"
 
-[node name="Packages" type="Label" parent="Frame/VBox/HBox/Info"]
+[node name="Packages" type="Label" parent="Frame/VBox/HBox/HBox/Info"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "packages: 12"
+
+[node name="DeliverButton" type="Button" parent="Frame/VBox/HBox/HBox"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+text = " DELIVER "
 
 [node name="BidBox" type="VBoxContainer" parent="Frame/VBox/HBox"]
 custom_minimum_size = Vector2(100, 0)
