@@ -9,16 +9,8 @@ signal level_start(width: int, tile_size: Vector2i)
 signal score_updated(from: int, to: int)
 signal task_accepted(task: Task)
 
-
-## Текущий район
-var region: Node2D
-
-## Текущий уровень
-#var level: Node2D
-
-## Ссылка на игрока
-#func get_character() -> Character: 
-#	return Game.level.get_node("character") as Character
+const MAIN_SCREEN = preload("res://ui/main_screen/main_screen.tscn")
+const PHONE_MENU = preload("res://ui/menu/phone_menu/phone_menu.tscn")
 
 
 ## Рейтинг игрока
@@ -55,19 +47,33 @@ var coins: int = 0 :
 
 
 func _init():
-	level_start.connect(_on_level_start)
 	task_accepted.connect(_start_level)
 
 
-func _start_level(_task: Task):
-	get_tree().change_scene_to_file("res://game.tscn")
+func show(scene: Node):
+	get_tree().current_scene.queue_free()
+	get_tree().root.call_deferred("add_child", scene)
+	get_tree().call_deferred("set_current_scene", scene)
 
 
-func _on_level_start(_width, _tile_size):
+func show_main_screen():
+	show(MAIN_SCREEN.instantiate())
+
+
+func show_phone_menu():
+	show(PHONE_MENU.instantiate())
+
+
+func _start_level(task: Task):
 	score = 0
+	
+	# select level template
+	var level_template = task.address.region.random_level_template()
+	
+	# show level
+	show(level_template.instantiate(task))
 
 
 ## Выход из игры
 func quit():
 	get_tree().quit()
-

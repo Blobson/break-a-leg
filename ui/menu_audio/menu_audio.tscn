@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt32m5rthd35v"]
+
+[ext_resource type="AudioStream" uid="uid://dwbviqy8scepr" path="res://ui/menu_audio/main.ogg" id="1_q6oe5"]
+[ext_resource type="Script" path="res://ui/menu_audio/menu_audio.gd" id="2_e8jw2"]
+
+[node name="MenuAudio" type="AudioStreamPlayer"]
+stream = ExtResource("1_q6oe5")
+script = ExtResource("2_e8jw2")

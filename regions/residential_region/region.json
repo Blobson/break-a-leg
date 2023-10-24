@@ -1,6 +1,7 @@
 {
 	"icon": "icon.png",
 	"difficulty": 1,
+	"package_price": 3,
 	"streets": [
 		"Chicken Rd.",
 		"South Palm Ave.",
@@ -12,5 +13,52 @@
 		"Winslow Drv.",
 		"South River St.",
 		"Bridge St."
+	],
+	"level_templates": [
+		{
+			"width": 15,
+			"scene": "level.tscn",
+			"tile_atlases": {
+				"walls": [ 0 ],
+				"windows": [ 4 ],
+				"decor": [ 1, 2, 3 ],
+				"wall_obstacles": [ 6 ],
+				"window_obstacles": [ 5 ],
+			},
+			"tiles": {
+				"walls": {
+					"left": [ 0 ],
+					"right": [ 3 ],
+					"main": [ 1 ],
+					"secondary": [ 2 ]
+				},
+				"windows": {
+					"full": [ 0, 2 ],
+					"small": [ 1 ]
+				}
+			},
+			"threats": {
+				"falling": [
+					"dynamic_obstacles/falling_flower_in_a_pot_1/falling_flower_in_a_pot_1.tscn",
+					"dynamic_obstacles/falling_flower_in_a_pot_2/falling_flower_in_a_pot_2.tscn",
+					"dynamic_obstacles/falling_flower_in_a_pot_3/falling_flower_in_a_pot_3.tscn",
+					"dynamic_obstacles/falling_flower_in_a_pot_4/falling_flower_in_a_pot_4.tscn",
+					"dynamic_obstacles/falling_shoe_1/falling_shoe_1.tscn",
+					"dynamic_obstacles/falling_shoe_2/falling_shoe_2.tscn",
+					"dynamic_obstacles/falling_shoe_3/falling_shoe_3.tscn",
+					"dynamic_obstacles/falling_shoe_4/falling_shoe_4.tscn"
+				],
+				"flying": [
+					"dynamic_obstacles/flying_bird_1/flying_bird_1.tscn",
+					"dynamic_obstacles/flying_bird_2/flying_bird_2.tscn",
+					"dynamic_obstacles/flying_bird_3/flying_bird_3.tscn",
+					"dynamic_obstacles/flying_bird_4/flying_bird_4.tscn",
+					"dynamic_obstacles/flying_bird_5/flying_bird_5.tscn",
+					"dynamic_obstacles/flying_bird_6/flying_bird_6.tscn",
+					"dynamic_obstacles/flying_bird_7/flying_bird_7.tscn",
+					"dynamic_obstacles/flying_bird_8/flying_bird_8.tscn"
+				]
+			}
+		}
 	]
 }

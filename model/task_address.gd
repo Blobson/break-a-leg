@@ -11,7 +11,7 @@ func _to_string():
 
 static func generate(player_experience: int):
 	var address = TaskAddress.new()
-	address.region = Region.generate(player_experience)
-	address.street = address.region.generate_street()
+	address.region = Region.random(player_experience)
+	address.street = address.region.random_street()
 	address.building = str(randi_range(1, 300))
 	return address

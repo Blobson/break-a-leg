@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnfglfkbktlfk"]
+[gd_scene load_steps=5 format=3 uid="uid://bnfglfkbktlfk"]
 
 [ext_resource type="PackedScene" uid="uid://cdy7bcriowcm0" path="res://ui/main_screen/bg/bg_ducks.tscn" id="1_1fjdw"]
 [ext_resource type="PackedScene" uid="uid://0utogu1s0a11" path="res://ui/main_screen/game_title/game_title.tscn" id="1_ab3jt"]
 [ext_resource type="PackedScene" uid="uid://b3d7a0uwnbdnc" path="res://ui/main_screen/menu_button/menu_button.tscn" id="3_axlj4"]
+[ext_resource type="PackedScene" uid="uid://dt32m5rthd35v" path="res://ui/menu_audio/menu_audio.tscn" id="4_r3imx"]
 
 [node name="MainScreen" type="Node2D"]
 
@@ -17,3 +18,5 @@ scale = Vector2(2.16219, 2.16219)
 [node name="MenuButton" parent="." instance=ExtResource("3_axlj4")]
 position = Vector2(279.576, 824.737)
 scale = Vector2(2.91675, 2.91675)
+
+[node name="MenuAudio" parent="." instance=ExtResource("4_r3imx")]
