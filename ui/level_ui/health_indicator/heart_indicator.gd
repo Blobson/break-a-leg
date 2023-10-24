@@ -7,14 +7,11 @@ func _init():
 	Game.health_updated.connect(_health_change)
 
 func _health_change(health, old_value):
-	print(health, "  " ,old_value)
 	var needed_hearts = ceil(health / float(HEALTH_PER_HEART))
 	var existing_hearts = 0
 	for heart in get_children():
 		if heart.state != Heart.State.EMPTY:
 			existing_hearts += 1
-			print("existing_hearts ", existing_hearts)
-	print("existing_heartssss ", existing_hearts)
 	# Удаляем лишние сердца
 	while existing_hearts > needed_hearts:
 		get_child(0).state = Heart.State.EMPTY
@@ -32,5 +29,4 @@ func _health_change(health, old_value):
 			if heart.state != Heart.State.EMPTY:
 				broken_heart = heart
 				break
-		print("broken ", broken_heart)
 		broken_heart.state = Heart.State.BROKEN
