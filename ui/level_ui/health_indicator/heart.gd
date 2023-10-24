@@ -24,8 +24,6 @@ func _tween(new_state, state):
 		tween.tween_property(texture_heart, "current_frame", 13, 1).from(9)
 		tween.finished.connect(_tween_finished)
 	elif new_state == State.FULL:
-		texture.set_current_frame(0)
-	elif new_state == State.FULL:
 		texture_heart.current_frame = 0
 		
 func _tween_finished():
