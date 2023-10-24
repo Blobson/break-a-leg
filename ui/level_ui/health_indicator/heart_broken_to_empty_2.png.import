@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf0aev5k6yad4"
-path="res://.godot/imported/progress_energy_indiactor.png-3aad3844fbe5be5ee950fe6129c7c251.ctex"
+uid="uid://bd56tyn6xk8uf"
+path="res://.godot/imported/heart_broken_to_empty_2.png-f6077dd350bbfa3861cac21cd33f5be1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/level_ui/energy_indicator/progress_energy_indiactor.png"
-dest_files=["res://.godot/imported/progress_energy_indiactor.png-3aad3844fbe5be5ee950fe6129c7c251.ctex"]
+source_file="res://ui/level_ui/health_indicator/heart_broken_to_empty_2.png"
+dest_files=["res://.godot/imported/heart_broken_to_empty_2.png-f6077dd350bbfa3861cac21cd33f5be1.ctex"]
 
 [params]
 

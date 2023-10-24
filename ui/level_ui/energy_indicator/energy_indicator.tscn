@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://ui/level_ui/energy_indicator/energy_indicator.gd" id="1_l03t3"]
 
 [node name="EnergyIndicator" type="HBoxContainer"]
+theme_override_constants/separation = 13
 script = ExtResource("1_l03t3")
