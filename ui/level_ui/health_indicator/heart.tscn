@@ -1,22 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://23jblkbswsmo"]
+[gd_scene load_steps=15 format=3 uid="uid://23jblkbswsmo"]
+
 [ext_resource type="Script" path="res://ui/level_ui/health_indicator/heart.gd" id="1_r1i4w"]
+[ext_resource type="Texture2D" uid="uid://321ie3nhnn28" path="res://ui/level_ui/health_indicator/heart_full.png" id="2_w1i35"]
+[ext_resource type="Texture2D" uid="uid://bjvhjrphfealp" path="res://ui/level_ui/health_indicator/heart_full_to_broken_1.png" id="3_ru6d2"]
+[ext_resource type="Texture2D" uid="uid://bs5qvccr2xv56" path="res://ui/level_ui/health_indicator/heart_full_to_empty_1.png" id="4_ul37a"]
+[ext_resource type="Texture2D" uid="uid://3htqt4tg8f86" path="res://ui/level_ui/health_indicator/heart_full_to_empty_2.png" id="5_daf3m"]
+[ext_resource type="Texture2D" uid="uid://bjnl5tfdkrwqx" path="res://ui/level_ui/health_indicator/heart_full_to_empty_3.png" id="6_7ba21"]
+[ext_resource type="Texture2D" uid="uid://b3t7ccvkdf5gj" path="res://ui/level_ui/health_indicator/heart_empty.png" id="7_cvhj6"]
+[ext_resource type="Texture2D" uid="uid://by8ko0spsgatx" path="res://ui/level_ui/health_indicator/heart_full_to_broken_2.png" id="8_ofpxt"]
+[ext_resource type="Texture2D" uid="uid://db3ndak1mrgj2" path="res://ui/level_ui/health_indicator/heart_full_to_broken_3.png" id="9_jyixk"]
+[ext_resource type="Texture2D" uid="uid://b684n07hyy73e" path="res://ui/level_ui/health_indicator/heart_broken.png" id="10_10d5o"]
+[ext_resource type="Texture2D" uid="uid://ccf24km218mhp" path="res://ui/level_ui/health_indicator/heart_broken_to_empty_1.png" id="11_f4km2"]
+[ext_resource type="Texture2D" uid="uid://bd56tyn6xk8uf" path="res://ui/level_ui/health_indicator/heart_broken_to_empty_2.png" id="12_4xeli"]
+[ext_resource type="Texture2D" uid="uid://g52lv8t1t0du" path="res://ui/level_ui/health_indicator/heart_broken_to_empty_3.png" id="13_qn2nf"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iti4u"]
-load_path = "res://.godot/imported/heart.png-e97679e1f96f8d995b66263ce5bd6a75.ctex"
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wb1xx"]
+frames = 14
+pause = true
+one_shot = true
+frame_0/texture = ExtResource("2_w1i35")
+frame_1/texture = ExtResource("3_ru6d2")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_ofpxt")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("9_jyixk")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("10_10d5o")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("11_f4km2")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("12_4xeli")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("13_qn2nf")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("7_cvhj6")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("2_w1i35")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("4_ul37a")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("5_daf3m")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("6_7ba21")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("7_cvhj6")
+frame_13/duration = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ai8jb"]
-load_path = "res://.godot/imported/heart_broken.png-d458c70c189543d354d2c32ceb4c3cb8.ctex"
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_t8vun"]
-frames = 2
-frame_0/texture = SubResource("CompressedTexture2D_iti4u")
-frame_0/duration = 0.0
-frame_1/texture = SubResource("CompressedTexture2D_ai8jb")
-frame_1/duration = 0.0
-
-[node name="Heart" type="MarginContainer"]
+[node name="Heart" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -480.0
+offset_right = 270.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_wb1xx")
+stretch_mode = 5
 script = ExtResource("1_r1i4w")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
-texture = SubResource("AnimatedTexture_t8vun")

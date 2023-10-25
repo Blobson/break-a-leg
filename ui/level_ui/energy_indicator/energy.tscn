@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc0l5i4ry2giu"]
 
-[ext_resource type="Texture2D" uid="uid://bb26t0redlo4o" path="res://ui/level_ui/energy_indicator/under_energy_indicator.png" id="1_cb7j0"]
-[ext_resource type="Texture2D" uid="uid://cf0aev5k6yad4" path="res://ui/level_ui/energy_indicator/progress_energy_indiactor.png" id="2_jcsih"]
+[ext_resource type="Texture2D" uid="uid://b7l2cpo7pd5s8" path="res://ui/level_ui/energy_indicator/under_energy_indicator.png" id="1_cb7j0"]
+[ext_resource type="Texture2D" uid="uid://q1ohdggrf1pd" path="res://ui/level_ui/energy_indicator/progress_energy_indicator.png" id="2_xe2n3"]
 
 [node name="TextureProgressBar" type="TextureProgressBar"]
 custom_minimum_size = Vector2(10, 10)
@@ -12,4 +12,4 @@ allow_greater = true
 allow_lesser = true
 fill_mode = 3
 texture_under = ExtResource("1_cb7j0")
-texture_progress = ExtResource("2_jcsih")
+texture_progress = ExtResource("2_xe2n3")
