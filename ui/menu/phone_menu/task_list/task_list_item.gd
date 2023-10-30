@@ -53,6 +53,7 @@ func _on_focus_entered():
 	add_theme_stylebox_override('panel', hover_panel_style)
 	_ui_address.add_theme_color_override("font_color", ACTIVE_COLOR)
 	_ui_address.add_theme_color_override("font_outline_color", ACTIVE_OUTLINE_COLOR)
+	_ui_bid.set_active_style()
 
 
 func _on_focus_exited():
@@ -60,6 +61,7 @@ func _on_focus_exited():
 	add_theme_stylebox_override('panel', normal_panel_style)
 	_ui_address.add_theme_color_override("font_color", address_color)
 	_ui_address.remove_theme_color_override("font_outline_color")
+	_ui_bid.set_inactive_style()
 
 
 func _disable(task_state: TaskState, text: String):
@@ -110,7 +112,7 @@ func _sold():
 	create_tween().tween_interval(DISAPPEAR_TIMEOUT).finished.connect(destroy_fn)
 
 
-func _on_bid_input(event: InputEvent):
+func _on_bid_input(_event: InputEvent):
 	#if event is InputEventScreenTouch and event.pressed:
 	#	_place_player_bid(next_bid)
 	pass
