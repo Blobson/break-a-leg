@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=3 uid="uid://kglesj5d7erw"]
+
+[ext_resource type="PackedScene" uid="uid://cqrdsna5moeu0" path="res://characters/courier/courier.tscn" id="1_71ltw"]
+[ext_resource type="PackedScene" uid="uid://dpkpf8sao4qgx" path="res://utils/camera/camera_2d.tscn" id="2_7fnd7"]
+[ext_resource type="PackedScene" uid="uid://c6cuuoxl84cmt" path="res://regions/residential_region/dynamic_obstacles/falling_flower_in_a_pot_1/falling_flower_in_a_pot_1.tscn" id="3_p7vep"]
+[ext_resource type="PackedScene" uid="uid://d1fqvwkvdc42f" path="res://regions/residential_region/dynamic_obstacles/falling_flower_in_a_pot_2/falling_flower_in_a_pot_2.tscn" id="4_dxh75"]
+[ext_resource type="PackedScene" uid="uid://c721gsodl61h8" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_3/falling_shoe_3.tscn" id="4_l6f2h"]
+[ext_resource type="PackedScene" uid="uid://bmna7e16dvo38" path="res://regions/residential_region/dynamic_obstacles/falling_flower_in_a_pot_3/falling_flower_in_a_pot_3.tscn" id="5_hxx8w"]
+[ext_resource type="PackedScene" uid="uid://dtbyg8u7hu0ax" path="res://regions/residential_region/dynamic_obstacles/falling_flower_in_a_pot_4/falling_flower_in_a_pot_4.tscn" id="6_a0je5"]
+[ext_resource type="PackedScene" uid="uid://b0g238nwqkxsk" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_1/falling_shoe_1.tscn" id="7_n2hbp"]
+[ext_resource type="PackedScene" uid="uid://bh3kapw6ihggn" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_2/falling_shoe_2.tscn" id="8_oj8aa"]
+[ext_resource type="PackedScene" uid="uid://7mya7g840x87" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_4/falling_shoe_4.tscn" id="10_gpw03"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Courier" parent="." instance=ExtResource("1_71ltw")]
+
+[node name="Camera2D" parent="Courier" instance=ExtResource("2_7fnd7")]
+offset = Vector2(0, -100)
+
+[node name="FallingFlowerInAPot1" parent="." instance=ExtResource("3_p7vep")]
+position = Vector2(0, -545)
+
+[node name="FallingFlowerInAPot2" parent="." instance=ExtResource("4_dxh75")]
+position = Vector2(-1, -482)
+
+[node name="FallingFlowerInAPot3" parent="." instance=ExtResource("5_hxx8w")]
+position = Vector2(-2, -424)
+
+[node name="FallingFlowerInAPot4" parent="." instance=ExtResource("6_a0je5")]
+position = Vector2(-1, -365)
+
+[node name="FallingShoe1" parent="." instance=ExtResource("7_n2hbp")]
+position = Vector2(0, -308)
+
+[node name="FallingShoe2" parent="." instance=ExtResource("8_oj8aa")]
+position = Vector2(0, -256)
+
+[node name="FallingShoe3" parent="." instance=ExtResource("4_l6f2h")]
+position = Vector2(0, -206)
+
+[node name="FallingShoe4" parent="." instance=ExtResource("10_gpw03")]
+position = Vector2(-1, -155)

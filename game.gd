@@ -51,7 +51,7 @@ func _init():
 
 
 func show(scene: Node):
-	get_tree().current_scene.queue_free()
+	get_tree().root.remove_child(get_tree().current_scene)
 	get_tree().root.call_deferred("add_child", scene)
 	get_tree().call_deferred("set_current_scene", scene)
 
