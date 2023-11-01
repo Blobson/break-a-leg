@@ -21,15 +21,18 @@ func _on_body_entered(body: Node):
 	if flippable == true:
 		_rotate_to_target(body)
 
-	body.take_damage(damage)
+	_on_damage_apply(body)
 	
 	if $AnimationPlayer.has_animation("activate") and state == ObstacleState.IDLE:
+		$AnimationPlayer.animation_finished.connect(func(_a): _on_damage_done())
 		$AnimationPlayer.play("activate")  # анимация активации
 		state = ObstacleState.ACTIVATED    # смена state на активированную
-		$AnimationPlayer.animation_finished.connect(func(_a): _on_damage_done())
 	else:
 		_on_damage_done()
-	
+
+
+func _on_damage_apply(body: Node):
+	body.take_damage(damage)
 
 
 func _on_damage_done():

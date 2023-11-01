@@ -5,6 +5,8 @@
 
 [node name="BaseFallingObject" instance=ExtResource("1_0ttwt")]
 script = ExtResource("2_4tp34")
+speed = 300
+reusable = false
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(0, 4)
