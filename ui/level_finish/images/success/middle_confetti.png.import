@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1ipmsjlqyte8"
-path="res://.godot/imported/phone.png-07fef587456f5efd33931a86ab729019.ctex"
+uid="uid://2ymc706hoafd"
+path="res://.godot/imported/middle_confetti.png-8bbed41ee93769fdd6dbc9042bec2efa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/screens_passing_the_level/failure_completion/images/phone.png"
-dest_files=["res://.godot/imported/phone.png-07fef587456f5efd33931a86ab729019.ctex"]
+source_file="res://ui/level_finish/images/success/middle_confetti.png"
+dest_files=["res://.godot/imported/middle_confetti.png-8bbed41ee93769fdd6dbc9042bec2efa.ctex"]
 
 [params]
 
