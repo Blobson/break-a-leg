@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cavlfycf1famp"
-path="res://.godot/imported/bowl.png-065edd75e32ad8062f3d47d0afeae62a.ctex"
+uid="uid://wyvkhf871v67"
+path="res://.godot/imported/bowl.png-e8e70af6b32153ac24a9d11ab2ad4e54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/screens_passing_the_level/failure_completion/images/bowl.png"
-dest_files=["res://.godot/imported/bowl.png-065edd75e32ad8062f3d47d0afeae62a.ctex"]
+source_file="res://ui/level_finish/images/success/bowl.png"
+dest_files=["res://.godot/imported/bowl.png-e8e70af6b32153ac24a9d11ab2ad4e54.ctex"]
 
 [params]
 

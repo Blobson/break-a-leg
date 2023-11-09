@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvh3swg387b3h"
-path="res://.godot/imported/cursor.png-a3d6656b87f3710688c5ee6394412093.ctex"
+uid="uid://cavlfycf1famp"
+path="res://.godot/imported/bowl.png-fcd5325f3a9786764a8c3c5514b1c436.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/screens_passing_the_level/failure_completion/images/cursor.png"
-dest_files=["res://.godot/imported/cursor.png-a3d6656b87f3710688c5ee6394412093.ctex"]
+source_file="res://ui/level_finish/images/failure/bowl.png"
+dest_files=["res://.godot/imported/bowl.png-fcd5325f3a9786764a8c3c5514b1c436.ctex"]
 
 [params]
 

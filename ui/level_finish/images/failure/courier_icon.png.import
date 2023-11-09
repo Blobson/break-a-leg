@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c30l3fl8blwei"
-path="res://.godot/imported/star.png-48fb9c19a25d64a597685cd3f613b0ba.ctex"
+uid="uid://ohnoohlwj0cq"
+path="res://.godot/imported/courier_icon.png-1b933208e31b4f6d9d07a2f082c21995.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/screens_passing_the_level/failure_completion/images/star.png"
-dest_files=["res://.godot/imported/star.png-48fb9c19a25d64a597685cd3f613b0ba.ctex"]
+source_file="res://ui/level_finish/images/failure/courier_icon.png"
+dest_files=["res://.godot/imported/courier_icon.png-1b933208e31b4f6d9d07a2f082c21995.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wyvkhf871v67"
-path="res://.godot/imported/bowl.png-4cd8bd983f7b633105b2923dc17b66cb.ctex"
+uid="uid://doo6rlcxtpt8f"
+path="res://.godot/imported/counter.png-8ba02536fdd54d625ed2dbda27cf9102.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/screens_passing_the_level/successfull_completion/images/bowl.png"
-dest_files=["res://.godot/imported/bowl.png-4cd8bd983f7b633105b2923dc17b66cb.ctex"]
+source_file="res://ui/level_finish/images/success/counter.png"
+dest_files=["res://.godot/imported/counter.png-8ba02536fdd54d625ed2dbda27cf9102.ctex"]
 
 [params]
 

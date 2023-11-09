@@ -48,13 +48,13 @@ func _show_menu():
 	get_tree().change_scene_to_file("res://ui/menu/phone_menu/phone_menu.tscn")
 
 
-func _on_stars_updated(stars, old_value):
+func _on_stars_updated(new_stars, _old_stars):
 	if success:
 		var tween = create_tween() \
 		.set_trans(Tween.TRANS_BOUNCE) \
 		.set_ease(Tween.EASE_OUT)
 		_set_empty_stars_visibility()
-		for star in range(stars):
+		for star in range(new_stars):
 			tween.tween_property(stars_array[star], "position", Vector2(stars_array[star].position.x, stars_array[star].position.y + 250), TWEEN_DURATION).from(stars_array[star].position)
 			stars_array[star].set_visible(true)	
 	else:
@@ -70,7 +70,7 @@ func _set_empty_stars_visibility():
 		
 
 
-func _on_coins_updated(old, coins):
+func _on_coins_updated(_old, coins):
 	coin_label.text = "%d" % [coins]
 	var tween = create_tween()
 	tween.tween_property(coin_counter, "position", Vector2(coin_counter.position.x, coin_counter.position.y), TWEEN_DURATION).from(Vector2(coin_counter.position.x - 300, coin_counter.position.y))
