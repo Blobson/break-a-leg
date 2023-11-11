@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://il5bs34piao"]
+
+[ext_resource type="Texture2D" uid="uid://dhik6g8burpcg" path="res://regions/residential_region/clients/example_client/example_client.png" id="1_nahpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k21r8"]
+atlas = ExtResource("1_nahpr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aumti"]
+atlas = ExtResource("1_nahpr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pfgt"]
+atlas = ExtResource("1_nahpr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aligb"]
+atlas = ExtResource("1_nahpr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_308ci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k21r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aumti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pfgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aligb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="ExampleClient" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_308ci")
+autoplay = "default"
+frame_progress = 0.732488

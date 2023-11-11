@@ -17,6 +17,7 @@
 	"level_templates": [
 		{
 			"width": 15,
+			"floors_between_clients": 20,
 			"scene": "level.tscn",
 			"tile_atlases": {
 				"walls": [ 0 ],
@@ -24,6 +25,7 @@
 				"decor": [ 1, 2, 3 ],
 				"wall_obstacles": [ 6 ],
 				"window_obstacles": [ 5 ],
+				"clients": [ 7 ]
 			},
 			"tiles": {
 				"walls": {

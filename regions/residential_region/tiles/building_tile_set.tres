@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=22 format=3 uid="uid://dxx1dxcuaajk6"]
+[gd_resource type="TileSet" load_steps=24 format=3 uid="uid://dxx1dxcuaajk6"]
 
 [ext_resource type="Texture2D" uid="uid://c8lciq6c2h8ct" path="res://regions/residential_region/tiles/textures/tiles.png" id="1_6ac20"]
 [ext_resource type="Texture2D" uid="uid://dyrqvpk4sgg2k" path="res://regions/residential_region/tiles/textures/posters_big_size_32x64.png" id="2_d1u0w"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://drnyjjv6coxn5" path="res://regions/residential_region/static_obstacles/thorny_plant_3/thorny_plant_3.tscn" id="11_8vnhj"]
 [ext_resource type="PackedScene" uid="uid://ccjr0qs0rbw7p" path="res://regions/residential_region/static_obstacles/sleeping_cat_3/sleeping_cat_3.tscn" id="11_l6sva"]
 [ext_resource type="PackedScene" uid="uid://53shlo64r24w" path="res://regions/residential_region/static_obstacles/biting_plant/biting_plant.tscn" id="12_f6utr"]
+[ext_resource type="PackedScene" uid="uid://il5bs34piao" path="res://regions/residential_region/clients/example_client/example_client.tscn" id="15_t5g0c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b6r7"]
 resource_name = "walls"
@@ -107,6 +108,10 @@ scenes/15/scene = ExtResource("11_8vnhj")
 resource_name = "wall_obstacles"
 scenes/1/scene = ExtResource("7_vqkb3")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5i7ih"]
+resource_name = "clients"
+scenes/1/scene = ExtResource("15_t5g0c")
+
 [resource]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_6b6r7")
@@ -116,3 +121,4 @@ sources/3 = SubResource("TileSetAtlasSource_thaml")
 sources/4 = SubResource("TileSetAtlasSource_piqg1")
 sources/5 = SubResource("TileSetScenesCollectionSource_u0jpi")
 sources/6 = SubResource("TileSetScenesCollectionSource_nm8fh")
+sources/7 = SubResource("TileSetScenesCollectionSource_5i7ih")

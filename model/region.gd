@@ -7,10 +7,10 @@ static var regions: Array[Region]
 
 var dir: String
 var icon: Texture2D 
-var streets: Array[String] = []
+var difficulty: int = 1
 var package_price: int = 1
+var streets: Array[String] = []
 var level_templates: Array[LevelTemplate] = []
-
 
 func _to_string():
 	return dir.to_pascal_case()
@@ -33,6 +33,12 @@ func init(region_dir: String, data: Dictionary) -> bool:
 		return false
 	icon = load_resource(data.icon)
 	
+	# загружаем сложность
+	if 'difficulty' not in data:
+		push_error("Region without 'difficulty' is invalid")
+		return false
+	difficulty = data.difficulty
+
 	# загружаем цену доставки
 	if 'package_price' not in data:
 		push_error("Region without 'package_price' is invalid")
