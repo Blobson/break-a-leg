@@ -3,7 +3,6 @@ extends TileMap
 enum Layer {WALLS, DECOR, WINDOWS, OBSTACLES}
 
 const LEVEL_WIDTH = 15
-const GENERATE_AHEAD = 5
 
 # NOTE: Параметры task и level_template проставляются в LevelTemplate.instantiate(...)
 var task: Task
@@ -33,8 +32,9 @@ func generate():
 
 func _get_generator_rect(view_rect: Rect2i) -> Rect2i:
 	var ts = tile_set.tile_size
-	var top_floor = floor(view_rect.position.y / float(ts.y))
+	var top_floor = floor(view_rect.position.y / float(ts.y)) 
 	var bottom_floor = top_floor + ceil(view_rect.size.y / float(ts.y)) + 1
+	top_floor -= level_template.floors_between_clients * tile_generator.WINDOW_Y_GAP
 	@warning_ignore("integer_division")
 	return Rect2i(
 		Vector2i(-level_template.width / 2, top_floor), 
@@ -61,17 +61,17 @@ func generate_floors(view_rect: Rect2i, target_rect: Rect2i):
 		target_rect.position.x, target_rect.position.y, 
 		target_rect.size.x, tile_rect.position.y - target_rect.position.y
 	)
-	gen_rect.position.y -= GENERATE_AHEAD
-	gen_rect.size.y += GENERATE_AHEAD
-	
-	@warning_ignore("integer_division")
-	var top = view_rect.position.y / tile_set.tile_size.y
 
-	for y in range(gen_rect.end.y, gen_rect.position.y - 1, -1):
+	@warning_ignore("integer_division")
+	var screen_top = view_rect.position.y / tile_set.tile_size.y
+
+	for y in range(gen_rect.end.y - 1, gen_rect.position.y - 1, -1):
 		# generate tiles
 		for x in range(gen_rect.position.x, gen_rect.end.x):
 			generate_tile(x, y)
-			if y < top:
+			
+			# generate falling threats above the screen top
+			if y < screen_top:
 				generate_falling_threat(x, y)
 		
 		# generate horizontal flying threats
@@ -84,27 +84,35 @@ func generate_tile(x: int, y: int):
 	if not wall_tile:
 		return
 	set_cell(Layer.WALLS, Vector2i(x, y), wall_tile.atlas_id, wall_tile.coords, 0)
-	
+
+	# try generating client window
+	var client_tile = tile_generator.select_client_tile(x, y)
+	if client_tile:
+		set_cell(Layer.WINDOWS, Vector2i(x, y), client_tile.atlas_id, Vector2i.ZERO, client_tile.scene_id)
+		Game.new_client.emit(get_global_transform() * tile_generator.get_tile_center(x, y))
+		return
+
 	# generate window tile
 	var window_tile = tile_generator.select_window_tile(x, y)
 	if window_tile:
 		set_cell(Layer.WINDOWS, Vector2i(x, y), window_tile.atlas_id, window_tile.coords, 0)
-		
 		# place window obstacle
 		if window_tile.is_obstacle_allowed:
 			var window_obstacle_tile = tile_generator.select_window_obstacle_tile(x, y)
 			if window_obstacle_tile:
 				set_cell(Layer.OBSTACLES, Vector2i(x, y), window_obstacle_tile.atlas_id, Vector2i.ZERO, window_obstacle_tile.scene_id)
-	else:
-		# place wall mounted obstacle
-		var wall_obstacle_tile = tile_generator.select_wall_obstacle_tile(x, y)
-		if wall_obstacle_tile:
-			set_cell(Layer.OBSTACLES, Vector2i(x, y), wall_obstacle_tile.atlas_id, Vector2i.ZERO, wall_obstacle_tile.scene_id)
-		else:
-			# generate decor if no obstacle was placed on the tile
-			var decor_tile = tile_generator.select_decor_tile(x, y)
-			if decor_tile:
-				set_cell(Layer.DECOR, Vector2i(x, y), decor_tile.atlas_id, decor_tile.coords, 0)
+		return
+
+	# place wall mounted obstacle
+	var wall_obstacle_tile = tile_generator.select_wall_obstacle_tile(x, y)
+	if wall_obstacle_tile:
+		set_cell(Layer.OBSTACLES, Vector2i(x, y), wall_obstacle_tile.atlas_id, Vector2i.ZERO, wall_obstacle_tile.scene_id)
+		return
+
+	# generate decor if no obstacle was placed on the tile
+	var decor_tile = tile_generator.select_decor_tile(x, y)
+	if decor_tile:
+		set_cell(Layer.DECOR, Vector2i(x, y), decor_tile.atlas_id, decor_tile.coords, 0)
 
 
 func generate_flying_threat(view_rect: Rect2i, y: int):

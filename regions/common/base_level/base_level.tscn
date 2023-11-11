@@ -57,7 +57,7 @@ position = Vector2(0, -16)
 move_speed = 64
 
 [node name="Camera2D" parent="Courier" instance=ExtResource("13_duur2")]
-position = Vector2(0, 108)
+offset = Vector2(0, -90)
 zoom = Vector2(2.5, 2.5)
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]

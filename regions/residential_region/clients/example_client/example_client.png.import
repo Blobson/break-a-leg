@@ -2,26 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqqv40eoeko1o"
-path="res://.godot/imported/game_title.png-5c04d20c0e0799ada021dfa88ace96b7.ctex"
+uid="uid://dhik6g8burpcg"
+path="res://.godot/imported/example_client.png-2cf0c6842b8c08cf3f9e72479e32cf9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/main_screen/game_title/game_title.png"
-dest_files=["res://.godot/imported/game_title.png-5c04d20c0e0799ada021dfa88ace96b7.ctex"]
+source_file="res://regions/residential_region/clients/example_client/example_client.png"
+dest_files=["res://.godot/imported/example_client.png-2cf0c6842b8c08cf3f9e72479e32cf9e.ctex"]
 
 [params]
 
 compress/mode=0
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
-compress/hdr_compression=0
-compress/normal_map=2
+compress/hdr_compression=1
+compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

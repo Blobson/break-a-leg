@@ -1,7 +1,7 @@
 class_name LevelTemplate
 
 enum ThreatType {FALLING, FLYING}
-enum TileType {WALLS, WINDOWS, DECOR, WALL_OBSTACLES, WINDOW_OBSTACLES}
+enum TileType {WALLS, WINDOWS, DECOR, WALL_OBSTACLES, WINDOW_OBSTACLES, CLIENTS}
 
 
 # Структура для хранения координат стеновых тайлов
@@ -33,6 +33,9 @@ var scene: PackedScene
 ## Ширина уровня в тайлах
 var width: int
 
+## Расстояние между клиентами в этажах
+var floors_between_clients: int
+
 ## Сцены с возможными угрозами на уровне (птицы и падающие предметы)
 var threats = {
 	ThreatType.FALLING: [],
@@ -45,7 +48,8 @@ var tile_atlases = {
 	TileType.WINDOWS: [],
 	TileType.DECOR: [],
 	TileType.WALL_OBSTACLES: [],
-	TileType.WINDOW_OBSTACLES: []
+	TileType.WINDOW_OBSTACLES: [],
+	TileType.CLIENTS: []
 }
 
 ## Координаты различных тайлов в атласах (левый край здания, большое окно, маленькое окно и т.п.)
@@ -76,7 +80,13 @@ func init(parent_region: Region, data: Dictionary):
 		push_error("LevelTemplate without 'width' is invalid")
 		return null
 	width = data.width
-	
+
+	# загружаем расстояние между клиентами
+	if 'floors_between_clients' not in data or not data.floors_between_clients:
+		push_error("LevelTemplate without 'floors_between_clients' is invalid")
+		return null
+	floors_between_clients = data.floors_between_clients
+
 	# загружаем сцену уровня
 	if 'scene' not in data or not data.scene:
 		push_error("LevelTemplate without 'scene' is invalid")

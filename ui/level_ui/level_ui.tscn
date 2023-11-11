@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi45ws51cftba"]
+[gd_scene load_steps=5 format=3 uid="uid://bi45ws51cftba"]
 
 [ext_resource type="PackedScene" uid="uid://b65rukvkd3ps3" path="res://ui/level_ui/score_counter/score_counter.tscn" id="1_4vhlh"]
 [ext_resource type="PackedScene" uid="uid://b2vfurdxvhdr5" path="res://ui/level_ui/health_indicator/heart_indicator.tscn" id="2_e3ela"]
 [ext_resource type="PackedScene" uid="uid://b3fshelm37s53" path="res://ui/level_ui/energy_indicator/energy_indicator.tscn" id="2_pkdam"]
+[ext_resource type="PackedScene" uid="uid://3trbocygjwhe" path="res://ui/level_ui/client_pointer/client_pointer.tscn" id="4_j0cxo"]
 
 [node name="LevelUI" type="CanvasLayer"]
 layer = 100
@@ -70,3 +71,5 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
+
+[node name="ClientPointer" parent="." instance=ExtResource("4_j0cxo")]

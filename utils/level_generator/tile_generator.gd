@@ -17,12 +17,7 @@ var frieze_y_step: int
 var windows_pattern: Array[Tile]
 var windows_pattern_y: int
 var windows_change_step: int
-
-class Tile:
-	var atlas_id: int
-	var scene_id: int
-	var coords: Vector2i = Vector2i.ZERO
-	var is_obstacle_allowed: bool = true
+var next_client_coords: Vector2i
 
 
 func init(template: LevelTemplate, map: TileMap):
@@ -53,6 +48,24 @@ func init(template: LevelTemplate, map: TileMap):
 	windows_change_step = randi_range(3, 5) * frieze_y_step
 	windows_pattern_y = 0
 	regenerate_windows_pattern()
+	
+	next_client_coords = generate_next_client_coords(WINDOW_START_Y)
+
+
+func generate_next_client_coords(current_floor: int) -> Vector2i:
+	return Vector2i(
+		generate_next_client_x(),
+		current_floor - (level_template.floors_between_clients + randi_range(-1, 1)) * WINDOW_Y_GAP
+	)
+
+
+func generate_next_client_x() -> int:
+	var xlist = []
+	for x in windows_pattern.size():
+		var w = windows_pattern[x]
+		if w and w.is_obstacle_allowed:
+			xlist.append(x - half_width)
+	return Utils.random_choice(xlist)
 
 
 func regenerate_windows_pattern():
@@ -75,7 +88,16 @@ func regenerate_windows_pattern():
 			batch_size -= 1
 		windows_pattern.append(null)
 	windows_pattern.append(null)
+	next_client_coords.x = generate_next_client_x()
 	return windows_pattern
+
+
+func random_scene_tile(tile_type: LevelTemplate.TileType) -> Tile:
+	var tile = Tile.new()
+	tile.atlas_id = level_template.random_tile_atlas(tile_type)
+	var atlas = tilemap.tile_set.get_source(tile.atlas_id)
+	tile.scene_id = atlas.get_scene_tile_id(randi() % atlas.get_scene_tiles_count())
+	return tile
 
 
 func get_tile_center(x: int, y: int) -> Vector2:
@@ -145,18 +167,23 @@ func select_decor_tile(_x: int, y: int) -> Tile:
 func select_wall_obstacle_tile(_x: int, y: int) -> Tile:
 	if y > WINDOW_START_Y or randi_range(0, 79) != 0:
 		return null
-	var tile = Tile.new()
-	tile.atlas_id = level_template.random_tile_atlas(LevelTemplate.TileType.WALL_OBSTACLES)
-	var atlas = tilemap.tile_set.get_source(tile.atlas_id)
-	tile.scene_id = atlas.get_scene_tile_id(randi() % atlas.get_scene_tiles_count())
-	return tile
+	return random_scene_tile(LevelTemplate.TileType.WALL_OBSTACLES)
 
 
 func select_window_obstacle_tile(_x: int, _y: int) -> Tile:
 	if randi_range(0, 6) != 0:
 		return null
-	var tile = Tile.new()
-	tile.atlas_id = level_template.random_tile_atlas(LevelTemplate.TileType.WINDOW_OBSTACLES)
-	var atlas = tilemap.tile_set.get_source(tile.atlas_id)
-	tile.scene_id = atlas.get_scene_tile_id(randi() % atlas.get_scene_tiles_count())
-	return tile
+	return random_scene_tile(LevelTemplate.TileType.WINDOW_OBSTACLES)
+
+
+func select_client_tile(x: int, y: int) -> Tile:
+	if y > next_client_coords.y or x != next_client_coords.x:
+		return null
+	
+	# клиенты могут появлятся только на месте оконных тайлов
+	var window_tile = select_window_tile(x, y)
+	if not window_tile or not window_tile.is_obstacle_allowed:
+		return null
+	
+	next_client_coords = generate_next_client_coords(y)
+	return random_scene_tile(LevelTemplate.TileType.CLIENTS)
