@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://nvr1s2tb73hm"]
+
+[ext_resource type="PackedScene" uid="uid://ctvjk2l27wvp4" path="res://ui/level_ui/ability_buttons/base_ability_button.tscn" id="1_838va"]
+[ext_resource type="Texture2D" uid="uid://dtg4x3tkc1hoa" path="res://ui/level_ui/ability_buttons/shield/shield.png" id="2_ji1ph"]
+[ext_resource type="Texture2D" uid="uid://qolum06088ws" path="res://ui/level_ui/ability_buttons/shield/shield_inactive.png" id="3_pxdb2"]
+
+[node name="ShieldButton" instance=ExtResource("1_838va")]
+texture_normal = ExtResource("2_ji1ph")
+texture_disabled = ExtResource("3_pxdb2")
