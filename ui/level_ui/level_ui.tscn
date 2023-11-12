@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi45ws51cftba"]
+[gd_scene load_steps=9 format=3 uid="uid://bi45ws51cftba"]
 
 [ext_resource type="PackedScene" uid="uid://b65rukvkd3ps3" path="res://ui/level_ui/score_counter/score_counter.tscn" id="1_4vhlh"]
 [ext_resource type="PackedScene" uid="uid://b2vfurdxvhdr5" path="res://ui/level_ui/health_indicator/heart_indicator.tscn" id="2_e3ela"]
 [ext_resource type="PackedScene" uid="uid://b3fshelm37s53" path="res://ui/level_ui/energy_indicator/energy_indicator.tscn" id="2_pkdam"]
+[ext_resource type="PackedScene" uid="uid://1rh4e072q1qf" path="res://ui/level_ui/ability_buttons/hook/hook_button.tscn" id="4_1syho"]
 [ext_resource type="PackedScene" uid="uid://3trbocygjwhe" path="res://ui/level_ui/client_pointer/client_pointer.tscn" id="4_j0cxo"]
+[ext_resource type="PackedScene" uid="uid://nvr1s2tb73hm" path="res://ui/level_ui/ability_buttons/shield/shield_button.tscn" id="5_ksxc6"]
+[ext_resource type="Script" path="res://ui/level_ui/ability_buttons/hook/hook_button.gd" id="5_oruup"]
+[ext_resource type="Script" path="res://ui/level_ui/ability_buttons/shield/shield_button.gd" id="7_iu81i"]
 
 [node name="LevelUI" type="CanvasLayer"]
 layer = 100
@@ -45,13 +49,12 @@ layout_mode = 2
 size_flags_horizontal = 10
 
 [node name="MiddleUI" type="HBoxContainer" parent="VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MiddleUI"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -62,14 +65,21 @@ size_flags_stretch_ratio = 0.3
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MiddleUI/VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="HookButton" parent="VBoxContainer/MiddleUI/VBoxContainer" instance=ExtResource("4_1syho")]
+layout_mode = 2
+script = ExtResource("5_oruup")
+
+[node name="ShieldButton" parent="VBoxContainer/MiddleUI/VBoxContainer" instance=ExtResource("5_ksxc6")]
+layout_mode = 2
+script = ExtResource("7_iu81i")
+
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.7
+size_flags_stretch_ratio = 1.1
 
 [node name="ClientPointer" parent="." instance=ExtResource("4_j0cxo")]
