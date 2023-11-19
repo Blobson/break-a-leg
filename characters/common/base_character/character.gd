@@ -2,6 +2,8 @@ class_name Courier extends CharacterBody2D
 
 const ENERGY_PER_SPRINT = 100
 
+signal courier_dead
+
 @onready var animation = $AnimationPlayer
 
 ## Скорость движения
@@ -9,7 +11,6 @@ const ENERGY_PER_SPRINT = 100
 
 ## Длина прыжка в тайлах
 @export var jump_length: float = 1.5
-
 
 ## Жизни персонажа
 @export var health: int = 30 :
@@ -59,10 +60,9 @@ func take_damage(damage):
 	if health > 0:
 		health -= damage
 		Game.score -= damage_score_losing
-		if health <= 0:
-			parachute_jump()
-			@warning_ignore("integer_division")
-			Game.score -= int(Game.score / 2)
+	if health <= 0:
+		parachute_jump()
+		courier_dead.emit()
 
 
 func _init():

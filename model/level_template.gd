@@ -58,6 +58,7 @@ var tiles: TilePack = TilePack.new()
 
 func instantiate(task: Task) -> Node:
 	var level = scene.instantiate()
+	level.init(task)
 	var tile_map = level.get_node("TileMap")
 	tile_map.task = task
 	tile_map.level_template = self
