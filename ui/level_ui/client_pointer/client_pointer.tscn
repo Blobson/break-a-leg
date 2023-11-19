@@ -1,10 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://3trbocygjwhe"]
+[gd_scene load_steps=8 format=3 uid="uid://3trbocygjwhe"]
 
 [ext_resource type="Texture2D" uid="uid://co5queclixx0c" path="res://ui/level_ui/client_pointer/client_pointer.png" id="1_1xq7l"]
 [ext_resource type="Script" path="res://ui/level_ui/client_pointer/client_pointer.gd" id="2_mlqmn"]
+
+[sub_resource type="Gradient" id="Gradient_yfilh"]
+offsets = PackedFloat32Array(0, 0.985185)
+colors = PackedColorArray(0.517647, 0.027451, 0.027451, 1, 1, 0.6, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tsd5p"]
+gradient = SubResource("Gradient_yfilh")
+
+[sub_resource type="Curve" id="Curve_17yu0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jdoo2"]
+curve = SubResource("Curve_17yu0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qca6u"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 10, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_min = -35.0
+radial_accel_max = -5.0
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_jdoo2")
+color_ramp = SubResource("GradientTexture1D_tsd5p")
 
 [node name="ClientPointer" type="Sprite2D"]
 scale = Vector2(2, 2)
 texture = ExtResource("1_1xq7l")
 hframes = 5
+frame = 2
 script = ExtResource("2_mlqmn")
+
+[node name="Trail" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 4)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_qca6u")
+visibility_rect = Rect2(-100, -100, 250, 350)
