@@ -2,8 +2,6 @@ extends TileMap
 
 enum Layer {WALLS, DECOR, WINDOWS, OBSTACLES}
 
-const LEVEL_WIDTH = 15
-
 # NOTE: Параметры task и level_template проставляются в LevelTemplate.instantiate(...)
 var task: Task
 var level_template: LevelTemplate

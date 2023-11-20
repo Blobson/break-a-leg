@@ -522,6 +522,7 @@ script = ExtResource("1_0the0")
 success = false
 
 [node name="Success" type="Node2D" parent="."]
+visible = false
 
 [node name="Board" type="AnimatedSprite2D" parent="Success"]
 position = Vector2(270, 480)
@@ -629,27 +630,22 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(0, -250)
 
 [node name="Star" type="Sprite2D" parent="Success/Board/Stars"]
-visible = false
 position = Vector2(-75.2632, -59.4737)
 texture = ExtResource("10_lvbbk")
 
 [node name="Star1" type="Sprite2D" parent="Success/Board/Stars"]
-visible = false
 position = Vector2(-39.4737, -41.0526)
 texture = ExtResource("10_lvbbk")
 
 [node name="Star2" type="Sprite2D" parent="Success/Board/Stars"]
-visible = false
 position = Vector2(-4.21053, -27.8947)
 texture = ExtResource("10_lvbbk")
 
 [node name="Star3" type="Sprite2D" parent="Success/Board/Stars"]
-visible = false
 position = Vector2(30.5263, -38.4211)
 texture = ExtResource("10_lvbbk")
 
 [node name="Star4" type="Sprite2D" parent="Success/Board/Stars"]
-visible = false
 position = Vector2(67.3684, -55.7895)
 texture = ExtResource("10_lvbbk")
 
@@ -658,35 +654,30 @@ position = Vector2(0, -27.8947)
 scale = Vector2(0.526316, 0.526316)
 
 [node name="EmtyStar" type="Sprite2D" parent="Success/Board/EmtyStars"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-142.263, -59.474)
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("10_12vtg")
 
 [node name="EmtyStar1" type="Sprite2D" parent="Success/Board/EmtyStars"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-75, -25)
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("10_12vtg")
 
 [node name="EmtyStar2" type="Sprite2D" parent="Success/Board/EmtyStars"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-8, -1.52588e-05)
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("10_12vtg")
 
 [node name="EmtyStar3" type="Sprite2D" parent="Success/Board/EmtyStars"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(58, -19)
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("10_12vtg")
 
 [node name="EmtyStar4" type="Sprite2D" parent="Success/Board/EmtyStars"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(128, -53)
 scale = Vector2(1.9, 1.9)
@@ -710,7 +701,6 @@ offset_bottom = 33.0
 action_mode = 0
 
 [node name="Failure" type="Node2D" parent="."]
-visible = false
 
 [node name="Board" type="Sprite2D" parent="Failure"]
 position = Vector2(259, 509)
@@ -811,31 +801,26 @@ metadata/_edit_use_anchors_ = true
 [node name="EmtyStars" type="Node2D" parent="Failure/Board"]
 
 [node name="EmptyStar" type="Sprite2D" parent="Failure/Board/EmtyStars"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-65.263, -68.9477)
 texture = ExtResource("17_x3cqh")
 
 [node name="EmptyStar1" type="Sprite2D" parent="Failure/Board/EmtyStars"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-30.5262, -49.474)
 texture = ExtResource("17_x3cqh")
 
 [node name="EmptyStar2" type="Sprite2D" parent="Failure/Board/EmtyStars"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(4.21073, -37.8951)
 texture = ExtResource("17_x3cqh")
 
 [node name="EmptyStar3" type="Sprite2D" parent="Failure/Board/EmtyStars"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(40.0002, -50.5266)
 texture = ExtResource("17_x3cqh")
 
 [node name="EmptyStar4" type="Sprite2D" parent="Failure/Board/EmtyStars"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(75.7897, -70.5266)
 texture = ExtResource("17_x3cqh")

@@ -8,7 +8,7 @@ const MIN_PACKAGES = 2
 const MAX_PACKAGES = 8
 
 ## Количество монет получаемых за один доставленный пакет
-const PACKAGE_VALUE = 10
+const PACKAGE_PRICE = 10
 
 const MAX_DIFFICULTY = 3
 const DIFFICULTIES = {
@@ -56,7 +56,7 @@ func difficulty_color() -> Color:
 
 
 func start_bid() -> int:
-	return floor(packages * PACKAGE_VALUE * (1.0 + difficulty / (2.0 * MAX_DIFFICULTY)))
+	return floor(packages * PACKAGE_PRICE * (1.0 + difficulty / (2.0 * MAX_DIFFICULTY)))
 
 
 func current_bid() -> int:

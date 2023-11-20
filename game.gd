@@ -1,17 +1,15 @@
 extends Node
 
-const MAX_PACKAGE = 5
-
 signal coins_updated(from: int, to: int)
 signal rating_updated(from: int, to: int)
 signal health_updated(from: int, to: int)
 signal energy_updated(from: int, to: int)
 signal energy_reserve_updated(from: int, to: int)
 signal level_start(width: int, tile_size: Vector2i)
+signal level_end(level_status: LevelStatus)
+signal delivery(complete: bool)
 signal score_updated(from: int, to: int)
 signal task_accepted(task: Task)
-signal stars_updated(from: int, to: int)
-signal packages_updated(from: int, to: int)
 signal new_client(position: Vector2i)
 signal shield_activate()
 signal hook_activate()
@@ -19,6 +17,7 @@ signal hook_activate()
 const MAIN_SCREEN = preload("res://ui/main_screen/main_screen.tscn")
 const PHONE_MENU = preload("res://ui/menu/phone_menu/phone_menu.tscn")
 
+var level_width: int
 
 ## Рейтинг игрока
 var rating: int = 0 :
@@ -53,23 +52,15 @@ var coins: int = 0 :
 			coins_updated.emit(old, coins)
 
 
-## Количество доставленных посылок
-var packages: int = 0 :
-	set(value):
-		if value < 0:
-			value = 0
-		if packages != value:
-			var old = packages
-			packages = value
-			packages_updated.emit(old, packages)
-
-
 func _init():
 	task_accepted.connect(_start_level)
 
 
 func show(scene: Node):
-	get_tree().root.remove_child(get_tree().current_scene)
+	var current_scene = get_tree().current_scene
+	if current_scene:
+		get_tree().root.remove_child(current_scene)
+		current_scene.queue_free()
 	get_tree().root.call_deferred("add_child", scene)
 	get_tree().call_deferred("set_current_scene", scene)
 
@@ -90,7 +81,7 @@ func _start_level(task: Task):
 	
 	# show level
 	show(level_template.instantiate(task))
-
+	
 
 ## Выход из игры
 func quit():
