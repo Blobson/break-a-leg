@@ -43,6 +43,6 @@ script = ExtResource("2_mlqmn")
 [node name="Trail" type="GPUParticles2D" parent="."]
 show_behind_parent = true
 position = Vector2(0, 4)
-amount = 15
+amount = 10
 process_material = SubResource("ParticleProcessMaterial_qca6u")
 visibility_rect = Rect2(-100, -100, 250, 350)

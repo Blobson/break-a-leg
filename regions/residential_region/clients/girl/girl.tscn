@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://crmxx5ayn5805"]
+
+[ext_resource type="PackedScene" uid="uid://il5bs34piao" path="res://regions/common/base_client/base_client.tscn" id="1_os1e8"]
+[ext_resource type="Texture2D" uid="uid://bg1q0s7xupa6j" path="res://regions/residential_region/clients/girl/girl.png" id="2_n74te"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wyeh"]
+atlas = ExtResource("2_n74te")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fan05"]
+atlas = ExtResource("2_n74te")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m50um"]
+atlas = ExtResource("2_n74te")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr0qx"]
+atlas = ExtResource("2_n74te")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yaf77"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wyeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fan05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m50um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr0qx")
+}],
+"loop": true,
+"name": &"wait",
+"speed": 5.0
+}]
+
+[node name="Girl" instance=ExtResource("1_os1e8")]
+sprite_frames = SubResource("SpriteFrames_yaf77")
+animation = &"wait"
+autoplay = "wait"

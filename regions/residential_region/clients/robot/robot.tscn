@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbrru1s4rp3qt"]
+
+[ext_resource type="PackedScene" uid="uid://il5bs34piao" path="res://regions/common/base_client/base_client.tscn" id="1_7cqsy"]
+[ext_resource type="Texture2D" uid="uid://xoploeeeo4ne" path="res://regions/residential_region/clients/robot/robot.png" id="2_lglle"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tktfc"]
+atlas = ExtResource("2_lglle")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8u1y"]
+atlas = ExtResource("2_lglle")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv80v"]
+atlas = ExtResource("2_lglle")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aw8l"]
+atlas = ExtResource("2_lglle")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0peu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tktfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8u1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv80v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aw8l")
+}],
+"loop": true,
+"name": &"wait",
+"speed": 5.0
+}]
+
+[node name="Robot" instance=ExtResource("1_7cqsy")]
+sprite_frames = SubResource("SpriteFrames_d0peu")
+animation = &"wait"
+autoplay = "wait"
