@@ -7,6 +7,8 @@ func _init():
 	Game.health_updated.connect(_health_change)
 
 func _health_change(health, _old_value):
+	if health < _old_value:
+		Input.vibrate_handheld(1000)
 	var needed_hearts = ceil(health / float(HEALTH_PER_HEART))
 	var existing_hearts = 0
 	for heart in get_children():
