@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbfctc0cwgmxv"]
+
+[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_invxa"]
+[ext_resource type="Script" path="res://regions/residential_region/static_obstacles/window/window.gd" id="2_0rkf0"]
+[ext_resource type="Texture2D" uid="uid://c4ohnwscfmw1v" path="res://regions/residential_region/static_obstacles/window/window.png" id="3_dicg6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svqjf"]
+size = Vector2(22, 20)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hf3b5"]
+
+[node name="WindowFull2" instance=ExtResource("1_invxa")]
+script = ExtResource("2_0rkf0")
+damage = 0
+reusable = false
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_dicg6")
+hframes = 2
+vframes = 3
+frame = 2
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_svqjf")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_hf3b5")
+}
