@@ -79,11 +79,11 @@ func regenerate_windows_pattern():
 			var tile = Tile.new()
 			tile.atlas_id = windows_atlas_id
 			if small_windows_in_batch and randi_range(0, batch_size - 1) == 0:
-				tile.coords.x = Utils.random_choice(level_template.tiles.windows.small)
+				tile.scene_id = Utils.random_choice(level_template.tiles.windows.small)
 				tile.is_obstacle_allowed = false
 				small_windows_in_batch -= 1
 			else:
-				tile.coords.x = Utils.random_choice(level_template.tiles.windows.full)
+				tile.scene_id = Utils.random_choice(level_template.tiles.windows.full)
 			windows_pattern.append(tile)
 			batch_size -= 1
 		windows_pattern.append(null)
@@ -149,7 +149,7 @@ func select_small_window_tile(x: int, y: int) -> Tile:
 		return null
 	var tile = Tile.new()
 	tile.atlas_id = windows_atlas_id
-	tile.coords = Vector2i(Utils.random_choice(level_template.tiles.windows.small), 0)
+	tile.scene_id = Utils.random_choice(level_template.tiles.windows.small)
 	tile.is_obstacle_allowed = false
 	return tile
 

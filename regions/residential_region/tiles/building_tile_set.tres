@@ -1,10 +1,9 @@
-[gd_resource type="TileSet" load_steps=27 format=3 uid="uid://dxx1dxcuaajk6"]
+[gd_resource type="TileSet" load_steps=29 format=3 uid="uid://dxx1dxcuaajk6"]
 
 [ext_resource type="Texture2D" uid="uid://c8lciq6c2h8ct" path="res://regions/residential_region/tiles/textures/tiles.png" id="1_6ac20"]
 [ext_resource type="Texture2D" uid="uid://dyrqvpk4sgg2k" path="res://regions/residential_region/tiles/textures/posters_big_size_32x64.png" id="2_d1u0w"]
 [ext_resource type="Texture2D" uid="uid://prq8v0m4ak48" path="res://regions/residential_region/tiles/textures/posters_mid_size_32x32.png" id="3_kc2ba"]
 [ext_resource type="Texture2D" uid="uid://bv4hci7u33243" path="res://regions/residential_region/tiles/textures/posters_small_size_16x32.png" id="4_o74y2"]
-[ext_resource type="Texture2D" uid="uid://c4ohnwscfmw1v" path="res://regions/residential_region/tiles/textures/one_window_tiles.png" id="5_efobf"]
 [ext_resource type="PackedScene" uid="uid://wytj52ajpkeu" path="res://regions/residential_region/static_obstacles/conditioner/conditioner.tscn" id="7_vqkb3"]
 [ext_resource type="PackedScene" uid="uid://bu1hhlsmhdket" path="res://regions/residential_region/static_obstacles/grandma/grandma.tscn" id="8_ajqa2"]
 [ext_resource type="PackedScene" uid="uid://c4ubrv6mxns6k" path="res://regions/residential_region/static_obstacles/thorny_plant_1/thorny_plant_1.tscn" id="9_02vim"]
@@ -17,7 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://cg1frhcj665ts" path="res://regions/residential_region/clients/family/family.tscn" id="15_tej8t"]
 [ext_resource type="PackedScene" uid="uid://crmxx5ayn5805" path="res://regions/residential_region/clients/girl/girl.tscn" id="16_cj33n"]
 [ext_resource type="PackedScene" uid="uid://chj3lwe20ggjf" path="res://regions/residential_region/clients/guy/guy.tscn" id="17_eb5qw"]
+[ext_resource type="PackedScene" uid="uid://co8kersbv6k53" path="res://regions/residential_region/static_obstacles/window/window_full_1.tscn" id="18_dcoyh"]
 [ext_resource type="PackedScene" uid="uid://bbrru1s4rp3qt" path="res://regions/residential_region/clients/robot/robot.tscn" id="18_tkdpo"]
+[ext_resource type="PackedScene" uid="uid://bbfctc0cwgmxv" path="res://regions/residential_region/static_obstacles/window/window_full_2.tscn" id="19_lw2yg"]
+[ext_resource type="PackedScene" uid="uid://dx0q72caoy8wh" path="res://regions/residential_region/static_obstacles/window/window_small.tscn" id="20_7gb3r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b6r7"]
 resource_name = "walls"
@@ -86,16 +88,6 @@ use_texture_padding = false
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(8, 0)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piqg1"]
-resource_name = "windows"
-texture = ExtResource("5_efobf")
-texture_region_size = Vector2i(32, 32)
-use_texture_padding = false
-0:0/0 = 0
-2:0/next_alternative_id = 3
-2:0/0 = 0
-1:0/0 = 0
-
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_u0jpi"]
 resource_name = "window_obstacles"
 scenes/3/scene = ExtResource("12_f6utr")
@@ -118,13 +110,19 @@ scenes/3/scene = ExtResource("16_cj33n")
 scenes/4/scene = ExtResource("17_eb5qw")
 scenes/5/scene = ExtResource("18_tkdpo")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ph02u"]
+resource_name = "windows"
+scenes/1/scene = ExtResource("18_dcoyh")
+scenes/2/scene = ExtResource("19_lw2yg")
+scenes/3/scene = ExtResource("20_7gb3r")
+
 [resource]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_6b6r7")
 sources/1 = SubResource("TileSetAtlasSource_3qbrd")
 sources/2 = SubResource("TileSetAtlasSource_8726h")
 sources/3 = SubResource("TileSetAtlasSource_thaml")
-sources/4 = SubResource("TileSetAtlasSource_piqg1")
 sources/5 = SubResource("TileSetScenesCollectionSource_u0jpi")
 sources/6 = SubResource("TileSetScenesCollectionSource_nm8fh")
 sources/7 = SubResource("TileSetScenesCollectionSource_5i7ih")
+sources/9 = SubResource("TileSetScenesCollectionSource_ph02u")
