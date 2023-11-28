@@ -14,8 +14,10 @@ func _ready():
 
 
 func _on_body_entered(body: Node):
-	if not body.has_method("take_damage"):
+	if not body.has_method("take_damage") or state != ObstacleState.IDLE:
 		return
+
+	state = ObstacleState.ACTIVATED    # смена state на активированную
 
 	# Если препятствие может поворачиваться, то используется _rotate_to_target()
 	if flippable == true:
@@ -24,9 +26,8 @@ func _on_body_entered(body: Node):
 	_on_damage_apply(body)
 	
 	if $AnimationPlayer.has_animation("activate") and state == ObstacleState.IDLE:
-		$AnimationPlayer.animation_finished.connect(func(_a): _on_damage_done())
 		$AnimationPlayer.play("activate")  # анимация активации
-		state = ObstacleState.ACTIVATED    # смена state на активированную
+		$AnimationPlayer.animation_finished.connect(func(_a): _on_damage_done())
 	else:
 		_on_damage_done()
 
