@@ -44,7 +44,7 @@ _data = {
 "idle": SubResource("Animation_nbufy")
 }
 
-[node name="Conditioner" instance=ExtResource("1_5h3tk")]
+[node name="Conditioner" groups=["electrical_devices"] instance=ExtResource("1_5h3tk")]
 reusable = false
 
 [node name="Sprite2D" parent="." index="0"]
