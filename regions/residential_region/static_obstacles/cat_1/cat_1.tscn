@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://deskuiqdou54l"]
+
+[ext_resource type="PackedScene" uid="uid://d2kr5335j608r" path="res://regions/residential_region/static_obstacles/cat/cat.tscn" id="1_b44rc"]
+[ext_resource type="Texture2D" uid="uid://cyme7bm7gi5e8" path="res://regions/residential_region/static_obstacles/cat_1/cat_1.png" id="2_5byyd"]
+
+[node name="Cat1" instance=ExtResource("1_b44rc")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_5byyd")
+
+[node name="FightZone" parent="." index="4"]
+position = Vector2(0, 5)

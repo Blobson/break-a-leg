@@ -9,7 +9,7 @@ func _ready():
 	if ability_count == 0:
 		self.visible = false
 
-func button_rollback(tween_time: float):
+func button_rollback(_tween_time: float):
 	$TextureProgressBar.value = 0
 	$TextureProgressBar.visible = true
 	var tween = create_tween()

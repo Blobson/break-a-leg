@@ -1,10 +1,13 @@
 class_name Courier extends CharacterBody2D
 
 const ENERGY_PER_SPRINT = 100
+const SLOW_SPEED_MULTIPLIER = 0.25
 
 signal courier_dead
 
-@onready var animation = $AnimationPlayer
+@onready var sprite = $Sprite2D
+@onready var player = $AnimationPlayer
+@onready var animations = $Animations
 
 ## Скорость движения
 @export var move_speed: int = 0
@@ -48,19 +51,21 @@ var energy: int = energy_reserve :
 @export var damage_score_losing: int = 20
 
 
-var level_width: int
-var level_tile_size: Vector2i
+var level_width: int = 7 * 32
+var level_tile_size: Vector2i = Vector2i(32, 32)
 var movement_tween: Tween
 var next_move: Vector2 = Vector2.ZERO
 var last_tile: int = 0
+var ignore_input = false
 
 
 ## Получение урона
-func take_damage(damage, body: Node):
+func take_damage(damage: int, effect: DamageEffect):
 	if health > 0:
 		health -= damage
 		Game.score -= damage_score_losing
-		damage_effect(body)
+		if effect:
+			effect.apply(self)
 	if health <= 0:
 		parachute_jump()
 		courier_dead.emit()
@@ -70,11 +75,13 @@ func _init():
 	Game.level_start.connect(_on_level_start)	
 	SwipeDetector.swiped.connect(_on_swipe)
 
+
 func _ready():
 	Game.health_updated.emit(health, 0)
-	velocity.y = -move_speed
 	velocity.x = 0
+	disable_slowdown()
 	$EnergyRecoveryTimer.timeout.connect(_on_energy_recover)
+
 
 ## Запуск уровня
 func _on_level_start(width, tile_size):
@@ -112,6 +119,8 @@ func _on_swipe(direction: Vector2):
 
 ## Обработка движения персонажа
 func move(direction: Vector2):
+	if ignore_input:
+		return
 	if _is_moving():
 		next_move = direction
 	else:
@@ -125,7 +134,7 @@ func _is_moving() -> bool:
 func _start_move(direction: Vector2) -> Tween:
 	var target_position: Vector2
 	if direction == Vector2.UP and energy >= ENERGY_PER_SPRINT:
-		animation.play("jump_up")
+		player.play("jump_up")
 		target_position = Vector2(
 			position.x, 
 			position.y - level_tile_size.y * jump_length
@@ -133,20 +142,20 @@ func _start_move(direction: Vector2) -> Tween:
 		energy -= ENERGY_PER_SPRINT
 		$EnergyRecoveryTimer.start()
 	elif direction == Vector2.LEFT:
-		animation.play("left")
+		player.play("left")
 		target_position = Vector2(
 			position.x - level_tile_size.x, 
-			position.y - move_speed * animation.current_animation_length
+			position.y - move_speed * player.current_animation_length
 		)
 		@warning_ignore("integer_division")
 		var min_x = (-level_width / 2) + (level_tile_size.x / 3)
 		if target_position.x <= min_x: 
 			return null
 	elif direction == Vector2.RIGHT:
-		animation.play("right")
+		player.play("right")
 		target_position = Vector2(
 			position.x + level_tile_size.x, 
-			position.y - move_speed * animation.current_animation_length
+			position.y - move_speed * player.current_animation_length
 		) 
 		@warning_ignore("integer_division")
 		var max_x = (level_width / 2) - (level_tile_size.x / 3)
@@ -155,7 +164,7 @@ func _start_move(direction: Vector2) -> Tween:
 	else:
 		return null
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", target_position, animation.current_animation_length)
+	tween.tween_property(self, "position", target_position, player.current_animation_length)
 	tween.finished.connect(_end_move)
 	return tween
 
@@ -180,8 +189,18 @@ func _on_energy_recover():
 			$EnergyRecoveryTimer.stop()
 
 
-## Анимация получения урона от разных объектов
-func damage_effect(body: Node):
-	if body.is_in_group('electrical_devices'): 
-		$AnimationPlayer.play('damage_from_conditioner')
-		$AnimationPlayer.queue('run')
+func enable_slowdown():
+	velocity.y = -move_speed * SLOW_SPEED_MULTIPLIER
+
+
+func disable_slowdown():
+	velocity.y = -move_speed
+
+
+func enable_input():
+	ignore_input = false
+
+
+func disable_input():
+	ignore_input = true
+	next_move = Vector2.ZERO

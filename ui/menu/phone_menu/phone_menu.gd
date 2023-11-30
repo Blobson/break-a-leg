@@ -13,7 +13,7 @@ func _ready():
 
 
 func _exit_menu():
-	Game.show_main_screen()
+	Game.call_deferred("show_main_screen")
 
 
 func _show_pane(index: int):
