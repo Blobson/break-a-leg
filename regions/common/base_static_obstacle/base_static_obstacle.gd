@@ -52,3 +52,4 @@ func _on_damage_done():
 func _rotate_to_target(body):
 	# если позиция объекта правее чем позиция игрока, то поворачиваем модель объекта слева-направо
 	$Sprite2D.flip_h = body.global_position.x > global_position.x
+	
