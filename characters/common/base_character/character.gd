@@ -56,10 +56,11 @@ var last_tile: int = 0
 
 
 ## Получение урона
-func take_damage(damage):
+func take_damage(damage, body: Node):
 	if health > 0:
 		health -= damage
 		Game.score -= damage_score_losing
+		damage_effect(body)
 	if health <= 0:
 		parachute_jump()
 		courier_dead.emit()
@@ -177,3 +178,10 @@ func _on_energy_recover():
 		energy = min(energy_reserve, energy + roundi(energy_recovery_speed * $EnergyRecoveryTimer.wait_time))
 		if energy == energy_reserve:
 			$EnergyRecoveryTimer.stop()
+
+
+## Анимация получения урона от разных объектов
+func damage_effect(body: Node):
+	if body.is_in_group('electrical_devices'): 
+		$AnimationPlayer.play('damage_from_conditioner')
+		$AnimationPlayer.queue('run')

@@ -33,7 +33,7 @@ func _on_body_entered(body: Node):
 
 
 func _on_damage_apply(body: Node):
-	body.take_damage(damage)
+	body.take_damage(damage, self)
 
 
 func _on_damage_done():
