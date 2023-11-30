@@ -26,9 +26,9 @@ func _ready():
 	packages_updater(level_status.current_delivery_count, level_status.target_delivery_count)
 
 #Вызывается по окончанию уровня
-func on_level_end(level_status: LevelStatus):
-	success = level_status.alive
-	self.level_status = level_status
+func on_level_end(status: LevelStatus):
+	success = status.alive
+	self.level_status = status
 
 func _on_phone_pressed():
 	var tween = create_tween()

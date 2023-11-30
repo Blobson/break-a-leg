@@ -9,9 +9,9 @@ func _ready():
 	$Courier.courier_dead.connect(_on_courier_dead)
 	Game.delivery.connect(_on_delivery)
 
-func init(task: Task):
-	self.task = task
-	self.level_status = LevelStatus.new()
+func init(new_task: Task):
+	task = new_task
+	level_status = LevelStatus.new()
 	level_status.init(task)
 	
 func _on_delivery(complete):
@@ -27,4 +27,4 @@ func level_end():
 	level_status.on_level_end()
 	var level_finish = LEVEL_FINISH_SCENE.instantiate()
 	level_finish.on_level_end(level_status)
-	Game.show(level_finish)
+	Game.call_deferred("show", level_finish)

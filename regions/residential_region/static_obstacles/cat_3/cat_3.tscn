@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccjr0qs0rbw7p"]
+
+[ext_resource type="PackedScene" uid="uid://d2kr5335j608r" path="res://regions/residential_region/static_obstacles/cat/cat.tscn" id="1_141sa"]
+[ext_resource type="Texture2D" uid="uid://deqswokn5hy8i" path="res://regions/residential_region/static_obstacles/cat_3/cat_3.png" id="2_tqidn"]
+
+[node name="Cat3" instance=ExtResource("1_141sa")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_tqidn")

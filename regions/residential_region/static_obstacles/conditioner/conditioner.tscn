@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://wytj52ajpkeu"]
+[gd_scene load_steps=8 format=3 uid="uid://wytj52ajpkeu"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_5h3tk"]
 [ext_resource type="Texture2D" uid="uid://du8dj3k2d7kpl" path="res://regions/residential_region/static_obstacles/conditioner/conditioner.png" id="2_3el5v"]
+[ext_resource type="Script" path="res://regions/residential_region/static_obstacles/conditioner/conditioner.gd" id="2_p6y4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ef6k"]
 size = Vector2(29, 20)
 
 [sub_resource type="Animation" id="Animation_4r0nf"]
 resource_name = "activate"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,6 +47,7 @@ _data = {
 }
 
 [node name="Conditioner" groups=["electrical_devices"] instance=ExtResource("1_5h3tk")]
+script = ExtResource("2_p6y4v")
 reusable = false
 
 [node name="Sprite2D" parent="." index="0"]

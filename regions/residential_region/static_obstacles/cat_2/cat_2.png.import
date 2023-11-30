@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0u4rb0gp7svn"
-path="res://.godot/imported/sleeping_cat_1.png-78b6f41ff119e5fe2970fc4983a929bb.ctex"
+uid="uid://ch0fnbmf0tlc3"
+path="res://.godot/imported/cat_2.png-fce9dc07d816c20c01dbadf986607907.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://regions/residential_region/static_obstacles/sleeping_cat_1/sleeping_cat_1.png"
-dest_files=["res://.godot/imported/sleeping_cat_1.png-78b6f41ff119e5fe2970fc4983a929bb.ctex"]
+source_file="res://regions/residential_region/static_obstacles/cat_2/cat_2.png"
+dest_files=["res://.godot/imported/cat_2.png-fce9dc07d816c20c01dbadf986607907.ctex"]
 
 [params]
 

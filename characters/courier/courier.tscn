@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://cqrdsna5moeu0"]
+[gd_scene load_steps=35 format=3 uid="uid://cqrdsna5moeu0"]
 
 [ext_resource type="PackedScene" uid="uid://cc87qxoc5va67" path="res://characters/common/base_character/character.tscn" id="1_y42yc"]
 [ext_resource type="Texture2D" uid="uid://3mklfrvjm4v5" path="res://characters/courier/courier_animation.png" id="2_k6816"]
+[ext_resource type="Texture2D" uid="uid://bfesihjgdntwo" path="res://characters/courier/effects/fight/fight.png" id="3_vay3k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jppm"]
 radius = 7.0
-height = 20.0
+height = 16.0
 
 [sub_resource type="Animation" id="Animation_7uh0f"]
 length = 0.001
@@ -19,11 +20,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [132]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_k041m"]
-resource_name = "damage_from_conditioner"
+resource_name = "electrocute"
 length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -239,7 +240,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8mrh4"]
 _data = {
 "RESET": SubResource("Animation_7uh0f"),
-"damage_from_conditioner": SubResource("Animation_k041m"),
+"electrocute": SubResource("Animation_k041m"),
 "hoverbike_go": SubResource("Animation_itv60"),
 "hoverbike_idle": SubResource("Animation_k1n3l"),
 "idle": SubResource("Animation_o2mj1"),
@@ -254,6 +255,112 @@ _data = {
 "walking": SubResource("Animation_fswyk")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1cxv"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(0, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvurs"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(64, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rgik"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(128, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmk7t"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(192, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_325f2"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(256, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij17c"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(320, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyurk"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(384, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekige"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(448, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wvsj"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(512, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys3ld"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(576, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uurrw"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(640, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_161km"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(704, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66x43"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(768, 0, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vekvb"]
+atlas = ExtResource("3_vay3k")
+region = Rect2(832, 0, 64, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgkdk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1cxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvurs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rgik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmk7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_325f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij17c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyurk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekige")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wvsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys3ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uurrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_161km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66x43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vekvb")
+}],
+"loop": false,
+"name": &"fight",
+"speed": 12.0
+}]
+
 [node name="Courier" instance=ExtResource("1_y42yc")]
 
 [node name="Sprite2D" parent="." index="0"]
@@ -261,10 +368,9 @@ position = Vector2(0, -3.33333)
 texture = ExtResource("2_k6816")
 hframes = 12
 vframes = 12
-frame = 132
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 4)
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_8jppm")
 
 [node name="AnimationPlayer" parent="." index="2"]
@@ -279,3 +385,11 @@ next/right = &"run"
 [node name="EnergyRecoveryTimer" type="Timer" parent="." index="3"]
 wait_time = 0.25
 autostart = true
+
+[node name="Animations" type="AnimatedSprite2D" parent="." index="4"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_mgkdk")
+animation = &"fight"
+autoplay = "fight"
+frame = 13
+frame_progress = 1.0
