@@ -15,6 +15,8 @@ signal courier_dead
 ## Длина прыжка в тайлах
 @export var jump_length: float = 1.5
 
+var is_jumping: bool = false
+
 ## Жизни персонажа
 @export var health: int = 30 :
 	set(value):
@@ -135,6 +137,8 @@ func _start_move(direction: Vector2) -> Tween:
 	var target_position: Vector2
 	if direction == Vector2.UP and energy >= ENERGY_PER_SPRINT:
 		player.play("jump_up")
+		is_jumping = true
+		$JumpTimer.start()
 		target_position = Vector2(
 			position.x, 
 			position.y - level_tile_size.y * jump_length
@@ -204,3 +208,7 @@ func enable_input():
 func disable_input():
 	ignore_input = true
 	next_move = Vector2.ZERO
+
+
+func _on_jump_timer_timeout():
+	is_jumping = false;
