@@ -71,9 +71,10 @@ func generate_next_client_x() -> int:
 func regenerate_windows_pattern():
 	windows_pattern = [ null ]
 	while windows_pattern.size() < level_template.width-1:
-		var batch_size = min(randi_range(1, 2), level_template.width - 1 - windows_pattern.size())
+		var batch_size = randi_range(1, 2)
 		if randi_range(0, 9) == 0:
 			batch_size = 3
+		batch_size = min(batch_size, level_template.width - 1 - windows_pattern.size())
 		var small_windows_in_batch = batch_size - max(1, batch_size - 1)
 		while batch_size > 0:
 			var tile = Tile.new()
@@ -87,6 +88,8 @@ func regenerate_windows_pattern():
 			windows_pattern.append(tile)
 			batch_size -= 1
 		windows_pattern.append(null)
+		if randi_range(0, 8) == 0:
+			windows_pattern.append(null)
 	windows_pattern.append(null)
 	next_client_coords.x = generate_next_client_x()
 	return windows_pattern
@@ -140,7 +143,7 @@ func select_window_tile(x: int, y: int) -> Tile:
 		return null
 	if y % WINDOW_Y_GAP != 0 or x == -half_width or x == half_width:
 		return null
-	return windows_pattern[x + half_width]
+	return null if randi_range(0, 10) == 0 else windows_pattern[x + half_width]
 
 
 func select_small_window_tile(x: int, y: int) -> Tile:
