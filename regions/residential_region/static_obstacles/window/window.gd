@@ -1,7 +1,7 @@
 extends BaseStaticObstacle
 
 func _on_damage_apply(body: Node):
-	if not body is Courier or body.is_jumping:
+	if not body is Courier or body.is_jumping():
 		return
 
 	body.take_damage(damage, get_damage_effect())
