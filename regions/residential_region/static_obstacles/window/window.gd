@@ -1,11 +1,10 @@
 extends BaseStaticObstacle
 
 func _on_damage_apply(body: Node):
-	if body is Courier:
-		if !body.is_jumping:
-			body.take_damage(damage, get_damage_effect())
-		else:
-			return
+	if not body is Courier or body.is_jumping:
+		return
+
+	body.take_damage(damage, get_damage_effect())
 
 	if $AnimationPlayer.has_animation("activate"):
 		$AnimationPlayer.play("activate")  # анимация активации
