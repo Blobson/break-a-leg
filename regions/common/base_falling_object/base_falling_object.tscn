@@ -8,6 +8,9 @@ script = ExtResource("2_4tp34")
 speed = 300
 reusable = false
 
+[node name="Area2D" parent="." index="1"]
+collision_mask = 4
+
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(0, 4)
 scale = Vector2(1, 1.4)

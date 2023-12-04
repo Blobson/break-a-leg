@@ -13,11 +13,13 @@ animation = &""
 script = ExtResource("2_ifq5c")
 
 [node name="DeliverArea" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeliverArea"]
 shape = SubResource("CircleShape2D_mpnsf")
 
 [node name="Deadline" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deadline"]
 position = Vector2(0, -50)

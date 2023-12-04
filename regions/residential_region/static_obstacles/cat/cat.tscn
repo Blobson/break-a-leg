@@ -181,7 +181,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_iwdqr"]
 radius = 6.0
 
-[node name="Cat" groups=["cats"] instance=ExtResource("1_17185")]
+[node name="Cat" instance=ExtResource("1_17185")]
 script = ExtResource("2_0kfg6")
 flippable = true
 reusable = false
@@ -191,6 +191,7 @@ hframes = 7
 vframes = 5
 
 [node name="ProximityZone" type="Area2D" parent="." index="1"]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityZone" index="0"]
 position = Vector2(0, 16)
@@ -207,7 +208,7 @@ libraries = {
 }
 
 [node name="FightZone" type="Area2D" parent="." index="4"]
-position = Vector2(38, 5)
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FightZone" index="0"]
 shape = SubResource("CircleShape2D_iwdqr")
