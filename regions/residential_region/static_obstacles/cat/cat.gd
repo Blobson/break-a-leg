@@ -2,9 +2,6 @@ class_name Cat extends BaseStaticObstacle
 
 var courier_nearby: Courier
 
-@onready var sprite = $Sprite2D
-@onready var player = $AnimationPlayer
-
 
 func _ready():
 	super()
@@ -37,10 +34,7 @@ func _on_body_exited_proximity_zone(body: Node):
 		courier_nearby = null
 
 
-func _on_damage_apply(body: Node):
-	if not body.has_method("take_damage"):
-		return
-	
+func _on_damage_apply(_courier: Courier):
 	$ProximityZone.set_deferred("monitoring", false)
 	$Area2D.set_deferred("monitoring", false)
 	if sprite.flip_h:
@@ -52,7 +46,7 @@ func _on_damage_apply(body: Node):
 
 
 func _on_body_entered_fight_zone(body: Node):
-	if not body.has_method("take_damage"):
+	if not body is Courier:
 		return
 	
 	sprite.visible = false

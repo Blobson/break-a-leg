@@ -2,9 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://b1kfj4yaq0t0r" path="res://regions/common/base_falling_object/base_falling_object.tscn" id="1_1cp4t"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqsed"]
-radius = 8.0
-height = 40.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ocyd2"]
+radius = 7.0
 
 [sub_resource type="Animation" id="Animation_4hvio"]
 length = 0.001
@@ -67,9 +66,12 @@ _data = {
 [node name="Sprite2D" parent="." index="0"]
 hframes = 6
 
+[node name="Area2D" parent="." index="1"]
+position = Vector2(0, 8)
+
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(0, 12)
-shape = SubResource("CapsuleShape2D_jqsed")
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ocyd2")
 
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "idle"

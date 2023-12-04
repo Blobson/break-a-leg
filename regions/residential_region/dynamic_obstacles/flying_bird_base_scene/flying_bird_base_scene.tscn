@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://x3arjv0jn5h0"]
+[gd_scene load_steps=8 format=3 uid="uid://x3arjv0jn5h0"]
 
 [ext_resource type="PackedScene" uid="uid://cqcpel6yv3kjo" path="res://regions/common/base_flying_threat/base_flying_threat.tscn" id="1_43x79"]
 
@@ -38,14 +38,86 @@ tracks/0/keys = {
 "values": [0, 1, 2, 4, 3]
 }
 
+[sub_resource type="Animation" id="Animation_weged"]
+resource_name = "push-back"
+length = 2.9
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.55, 0.7, 0.85, 1.05, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(40, -5), Vector2(40, -10), Vector2(40, -11), Vector2(40, -8), Vector2(40, -10), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.75, 1.2, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0472, -0.174533, 0.0, -0.174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.55, 1.7, 1.85, 2, 2.15, 2.3, 2.45, 2.6, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3]
+}
+
+[sub_resource type="Animation" id="Animation_bpsrd"]
+resource_name = "push-forward"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:velocity_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(250, -100), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 3, 4, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bp8gn"]
 _data = {
 "RESET": SubResource("Animation_gu0d6"),
-"idle": SubResource("Animation_eu008")
+"idle": SubResource("Animation_eu008"),
+"push-back": SubResource("Animation_weged"),
+"push-forward": SubResource("Animation_bpsrd")
 }
 
 [node name="FlyingBirdBaseScene" instance=ExtResource("1_43x79")]
-speed = 50
+velocity_modifier = Vector2(200, -100)
 
 [node name="Sprite2D" parent="." index="0"]
 hframes = 5

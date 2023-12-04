@@ -1,12 +1,13 @@
-[gd_scene load_steps=35 format=3 uid="uid://cqrdsna5moeu0"]
+[gd_scene load_steps=42 format=3 uid="uid://cqrdsna5moeu0"]
 
 [ext_resource type="PackedScene" uid="uid://cc87qxoc5va67" path="res://characters/common/base_character/character.tscn" id="1_y42yc"]
 [ext_resource type="Texture2D" uid="uid://3mklfrvjm4v5" path="res://characters/courier/courier_animation.png" id="2_k6816"]
+[ext_resource type="Texture2D" uid="uid://0ddjy1nb0ke6" path="res://characters/courier/effects/bird-hit/bird_hit.png" id="3_u6m6o"]
 [ext_resource type="Texture2D" uid="uid://bfesihjgdntwo" path="res://characters/courier/effects/fight/fight.png" id="3_vay3k"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jppm"]
-radius = 7.0
-height = 16.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g07og"]
+radius = 8.0
+height = 34.0
 
 [sub_resource type="Animation" id="Animation_7uh0f"]
 length = 0.001
@@ -279,6 +280,26 @@ _data = {
 "walking": SubResource("Animation_fswyk")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0mue"]
+atlas = ExtResource("3_u6m6o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8upu8"]
+atlas = ExtResource("3_u6m6o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enpcg"]
+atlas = ExtResource("3_u6m6o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb3y3"]
+atlas = ExtResource("3_u6m6o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_101h7"]
+atlas = ExtResource("3_u6m6o")
+region = Rect2(128, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1cxv"]
 atlas = ExtResource("3_vay3k")
 region = Rect2(0, 0, 64, 60)
@@ -339,6 +360,29 @@ region = Rect2(832, 0, 64, 60)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_b0mue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8upu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enpcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb3y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_101h7")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"bird-hit",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f1cxv")
 }, {
 "duration": 1.0,
@@ -385,7 +429,11 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bfgmq"]
+radius = 8.0
+
 [node name="Courier" instance=ExtResource("1_y42yc")]
+collision_layer = 4
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -3.33333)
@@ -395,8 +443,8 @@ hframes = 12
 vframes = 12
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 8)
-shape = SubResource("CapsuleShape2D_8jppm")
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_g07og")
 
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "run"
@@ -414,7 +462,14 @@ autostart = true
 [node name="Animations" type="AnimatedSprite2D" parent="." index="4"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_mgkdk")
-animation = &"fight"
-autoplay = "fight"
-frame = 13
+animation = &"bird-hit"
+frame = 5
 frame_progress = 1.0
+
+[node name="CourierFeet" type="CharacterBody2D" parent="." index="5"]
+position = Vector2(0, 10)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CourierFeet" index="0"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_bfgmq")

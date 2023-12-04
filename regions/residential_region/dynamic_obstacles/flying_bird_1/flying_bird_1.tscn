@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://x3arjv0jn5h0" path="res://regions/residential_region/dynamic_obstacles/flying_bird_base_scene/flying_bird_base_scene.tscn" id="1_u02hl"]
 [ext_resource type="Texture2D" uid="uid://c6rm5f4sj1766" path="res://regions/residential_region/dynamic_obstacles/flying_bird_1/flying_bird_1.png" id="2_awuoo"]
 
-[node name="FlyingBird_1" instance=ExtResource("1_u02hl")]
+[node name="FlyingBird1" instance=ExtResource("1_u02hl")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_awuoo")

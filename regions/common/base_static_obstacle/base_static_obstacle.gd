@@ -4,6 +4,9 @@ class_name BaseStaticObstacle extends Node2D
 @export var flippable: bool = false
 @export var reusable: bool = true
 
+@onready var player = $AnimationPlayer
+@onready var sprite = $Sprite2D
+
 enum ObstacleState {IDLE, ACTIVATED}
 var state: ObstacleState = ObstacleState.IDLE
 
@@ -19,25 +22,29 @@ func get_damage_effect() -> DamageEffect:
 
 
 func _on_body_entered(body: Node):
-	if not is_instance_of(body, Courier) or state != ObstacleState.IDLE:
+	if state != ObstacleState.IDLE:
 		return
 	
-	state = ObstacleState.ACTIVATED    # смена state на активированную
+	var courier = body if body is Courier else body.get_parent()
+	if not courier is Courier:
+		return
+	
+	# смена state на активированную
+	state = ObstacleState.ACTIVATED
 	
 	# Если препятствие может поворачиваться, то используется _rotate_to_target()
 	if flippable == true:
-		_rotate_to_target(body)
+		_rotate_to_target(courier)
 	
-	_on_damage_apply(body)
+	_on_damage_apply(courier)
 
 
-func _on_damage_apply(body: Node):
-	if body.has_method("take_damage"):
-		body.take_damage(damage, get_damage_effect())
+func _on_damage_apply(courier: Courier):
+	courier.take_damage(damage, get_damage_effect())
 	
-	if $AnimationPlayer.has_animation("activate"):
-		$AnimationPlayer.play("activate")  # анимация активации
-		$AnimationPlayer.animation_finished.connect(func(a): if a == "activate": _on_damage_done(), CONNECT_ONE_SHOT)
+	if player.has_animation("activate"):
+		player.play("activate")  # анимация активации
+		player.animation_finished.connect(func(a): if a == "activate": _on_damage_done(), CONNECT_ONE_SHOT)
 	else:
 		_on_damage_done()
 
@@ -45,11 +52,10 @@ func _on_damage_apply(body: Node):
 func _on_damage_done():
 	if reusable:
 		state = ObstacleState.IDLE
-		if $AnimationPlayer.has_animation("idle"):
-			$AnimationPlayer.play("idle")
+		if player.has_animation("idle"):
+			player.play("idle")
 
 
 func _rotate_to_target(body):
 	# если позиция объекта правее чем позиция игрока, то поворачиваем модель объекта слева-направо
-	$Sprite2D.flip_h = body.global_position.x > global_position.x
-	
+	sprite.flip_h = body.global_position.x > global_position.x

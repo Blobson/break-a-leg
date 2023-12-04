@@ -40,6 +40,11 @@ theme/custom="res://ui/themes/main_theme.tres"
 
 pointing/emulate_touch_from_mouse=true
 
+[layer_names]
+
+2d_physics/layer_2="courier-feet"
+2d_physics/layer_3="courier-body"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3
