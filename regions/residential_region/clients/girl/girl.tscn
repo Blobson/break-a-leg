@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://crmxx5ayn5805"]
+[gd_scene load_steps=13 format=3 uid="uid://crmxx5ayn5805"]
 
 [ext_resource type="PackedScene" uid="uid://il5bs34piao" path="res://regions/common/base_client/base_client.tscn" id="1_os1e8"]
 [ext_resource type="Texture2D" uid="uid://bg1q0s7xupa6j" path="res://regions/residential_region/clients/girl/girl.png" id="2_n74te"]
+[ext_resource type="Texture2D" uid="uid://34w3xdv6hjgm" path="res://regions/residential_region/clients/girl/girl_with_package.png" id="3_xxh27"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wyeh"]
 atlas = ExtResource("2_n74te")
@@ -17,6 +18,22 @@ region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cr0qx"]
 atlas = ExtResource("2_n74te")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2cd6"]
+atlas = ExtResource("3_xxh27")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxlld"]
+atlas = ExtResource("3_xxh27")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1swa"]
+atlas = ExtResource("3_xxh27")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bamt"]
+atlas = ExtResource("3_xxh27")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yaf77"]
@@ -37,9 +54,26 @@ animations = [{
 "loop": true,
 "name": &"wait",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2cd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxlld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1swa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bamt")
+}],
+"loop": true,
+"name": &"with_package",
+"speed": 5.0
 }]
 
 [node name="Girl" instance=ExtResource("1_os1e8")]
 sprite_frames = SubResource("SpriteFrames_yaf77")
-animation = &"wait"
+animation = &"with_package"
 autoplay = "wait"

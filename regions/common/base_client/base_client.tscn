@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://regions/common/base_client/base_client.gd" id="2_ifq5c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mpnsf"]
-radius = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl6y8"]
+size = Vector2(96, 32)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fssps"]
 normal = Vector2(0, 1)
@@ -13,14 +13,14 @@ animation = &""
 script = ExtResource("2_ifq5c")
 
 [node name="DeliverArea" type="Area2D" parent="."]
-collision_mask = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeliverArea"]
-shape = SubResource("CircleShape2D_mpnsf")
+shape = SubResource("RectangleShape2D_kl6y8")
 
 [node name="Deadline" type="Area2D" parent="."]
-collision_mask = 4
+position = Vector2(0, -18)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deadline"]
-position = Vector2(0, -50)
 shape = SubResource("WorldBoundaryShape2D_fssps")
