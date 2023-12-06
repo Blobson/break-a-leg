@@ -35,6 +35,8 @@ func _on_body_exited_proximity_zone(body: Node):
 
 
 func _on_damage_apply(_courier: Courier):
+	if _courier.invulnerability:
+		return
 	$ProximityZone.set_deferred("monitoring", false)
 	$Area2D.set_deferred("monitoring", false)
 	if sprite.flip_h:
