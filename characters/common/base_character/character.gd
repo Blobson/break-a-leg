@@ -15,6 +15,8 @@ signal courier_dead
 ## Длина прыжка в тайлах
 @export var jump_length: float = 1.5
 
+## Длительность щита
+@export var shield_lenght: float = 4.
 
 ## Жизни персонажа
 @export var health: int = 30 :
@@ -57,12 +59,13 @@ var level_tile_size: Vector2i = Vector2i(32, 32)
 var movement_tween: Tween
 var next_move: Vector2 = Vector2.ZERO
 var last_tile: int = 0
-var ignore_input = false
+var ignore_input: bool = false
+var invulnerability: bool = false
 
 
 ## Получение урона
 func take_damage(damage: int, effect: DamageEffect):
-	if health > 0:
+	if health > 0 and !invulnerability:
 		health -= damage
 		Game.score -= damage_score_losing
 		if effect:
@@ -73,7 +76,8 @@ func take_damage(damage: int, effect: DamageEffect):
 
 
 func _init():
-	Game.level_start.connect(_on_level_start)	
+	Game.level_start.connect(_on_level_start)
+	Game.shield_activate.connect(_on_shield_activate)
 	SwipeDetector.swiped.connect(_on_swipe)
 
 
@@ -177,6 +181,25 @@ func _end_move():
 	else:
 		movement_tween = null
 
+## Щит ability
+func _on_shield_activate():
+	invulnerability = true
+	animations.visible = true
+	animations.play("shield")
+	_set_shield_invisible()
+
+func _on_shield_timeout():
+	invulnerability = false
+	animations.visible = false
+	animations.set_modulate(Color(1, 1, 1, 1))
+
+func _set_shield_invisible():
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.set_ease(Tween.EASE_IN)
+	tween.finished.connect(_on_shield_timeout)
+	tween.tween_method(animations.set_modulate, Color(1, 1, 1, 1), Color(1, 1, 1, 0), shield_lenght)
+	
 
 ## Прыжок с парашютом по окончании уровня и если health = 0
 func parachute_jump():

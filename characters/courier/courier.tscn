@@ -1,9 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://cqrdsna5moeu0"]
+[gd_scene load_steps=48 format=3 uid="uid://cqrdsna5moeu0"]
 
 [ext_resource type="PackedScene" uid="uid://cc87qxoc5va67" path="res://characters/common/base_character/character.tscn" id="1_y42yc"]
 [ext_resource type="Texture2D" uid="uid://3mklfrvjm4v5" path="res://characters/courier/courier_animation.png" id="2_k6816"]
 [ext_resource type="Texture2D" uid="uid://0ddjy1nb0ke6" path="res://characters/courier/effects/bird-hit/bird_hit.png" id="3_u6m6o"]
 [ext_resource type="Texture2D" uid="uid://bfesihjgdntwo" path="res://characters/courier/effects/fight/fight.png" id="3_vay3k"]
+[ext_resource type="Texture2D" uid="uid://7aytmbuj186o" path="res://characters/courier/effects/shield/shield.png" id="5_0pncg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g07og"]
 radius = 8.0
@@ -356,6 +357,26 @@ region = Rect2(768, 0, 64, 60)
 atlas = ExtResource("3_vay3k")
 region = Rect2(832, 0, 64, 60)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvxhh"]
+atlas = ExtResource("5_0pncg")
+region = Rect2(112, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k1y6"]
+atlas = ExtResource("5_0pncg")
+region = Rect2(56, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4r0o"]
+atlas = ExtResource("5_0pncg")
+region = Rect2(0, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46od8"]
+atlas = ExtResource("5_0pncg")
+region = Rect2(0, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ey3x"]
+atlas = ExtResource("5_0pncg")
+region = Rect2(56, 0, 56, 56)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgkdk"]
 animations = [{
 "frames": [{
@@ -427,6 +448,26 @@ animations = [{
 "loop": false,
 "name": &"fight",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvxhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k1y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4r0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46od8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ey3x")
+}],
+"loop": true,
+"name": &"shield",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bfgmq"]
@@ -461,10 +502,10 @@ autostart = true
 
 [node name="Animations" type="AnimatedSprite2D" parent="." index="4"]
 visible = false
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_mgkdk")
-animation = &"bird-hit"
-frame = 5
-frame_progress = 1.0
+animation = &"shield"
+frame_progress = 0.788433
 
 [node name="CourierFeet" type="CharacterBody2D" parent="." index="5"]
 position = Vector2(0, 10)
