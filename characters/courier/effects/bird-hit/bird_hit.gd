@@ -15,6 +15,4 @@ func _on_animation_end(courier: Courier):
 	courier.enable_input()
 	courier.animations.visible = false
 	courier.animations.position = Vector2.ZERO
-	finished.emit(courier)
-	queue_free()
-	
+	finished.emit(courier)	

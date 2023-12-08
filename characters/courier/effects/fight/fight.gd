@@ -12,9 +12,7 @@ func apply(courier: Courier):
 
 func _on_animation_end(courier: Courier):
 	courier.enable_input()
-	courier.disable_slowdown()
 	courier.sprite.visible = true
 	courier.animations.visible = false
 	finished.emit(courier)
-	queue_free()
 	

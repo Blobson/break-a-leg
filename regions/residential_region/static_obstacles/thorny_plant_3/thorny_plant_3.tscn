@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://drnyjjv6coxn5"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_m0rs4"]
-[ext_resource type="Texture2D" uid="uid://bkwisj0hdpyyk" path="res://regions/residential_region/static_obstacles/textures/thorny_plant_small_3.png" id="2_jubw3"]
+[ext_resource type="Texture2D" uid="uid://bkwisj0hdpyyk" path="res://regions/residential_region/static_obstacles/thorny_plant_3/thorny_plant_3.png" id="2_jubw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhxca"]
 size = Vector2(28, 23)

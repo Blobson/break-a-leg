@@ -68,8 +68,10 @@ func take_damage(damage: int, effect: DamageEffect):
 	if health > 0 and !invulnerability:
 		health -= damage
 		Game.score -= damage_score_losing
-		if effect:
-			effect.apply(self)
+		if not effect:
+			effect = DamageEffect.new()
+		effect.apply(self)
+		
 	if health <= 0:
 		parachute_jump()
 		courier_dead.emit()
@@ -215,6 +217,11 @@ func _on_energy_recover():
 
 func enable_slowdown():
 	velocity.y = -move_speed * SLOW_SPEED_MULTIPLIER
+
+
+func recover_speed(recovery_time: float):
+	var speed_tween = create_tween()
+	speed_tween.tween_property(self, "velocity:y", -move_speed, recovery_time)
 
 
 func disable_slowdown():

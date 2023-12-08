@@ -10,6 +10,5 @@ func apply(courier: Courier):
 
 func _on_animation_end(courier: Courier):
 	courier.ignore_input = false
-	courier.disable_slowdown()
 	courier.player.play('run')
 	finished.emit(courier)
