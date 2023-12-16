@@ -117,7 +117,6 @@ _data = {
 }
 
 [node name="FlyingBirdBaseScene" instance=ExtResource("1_43x79")]
-velocity_modifier = Vector2(200, -100)
 
 [node name="Sprite2D" parent="." index="0"]
 hframes = 5
