@@ -69,17 +69,20 @@ func generate_next_client_x() -> int:
 
 
 func regenerate_windows_pattern():
-	windows_pattern = [ null ]
-	while windows_pattern.size() < level_template.width-1:
+	windows_pattern = []
+	while windows_pattern.size() < level_template.width:
 		var batch_size = randi_range(1, 2)
 		if randi_range(0, 9) == 0:
 			batch_size = 3
-		batch_size = min(batch_size, level_template.width - 1 - windows_pattern.size())
+		batch_size = min(batch_size, level_template.width - windows_pattern.size())
 		var small_windows_in_batch = batch_size - max(1, batch_size - 1)
 		while batch_size > 0:
 			var tile = Tile.new()
 			tile.atlas_id = windows_atlas_id
-			if small_windows_in_batch and randi_range(0, batch_size - 1) == 0:
+			if windows_pattern.size() == 0 or windows_pattern.size() == level_template.width-1:
+				tile.scene_id = Utils.random_choice(level_template.tiles.windows.edge)
+				tile.is_obstacle_allowed = false
+			elif small_windows_in_batch and randi_range(0, batch_size - 1) == 0:
 				tile.scene_id = Utils.random_choice(level_template.tiles.windows.small)
 				tile.is_obstacle_allowed = false
 				small_windows_in_batch -= 1
@@ -87,10 +90,10 @@ func regenerate_windows_pattern():
 				tile.scene_id = Utils.random_choice(level_template.tiles.windows.full)
 			windows_pattern.append(tile)
 			batch_size -= 1
-		windows_pattern.append(null)
-		if randi_range(0, 8) == 0:
+		if windows_pattern.size() < level_template.width-1:
 			windows_pattern.append(null)
-	windows_pattern.append(null)
+		if windows_pattern.size() < level_template.width-1 and randi_range(0, 9) == 0:
+			windows_pattern.append(null)
 	next_client_coords.x = generate_next_client_x()
 	return windows_pattern
 
@@ -128,7 +131,7 @@ func select_wall_tile(x: int, y: int) -> Tile:
 		tile.coords.x = Utils.random_choice(level_template.tiles.walls.left)
 	elif x == half_width:
 		tile.coords.x = Utils.random_choice(level_template.tiles.walls.right)
-	elif randi_range(0, 19) == 0:
+	elif randi_range(0, 4) == 0:
 		tile.coords.x = Utils.random_choice(level_template.tiles.walls.secondary)
 	else:
 		tile.coords.x = Utils.random_choice(level_template.tiles.walls.main)
@@ -141,20 +144,9 @@ func select_window_tile(x: int, y: int) -> Tile:
 			regenerate_windows_pattern()
 			windows_pattern_y = y
 		return null
-	if y % WINDOW_Y_GAP != 0 or x == -half_width or x == half_width:
+	if y % WINDOW_Y_GAP != 0:
 		return null
-	return null if randi_range(0, 10) == 0 else windows_pattern[x + half_width]
-
-
-func select_small_window_tile(x: int, y: int) -> Tile:
-	if y % frieze_y_step == 0 or y % WINDOW_Y_GAP != 0 or \
-			x == -half_width or x == half_width or randi_range(0, 100) != 0:
-		return null
-	var tile = Tile.new()
-	tile.atlas_id = windows_atlas_id
-	tile.scene_id = Utils.random_choice(level_template.tiles.windows.small)
-	tile.is_obstacle_allowed = false
-	return tile
+	return null if randi_range(0, 9) == 0 else windows_pattern[x + half_width]
 
 
 func select_decor_tile(_x: int, y: int) -> Tile:

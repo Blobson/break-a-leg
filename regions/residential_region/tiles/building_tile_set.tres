@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=29 format=3 uid="uid://dxx1dxcuaajk6"]
+[gd_resource type="TileSet" load_steps=30 format=3 uid="uid://dxx1dxcuaajk6"]
 
 [ext_resource type="Texture2D" uid="uid://c8lciq6c2h8ct" path="res://regions/residential_region/tiles/textures/tiles.png" id="1_6ac20"]
 [ext_resource type="Texture2D" uid="uid://dyrqvpk4sgg2k" path="res://regions/residential_region/tiles/textures/posters_big_size_32x64.png" id="2_d1u0w"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bbrru1s4rp3qt" path="res://regions/residential_region/clients/robot/robot.tscn" id="18_tkdpo"]
 [ext_resource type="PackedScene" uid="uid://bbfctc0cwgmxv" path="res://regions/residential_region/static_obstacles/window/window_full_2.tscn" id="19_lw2yg"]
 [ext_resource type="PackedScene" uid="uid://dx0q72caoy8wh" path="res://regions/residential_region/static_obstacles/window/window_small.tscn" id="20_7gb3r"]
+[ext_resource type="PackedScene" uid="uid://05863htk2u4o" path="res://regions/residential_region/static_obstacles/window/window_edge.tscn" id="21_fn0fd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b6r7"]
 resource_name = "walls"
@@ -115,6 +116,7 @@ resource_name = "windows"
 scenes/1/scene = ExtResource("18_dcoyh")
 scenes/2/scene = ExtResource("19_lw2yg")
 scenes/3/scene = ExtResource("20_7gb3r")
+scenes/4/scene = ExtResource("21_fn0fd")
 
 [resource]
 tile_size = Vector2i(32, 32)

@@ -36,7 +36,8 @@
 				},
 				"windows": {
 					"full": [ 1, 2 ],
-					"small": [ 3 ]
+					"small": [ 3 ],
+					"edge": [ 4 ]
 				}
 			},
 			"threats": {
