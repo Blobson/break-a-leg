@@ -16,6 +16,7 @@ class WallTilePack:
 class WindowTilePack:
 	var full: Array[int] = []
 	var small: Array[int] = []
+	var edge: Array[int] = []
 
 
 # Структура для хранения координат стеновых и оконных тайлов
@@ -129,12 +130,13 @@ func init(parent_region: Region, data: Dictionary):
 	if 'windows' not in data.tiles or not data.tiles.windows:
 		push_error("LevelTemplate without 'tiles.windows' field is invalid")
 		return null
-	for field in ['full', 'small']:
+	for field in ['full', 'small', 'edge']:
 		if field not in data.tiles.windows or not data.tiles.windows[field]:
 			push_error("LevelTemplate without 'tiles.windows.%s' list is invalid" % [field])
 			return null
 	tiles.windows.full.assign(data.tiles.windows.full)
 	tiles.windows.small.assign(data.tiles.windows.small)
+	tiles.windows.edge.assign(data.tiles.windows.edge)
 	
 	# загружаем угрозы
 	if 'threats' not in data or not data.threats:

@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=3 uid="uid://05863htk2u4o"]
+
+[ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_m2e27"]
+[ext_resource type="Script" path="res://regions/residential_region/static_obstacles/window/window.gd" id="2_wj24y"]
+[ext_resource type="Texture2D" uid="uid://vojmnsevcg0j" path="res://regions/residential_region/static_obstacles/window/window_edge.png" id="3_ba7a1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svqjf"]
+size = Vector2(13, 22)
+
+[sub_resource type="Animation" id="Animation_o8n1m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kkv51"]
+resource_name = "activate"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_vfb2u"]
+resource_name = "broken_1"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_fni01"]
+resource_name = "broken_2"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_cyw21"]
+resource_name = "broken_3"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hf3b5"]
+_data = {
+"RESET": SubResource("Animation_o8n1m"),
+"activate": SubResource("Animation_kkv51"),
+"broken_1": SubResource("Animation_vfb2u"),
+"broken_2": SubResource("Animation_fni01"),
+"broken_3": SubResource("Animation_cyw21")
+}
+
+[node name="WindowEdge" instance=ExtResource("1_m2e27")]
+script = ExtResource("2_wj24y")
+reusable = false
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_ba7a1")
+hframes = 13
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_svqjf")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_hf3b5")
+}

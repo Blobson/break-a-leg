@@ -12,6 +12,7 @@ func _on_damage_apply(courier: Courier):
 	else:
 		_on_damage_done()
 
+
 func _on_damage_done():
-	var broaken_animation: String = "broken_%d" % randi_range(1, 3)
-	player.play(broaken_animation)
+	var broken_animation: String = "broken_%d" % randi_range(1, 3)
+	player.play(broken_animation)
