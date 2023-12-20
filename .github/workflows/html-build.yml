@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  GODOT_VERSION: ${{ vars.GODOT_VERSION }}   
+  GODOT_VERSION: ${{ vars.GODOT_VERSION }}
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -50,18 +50,15 @@ jobs:
           sed -i 's#\(		<script src="index.js"></script>\)#		<script src="coi-serviceworker.js"></script>\n\1#g' index.html
 
       - name: Upload artifact
-        if: contains(github.ref, 'main')
         uses: actions/upload-pages-artifact@v2
         with:
           path: 'build'
       
       - name: Deploy to GitHub Pages
-        if: contains(github.ref, 'main')
         id: deployment
         uses: actions/deploy-pages@v2
 
       - name: URL
-        if: contains(github.ref, 'main')
         run: |
           echo "PAGES URL: ${{ steps.deployment.outputs.page_url }}"
         
