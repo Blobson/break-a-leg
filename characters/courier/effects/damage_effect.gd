@@ -16,4 +16,5 @@ func apply(courier: Courier):
 
 func recover(courier: Courier):
 	courier.player.play("recovery")
+	courier.player.queue("run")
 	courier.recover_speed(speed_recovery_time)
