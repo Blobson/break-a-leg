@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6rm5f4sj1766" path="res://regions/residential_region/dynamic_obstacles/flying_bird_1/flying_bird_1.png" id="2_awuoo"]
 
 [node name="FlyingBird1" instance=ExtResource("1_u02hl")]
+velocity_modifier = Vector2(0, 0)
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_awuoo")

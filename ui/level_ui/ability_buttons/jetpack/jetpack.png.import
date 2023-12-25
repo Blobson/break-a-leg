@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qolum06088ws"
-path="res://.godot/imported/shield_inactive.png-5e45c4561fca213ab65bf0bf5a4525d1.ctex"
+uid="uid://dtqgk60aehpir"
+path="res://.godot/imported/jetpack.png-65e1d1799acabd8bcf1c39390d0ec3e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/level_ui/ability_buttons/shield/shield_inactive.png"
-dest_files=["res://.godot/imported/shield_inactive.png-5e45c4561fca213ab65bf0bf5a4525d1.ctex"]
+source_file="res://ui/level_ui/ability_buttons/jetpack/jetpack.png"
+dest_files=["res://.godot/imported/jetpack.png-65e1d1799acabd8bcf1c39390d0ec3e1.ctex"]
 
 [params]
 
