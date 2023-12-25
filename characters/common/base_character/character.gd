@@ -145,6 +145,7 @@ func _is_moving() -> bool:
 
 func _start_move(direction: Vector2) -> Tween:
 	var target_position: Vector2
+	var last_direction: Vector2 = direction
 	if direction == Vector2.UP and energy >= ENERGY_PER_SPRINT:
 		player.play("jump_up")
 		target_position = Vector2(
@@ -163,6 +164,9 @@ func _start_move(direction: Vector2) -> Tween:
 		var min_x = (-level_width / 2) + (level_tile_size.x / 3)
 		if target_position.x <= min_x: 
 			return null
+		if last_direction == direction:
+			player.queue("left")
+			player.queue("run")
 	elif direction == Vector2.RIGHT:
 		player.play("right")
 		target_position = Vector2(
@@ -173,13 +177,15 @@ func _start_move(direction: Vector2) -> Tween:
 		var max_x = (level_width / 2) - (level_tile_size.x / 3)
 		if target_position.x >= max_x:
 			return null
+		if last_direction == direction:
+			player.queue("right")
+			player.queue("run")
 	else:
 		return null
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", target_position, player.current_animation_length)
 	tween.finished.connect(_end_move)
 	return tween
-
 
 func _end_move():
 	if next_move:
