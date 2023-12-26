@@ -1,8 +1,8 @@
 extends BaseAbilityButton
-class_name HookAbilityButton
+class_name JetpackAbilityButton
 
 func _on_pressed():
-	Game.hook_activate.emit()
+	Game.jetpack_activate.emit()
 	ability_count -= 1
 	$Counter.text = str(ability_count)
 	self.disabled = true

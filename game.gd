@@ -12,7 +12,7 @@ signal score_updated(from: int, to: int)
 signal task_accepted(task: Task)
 signal new_client(position: Vector2i)
 signal shield_activate()
-signal hook_activate()
+signal jetpack_activate()
 
 const MAIN_SCREEN = preload("res://ui/main_screen/main_screen.tscn")
 const PHONE_MENU = preload("res://ui/menu/phone_menu/phone_menu.tscn")

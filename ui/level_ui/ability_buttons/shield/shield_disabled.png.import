@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtqgk60aehpir"
-path="res://.godot/imported/hook.png-9930e5b573f2cab390969b1d3335c860.ctex"
+uid="uid://qolum06088ws"
+path="res://.godot/imported/shield_disabled.png-8ad950d148c3d5f53f15d262dd9d78eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/level_ui/ability_buttons/hook/hook.png"
-dest_files=["res://.godot/imported/hook.png-9930e5b573f2cab390969b1d3335c860.ctex"]
+source_file="res://ui/level_ui/ability_buttons/shield/shield_disabled.png"
+dest_files=["res://.godot/imported/shield_disabled.png-8ad950d148c3d5f53f15d262dd9d78eb.ctex"]
 
 [params]
 

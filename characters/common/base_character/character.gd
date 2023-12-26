@@ -2,6 +2,7 @@ class_name Courier extends CharacterBody2D
 
 const ENERGY_PER_SPRINT = 100
 const SLOW_SPEED_MULTIPLIER = 0.25
+const JETPACK_SPEED_MULTIPLIER = 1.5
 
 signal courier_dead
 
@@ -16,7 +17,10 @@ signal courier_dead
 @export var jump_length: float = 1.5
 
 ## Длительность щита
-@export var shield_lenght: float = 4.
+@export var shield_length: float = 4.
+
+## Длительность джетпака
+@export var jetpack_length: float = 4.
 
 ## Жизни персонажа
 @export var health: int = 30 :
@@ -80,6 +84,7 @@ func take_damage(damage: int, effect: DamageEffect):
 func _init():
 	Game.level_start.connect(_on_level_start)
 	Game.shield_activate.connect(_on_shield_activate)
+	Game.jetpack_activate.connect(_on_jetpack_activate)
 	SwipeDetector.swiped.connect(_on_swipe)
 
 
@@ -183,24 +188,52 @@ func _end_move():
 	else:
 		movement_tween = null
 
-## Щит ability
+
+## Jetpack ability
+func _on_jetpack_activate():
+	var tween = create_tween()
+	invulnerability = true
+	disable_collision()
+	disable_input()
+	set_z_index(10)
+	player.play("jetpack_start")
+	$JetpackTimer.start(jetpack_length)
+	if(player.animation_changed):
+		velocity.y = -move_speed * JETPACK_SPEED_MULTIPLIER
+		tween.tween_method($Sprite2D.set_scale, Vector2(1.1, 1.1), Vector2(1.24, 1.24), 0.2)
+
+
+func _on_jetpack_timer_timeout():
+	var tween = create_tween()
+	invulnerability = false
+	enable_collision()
+	enable_input()
+	set_z_index(0)
+	velocity.y = -move_speed
+	tween.tween_method($Sprite2D.set_scale, Vector2(1.24, 1.24), Vector2(1.1, 1.1), 0.3)
+	player.play("jetpack_stop")
+
+
+## Shield ability
 func _on_shield_activate():
 	invulnerability = true
 	animations.visible = true
 	animations.play("shield")
 	_set_shield_invisible()
 
+
 func _on_shield_timeout():
 	invulnerability = false
 	animations.visible = false
 	animations.set_modulate(Color(1, 1, 1, 1))
+
 
 func _set_shield_invisible():
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_ELASTIC)
 	tween.set_ease(Tween.EASE_IN)
 	tween.finished.connect(_on_shield_timeout)
-	tween.tween_method(animations.set_modulate, Color(1, 1, 1, 1), Color(1, 1, 1, 0), shield_lenght)
+	tween.tween_method(animations.set_modulate, Color(1, 1, 1, 1), Color(1, 1, 1, 0), shield_length)
 	
 
 ## Прыжок с парашютом по окончании уровня и если health = 0
@@ -222,6 +255,16 @@ func enable_slowdown():
 func recover_speed(recovery_time: float):
 	var speed_tween = create_tween()
 	speed_tween.tween_property(self, "velocity:y", -move_speed, recovery_time)
+
+
+func disable_collision():
+	$CollisionShape2D.set_disabled(true)
+	$CourierFeet/CollisionShape2D.set_disabled(true)
+
+
+func enable_collision():
+	$CollisionShape2D.set_disabled(false)
+	$CourierFeet/CollisionShape2D.set_disabled(false)
 
 
 func disable_slowdown():
