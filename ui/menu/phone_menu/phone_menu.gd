@@ -1,15 +1,17 @@
 extends PanelContainer
 
 const PANE_SLIDE_TIME = 0.7
-@onready var contents = $VBoxContainer/Contents
+@onready var contents = $Frame/Contents
 var tween: Tween
 
 
 func _ready():
-	$VBoxContainer/PhoneToolbar.back_pressed.connect(func(): _exit_menu())
-	$VBoxContainer/PhoneToolbar.shop_pressed.connect(func(): _show_pane(0))
-	$VBoxContainer/PhoneToolbar.tasks_pressed.connect(func(): _show_pane(1))
-	$VBoxContainer/PhoneToolbar.rating_pressed.connect(func(): _show_pane(2))
+	$Frame/Contents/ShopPane/Header/BackButton.pressed.connect(func(): _exit_menu())
+	$Frame/Contents/TasksPane/Header/BackButton.pressed.connect(func(): _exit_menu())
+	$Frame/Contents/RatingPane/Header/BackButton.pressed.connect(func(): _exit_menu())
+	$CanvasLayer/PhoneToolbar.shop_pressed.connect(func(): _show_pane(0))
+	$CanvasLayer/PhoneToolbar.tasks_pressed.connect(func(): _show_pane(1))
+	$CanvasLayer/PhoneToolbar.rating_pressed.connect(func(): _show_pane(2))
 
 
 func _exit_menu():
@@ -17,13 +19,12 @@ func _exit_menu():
 
 
 func _show_pane(index: int):
-	var pane_width = contents.size.x / contents.get_child_count()
+	var panes_count = contents.get_child_count()
 	if tween and tween.is_running():
 		tween.kill()
-	var last_offset_x = contents.position.x
-	var new_offset_x = pane_width - index * pane_width
-	var time = PANE_SLIDE_TIME * abs(last_offset_x - new_offset_x) / pane_width
-	tween = create_tween()
-	tween.tween_property(contents, "position:x", new_offset_x, time) \
+	var time = PANE_SLIDE_TIME * abs(anchor_left + index)
+	tween = create_tween() \
 		.set_ease(Tween.EASE_IN_OUT) \
 		.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "anchor_left", -index, time)
+	tween.parallel().tween_property(self, "anchor_right", -index + panes_count, time)

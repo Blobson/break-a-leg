@@ -13,20 +13,20 @@ const PACKAGE_PRICE = 10
 const MAX_DIFFICULTY = 3
 const DIFFICULTIES = {
 	0: {
-		"name": "too easy",
-		"color": Color8(200, 200, 200, 255)
+		"name": "easy",
+		"color": Color8(1, 255, 19, 255)
 	},
 	1: {
 		"name": "normal",
-		"color": Color8(54, 141, 0, 255)
+		"color": Color8(254, 184, 0, 255)
 	},
 	2: {
 		"name": "hard",
-		"color": Color8(196, 130, 0, 255)
+		"color": Color8(255, 67, 1, 255)
 	},
 	3: {
 		"name": "impossible",
-		"color": Color8(196, 53, 0, 255)
+		"color": Color8(255, 67, 1, 255)
 	}
 }
 

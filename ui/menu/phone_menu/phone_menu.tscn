@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7hor218yg6nl"]
+[gd_scene load_steps=11 format=3 uid="uid://c7hor218yg6nl"]
 
 [ext_resource type="Texture2D" uid="uid://babgqss7o14q0" path="res://ui/menu/phone_menu/bg_violet.png" id="1_b1gdd"]
 [ext_resource type="Script" path="res://ui/menu/phone_menu/phone_menu.gd" id="2_ncw2f"]
 [ext_resource type="PackedScene" uid="uid://bpwuqbql07ixw" path="res://ui/menu/phone_menu/task_list/task_list.tscn" id="2_xdwds"]
 [ext_resource type="PackedScene" uid="uid://c3mka43fn7n45" path="res://ui/menu/phone_menu/phone_toolbar/phone_toolbar.tscn" id="3_5ptrm"]
+[ext_resource type="Theme" uid="uid://cjb3iii3t3n56" path="res://ui/themes/main_theme.tres" id="4_qhvvf"]
 [ext_resource type="PackedScene" uid="uid://dt32m5rthd35v" path="res://ui/menu_audio/menu_audio.tscn" id="5_ofuaa"]
+[ext_resource type="Texture2D" uid="uid://dyknifbpcieg4" path="res://ui/menu/phone_menu/phone_toolbar/btn_back.png" id="5_rnslo"]
+[ext_resource type="Texture2D" uid="uid://2oqyngbvnpfo" path="res://ui/menu/phone_menu/phone_toolbar/btn_back_pressed.png" id="6_0n403"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c7fgt"]
 texture = ExtResource("1_b1gdd")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4yyi"]
 
 [node name="PhoneMenu" type="PanelContainer"]
 anchors_preset = -1
@@ -18,61 +23,171 @@ anchor_right = 2.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_c7fgt")
 script = ExtResource("2_ncw2f")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Frame" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_bottom = 104
 
-[node name="Contents" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Contents" type="HBoxContainer" parent="Frame"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ShopPane" type="VBoxContainer" parent="VBoxContainer/Contents"]
+[node name="ShopPane" type="VBoxContainer" parent="Frame/Contents"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/Contents/ShopPane"]
+[node name="Header" type="HBoxContainer" parent="Frame/Contents/ShopPane"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Frame/Contents/ShopPane/Header"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h4yyi")
+
+[node name="BackButton" type="TextureButton" parent="Frame/Contents/ShopPane/Header"]
+custom_minimum_size = Vector2(104, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("5_rnslo")
+texture_pressed = ExtResource("6_0n403")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Frame/Contents/ShopPane/Header"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h4yyi")
+
+[node name="Label" type="Label" parent="Frame/Contents/ShopPane/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_type_variation = &"HeaderLarge"
-theme_override_colors/font_color = Color(0.996078, 0.752941, 0.027451, 1)
+theme = ExtResource("4_qhvvf")
+theme_type_variation = &"PaneTitle"
 text = "Shop"
+vertical_alignment = 1
+
+[node name="Body" type="PanelContainer" parent="Frame/Contents/ShopPane"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Frame/Contents/ShopPane/Body"]
+layout_mode = 2
+theme_type_variation = &"TextLarge"
+text = "No
+items
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TasksPane" type="VBoxContainer" parent="VBoxContainer/Contents"]
+[node name="TasksPane" type="VBoxContainer" parent="Frame/Contents"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/Contents/TasksPane"]
+[node name="Header" type="HBoxContainer" parent="Frame/Contents/TasksPane"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_type_variation = &"HeaderLarge"
-theme_override_colors/font_color = Color(0.996078, 0.752941, 0.027451, 1)
+
+[node name="VSeparator" type="VSeparator" parent="Frame/Contents/TasksPane/Header"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h4yyi")
+
+[node name="BackButton" type="TextureButton" parent="Frame/Contents/TasksPane/Header"]
+custom_minimum_size = Vector2(104, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("5_rnslo")
+texture_pressed = ExtResource("6_0n403")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Frame/Contents/TasksPane/Header"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h4yyi")
+
+[node name="Label" type="Label" parent="Frame/Contents/TasksPane/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_qhvvf")
+theme_type_variation = &"PaneTitle"
 text = "Tasks"
-horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TaskList" parent="VBoxContainer/Contents/TasksPane" instance=ExtResource("2_xdwds")]
+[node name="Body" type="PanelContainer" parent="Frame/Contents/TasksPane"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TaskList" parent="Frame/Contents/TasksPane/Body" instance=ExtResource("2_xdwds")]
 layout_mode = 2
 scroll_deadzone = 50
 
-[node name="RatingPane" type="VBoxContainer" parent="VBoxContainer/Contents"]
+[node name="RatingPane" type="VBoxContainer" parent="Frame/Contents"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/Contents/RatingPane"]
+[node name="Header" type="HBoxContainer" parent="Frame/Contents/RatingPane"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Frame/Contents/RatingPane/Header"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h4yyi")
+
+[node name="BackButton" type="TextureButton" parent="Frame/Contents/RatingPane/Header"]
+custom_minimum_size = Vector2(104, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("5_rnslo")
+texture_pressed = ExtResource("6_0n403")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Frame/Contents/RatingPane/Header"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h4yyi")
+
+[node name="Label" type="Label" parent="Frame/Contents/RatingPane/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_type_variation = &"HeaderLarge"
-theme_override_colors/font_color = Color(0.996078, 0.752941, 0.027451, 1)
+theme = ExtResource("4_qhvvf")
+theme_type_variation = &"PaneTitle"
 text = "Rating"
+vertical_alignment = 1
+
+[node name="Body" type="PanelContainer" parent="Frame/Contents/RatingPane"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Frame/Contents/RatingPane/Body"]
+layout_mode = 2
+theme_type_variation = &"TextLarge"
+text = "Rating 
+information 
+placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PhoneToolbar" parent="VBoxContainer" instance=ExtResource("3_5ptrm")]
-layout_mode = 2
-
 [node name="MenuAudio" parent="." instance=ExtResource("5_ofuaa")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PhoneToolbar" parent="CanvasLayer" instance=ExtResource("3_5ptrm")]
+offset_top = -102.0
+size_flags_horizontal = 3
+size_flags_vertical = 8

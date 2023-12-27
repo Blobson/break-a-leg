@@ -25,12 +25,12 @@ script = ExtResource("1_4viw2")
 
 [node name="Buttons" type="HBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/separation = 20
+theme_override_constants/separation = 60
+alignment = 1
 
 [node name="BackButton" type="TextureButton" parent="Buttons"]
-custom_minimum_size = Vector2(110, 110)
+visible = false
+custom_minimum_size = Vector2(104, 62)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -38,10 +38,10 @@ action_mode = 0
 texture_normal = ExtResource("1_jcpsj")
 texture_pressed = ExtResource("3_rhdot")
 ignore_texture_size = true
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="ShopButton" type="TextureButton" parent="Buttons"]
-custom_minimum_size = Vector2(110, 110)
+custom_minimum_size = Vector2(104, 62)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -51,10 +51,10 @@ button_group = ExtResource("2_h0vio")
 texture_normal = ExtResource("2_rt3vg")
 texture_pressed = ExtResource("6_vlhjg")
 ignore_texture_size = true
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="TasksButton" type="TextureButton" parent="Buttons"]
-custom_minimum_size = Vector2(110, 110)
+custom_minimum_size = Vector2(104, 62)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -65,10 +65,10 @@ button_group = ExtResource("2_h0vio")
 texture_normal = ExtResource("3_quq3y")
 texture_pressed = ExtResource("7_3xarn")
 ignore_texture_size = true
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="RatingButton" type="TextureButton" parent="Buttons"]
-custom_minimum_size = Vector2(110, 110)
+custom_minimum_size = Vector2(104, 62)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

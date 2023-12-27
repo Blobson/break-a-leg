@@ -4,14 +4,13 @@ enum TaskState { AVAILABLE, SOLD, CANCELLED }
 
 const DISAPPEAR_TIMEOUT = 0.7
 const MIN_BID_INTERVAL = 2
-const ACTIVE_COLOR = Color8(47, 80, 108, 255)
-const ACTIVE_OUTLINE_COLOR = Color8(255, 255, 255, 255)
 
-@onready var _ui_address = $Frame/VBox/Address
-@onready var _ui_bid = $Frame/VBox/HBox/BidBox/TaskBid
+@onready var _ui_body = $Body
+@onready var _ui_bid = $Body/HBox/VBox/HBox/TaskBid
+@onready var _ui_packages_box = $Body/HBox/VBox/HBox/PackagesBox
+@onready var _ui_delivery_box = $Body/HBox/VBox/HBox/DeliveryBox
 
-var normal_panel_style: StyleBox = get_theme_stylebox('panel')
-var hover_panel_style: StyleBox = get_theme_stylebox('hover')
+@onready var active_panel_style: StyleBox = $Body.get_theme_stylebox('panel_active')
 var address_color: Color
 
 var task_list: TaskList
@@ -25,22 +24,23 @@ var last_bid_at: float = 0.0
 func _init():
 	created_at = Time.get_unix_time_from_system()
 	focus_entered.connect(_on_focus_entered)
-	focus_exited.connect(_on_focus_exited)	
+	focus_exited.connect(_on_focus_exited)
 	
 
 func _ready():
 	task_list = get_parent().get_parent()
-	next_bid = task.start_bid()
-	$Frame/VBox/HBox/RegionIcon.texture = task.address.region.icon
-	$Frame/VBox/HBox/HBox/Info/Packages.text = "packages: %d" % [task.packages]
-	$Frame/VBox/HBox/HBox/Info/Difficulty.text = task.difficulty_text()
-	$Frame/VBox/HBox/HBox/Info/Difficulty.add_theme_color_override("font_color", task.difficulty_color())
-	$Frame/VBox/HBox/HBox/DeliverButton.pressed.connect(_on_deliver_pressed)
-	$Frame/VBox/HBox/HBox/DeliverButton.visible = false
-	_ui_address.text = "%s %s" % [ task.address.building, task.address.street ]
-	_ui_bid.set_bid(next_bid)
-	_ui_bid.gui_input.connect(_on_bid_input)
-	address_color = _ui_address.get_theme_color("font_color")
+	next_bid = task.start_bid() - 1
+	$Body/HBox/AddressBox/RegionIcon.texture = task.address.region.icon
+	$Body/HBox/VBox/HBox/PackagesBox/PackagesCount.text = str(task.packages)
+	$Body/HBox/VBox/HBox/PackagesBox/PackageIcon1.visible = randi_range(0, 1) == 0
+	$Body/HBox/VBox/HBox/PackagesBox/PackageIcon2.visible = not $Body/HBox/VBox/HBox/PackagesBox/PackageIcon1.visible
+	$Body/HBox/VBox/DifficultyBox/Difficulty.text = task.difficulty_text()
+	$Body/HBox/VBox/DifficultyBox/Difficulty.add_theme_color_override("font_color", task.difficulty_color())
+	$Body/HBox/VBox/DifficultyBox/DifficultyIcon.play(task.difficulty_text())
+	$Body/HBox/VBox/HBox/DeliveryBox/DeliverButton.pressed.connect(_on_deliver_pressed)
+	$Body/HBox/VBox/HBox/TaskBid.set_bid(next_bid)
+	$Body/HBox/AddressBox/Address.text = "%s %s" % [ task.address.building, task.address.street ]
+	address_color = $Body/HBox/AddressBox/Address.get_theme_color("font_color")
 
 
 func _on_deliver_pressed():
@@ -49,18 +49,16 @@ func _on_deliver_pressed():
 
 
 func _on_focus_entered():
-	$Frame/VBox/HBox/HBox/DeliverButton.visible = true
-	add_theme_stylebox_override('panel', hover_panel_style)
-	_ui_address.add_theme_color_override("font_color", ACTIVE_COLOR)
-	_ui_address.add_theme_color_override("font_outline_color", ACTIVE_OUTLINE_COLOR)
+	_ui_packages_box.visible = false
+	_ui_delivery_box.visible = true
+	_ui_body.add_theme_stylebox_override("panel", active_panel_style)
 	_ui_bid.set_active_style()
 
 
 func _on_focus_exited():
-	$Frame/VBox/HBox/HBox/DeliverButton.visible = false
-	add_theme_stylebox_override('panel', normal_panel_style)
-	_ui_address.add_theme_color_override("font_color", address_color)
-	_ui_address.remove_theme_color_override("font_outline_color")
+	_ui_delivery_box.visible = false
+	_ui_packages_box.visible = true
+	_ui_body.remove_theme_stylebox_override("panel")
 	_ui_bid.set_inactive_style()
 
 
@@ -112,12 +110,6 @@ func _sold():
 	create_tween().tween_interval(DISAPPEAR_TIMEOUT).finished.connect(destroy_fn)
 
 
-func _on_bid_input(_event: InputEvent):
-	#if event is InputEventScreenTouch and event.pressed:
-	#	_place_player_bid(next_bid)
-	pass
-
-
 func _cancel_player_bid():
 	if not task_list:
 		return
@@ -153,9 +145,6 @@ func update(competition: int, max_bid: int, max_difficulty: int):
 	
 	var now = Time.get_unix_time_from_system()
 	var updated_at = last_bid_at if last_bid_at else created_at
-	
-	if last_bid_at:
-		_ui_bid.update_progress(now - last_bid_at)
 	
 	if task.check_cancel_probability(updated_at):
 		return _cancel()

@@ -1,97 +1,144 @@
-[gd_scene load_steps=5 format=3 uid="uid://blcm1i8hgyngr"]
+[gd_scene load_steps=9 format=3 uid="uid://blcm1i8hgyngr"]
 
 [ext_resource type="Theme" uid="uid://cjb3iii3t3n56" path="res://ui/themes/main_theme.tres" id="1_agf5k"]
 [ext_resource type="Script" path="res://ui/menu/phone_menu/task_list/task_list_item.gd" id="1_cm1hx"]
-[ext_resource type="Texture2D" uid="uid://p503jquusshn" path="res://regions/residential_region/icon.png" id="2_8fnk7"]
+[ext_resource type="Texture2D" uid="uid://cc64my42a0owv" path="res://regions/residential_region/residential_region.png" id="3_6pmav"]
+[ext_resource type="Texture2D" uid="uid://ckovvu20qg7lf" path="res://ui/menu/phone_menu/task_list/package.png" id="4_4epsh"]
+[ext_resource type="PackedScene" uid="uid://dlpr87nkl7bw6" path="res://ui/menu/phone_menu/task_list/difficulty_icon.tscn" id="4_8r3on"]
 [ext_resource type="PackedScene" uid="uid://fbdkffncwglq" path="res://ui/menu/phone_menu/task_list/task_bid.tscn" id="4_31eu8"]
+[ext_resource type="Texture2D" uid="uid://2h72c0u0cpkd" path="res://ui/menu/phone_menu/task_list/packages.png" id="4_g2vfm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wsya"]
 
 [node name="TaskListItem" type="PanelContainer"]
-clip_contents = true
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 163.0
+offset_bottom = 172.0
 grow_horizontal = 2
-size_flags_horizontal = 3
 focus_mode = 2
 mouse_filter = 1
-mouse_default_cursor_shape = 2
-theme = ExtResource("1_agf5k")
 script = ExtResource("1_cm1hx")
-metadata/_edit_use_anchors_ = true
 
-[node name="Frame" type="MarginContainer" parent="."]
+[node name="Body" type="PanelContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 10
+mouse_filter = 1
+theme = ExtResource("1_agf5k")
+theme_type_variation = &"TaskListItem"
 
-[node name="VBox" type="VBoxContainer" parent="Frame"]
+[node name="HBox" type="HBoxContainer" parent="Body"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Address" type="Label" parent="Frame/VBox"]
+[node name="AddressBox" type="VBoxContainer" parent="Body/HBox"]
+custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
-theme_type_variation = &"TextLarge"
+theme_override_constants/separation = 10
+
+[node name="Address" type="Label" parent="Body/HBox/AddressBox"]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "123 Sixth Ave."
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = -2
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 32
+text = "123 Matador Ave."
 text_overrun_behavior = 3
 
-[node name="HBox" type="HBoxContainer" parent="Frame/VBox"]
+[node name="RegionIcon" type="TextureRect" parent="Body/HBox/AddressBox"]
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="RegionIcon" type="TextureRect" parent="Frame/VBox/HBox"]
-custom_minimum_size = Vector2(48, 48)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("2_8fnk7")
-expand_mode = 5
+texture = ExtResource("3_6pmav")
 stretch_mode = 5
 
-[node name="HBox" type="HBoxContainer" parent="Frame/VBox/HBox"]
+[node name="VSeparator" type="VSeparator" parent="Body/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6wsya")
+
+[node name="VBox" type="VBoxContainer" parent="Body/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Info" type="VBoxContainer" parent="Frame/VBox/HBox/HBox"]
+[node name="DifficultyBox" type="HBoxContainer" parent="Body/HBox/VBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
-size_flags_stretch_ratio = 2.0
+size_flags_vertical = 3
 
-[node name="Difficulty" type="Label" parent="Frame/VBox/HBox/HBox/Info"]
-layout_mode = 2
-theme_type_variation = &"HeaderSmall"
-text = "hard"
-
-[node name="Packages" type="Label" parent="Frame/VBox/HBox/HBox/Info"]
+[node name="Difficulty" type="Label" parent="Body/HBox/VBox/DifficultyBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"HeaderSmall"
-text = "packages: 12"
+size_flags_vertical = 3
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.996078, 0.721569, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 50
+text = "IMPOSSIBLE"
+text_overrun_behavior = 3
+uppercase = true
 
-[node name="DeliverButton" type="Button" parent="Frame/VBox/HBox/HBox"]
+[node name="DifficultyIcon" parent="Body/HBox/VBox/DifficultyBox" instance=ExtResource("4_8r3on")]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+metadata/_edit_horizontal_guides_ = [120.0]
+metadata/_edit_vertical_guides_ = [128.0]
+
+[node name="HBox" type="HBoxContainer" parent="Body/HBox/VBox"]
+layout_mode = 2
+
+[node name="DeliveryBox" type="MarginContainer" parent="Body/HBox/VBox/HBox"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_bottom = -3
+
+[node name="DeliverButton" type="Button" parent="Body/HBox/VBox/HBox/DeliveryBox"]
+layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
 focus_mode = 0
 text = " DELIVER "
 
-[node name="BidBox" type="VBoxContainer" parent="Frame/VBox/HBox"]
-custom_minimum_size = Vector2(100, 0)
+[node name="PackagesBox" type="HBoxContainer" parent="Body/HBox/VBox/HBox"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PackagesCount" type="Label" parent="Body/HBox/VBox/HBox/PackagesBox"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 0.717647, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 4
+text = "12"
+
+[node name="PackageIcon1" type="TextureRect" parent="Body/HBox/VBox/HBox/PackagesBox"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_constants/separation = 0
+texture = ExtResource("4_4epsh")
+stretch_mode = 4
 
-[node name="BidLabel" type="Label" parent="Frame/VBox/HBox/BidBox"]
+[node name="PackageIcon2" type="TextureRect" parent="Body/HBox/VBox/HBox/PackagesBox"]
+visible = false
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-theme_type_variation = &"HeaderSmall"
-text = "bid "
-horizontal_alignment = 2
-vertical_alignment = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("4_g2vfm")
+stretch_mode = 4
 
-[node name="TaskBid" parent="Frame/VBox/HBox/BidBox" instance=ExtResource("4_31eu8")]
+[node name="TaskBid" parent="Body/HBox/VBox/HBox" instance=ExtResource("4_31eu8")]
 layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.670588, 0.760784, 0.909804, 1)
 
 [node name="StatusMask" type="PanelContainer" parent="."]
 visible = false
@@ -105,4 +152,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderMedium"
 theme_override_colors/font_color = Color(0.768627, 0.509804, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.682353, 0.768627, 0.92549, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 52
 text = "CANCELLED BY USER!"
