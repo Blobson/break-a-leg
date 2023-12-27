@@ -560,6 +560,7 @@ libraries = {
 "": SubResource("AnimationLibrary_8mrh4")
 }
 autoplay = "run"
+next/electrocute = &"run"
 next/jump_up = &"run"
 next/left = &"run"
 next/recovery = &"run"

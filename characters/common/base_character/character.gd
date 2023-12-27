@@ -145,8 +145,8 @@ func _is_moving() -> bool:
 
 func _start_move(direction: Vector2) -> Tween:
 	var target_position: Vector2
-	var last_direction: Vector2 = direction
 	if direction == Vector2.UP and energy >= ENERGY_PER_SPRINT:
+		player.stop(true)
 		player.play("jump_up")
 		target_position = Vector2(
 			position.x, 
@@ -155,6 +155,7 @@ func _start_move(direction: Vector2) -> Tween:
 		energy -= ENERGY_PER_SPRINT
 		$EnergyRecoveryTimer.start()
 	elif direction == Vector2.LEFT:
+		player.stop(true)
 		player.play("left")
 		target_position = Vector2(
 			position.x - level_tile_size.x, 
@@ -164,10 +165,8 @@ func _start_move(direction: Vector2) -> Tween:
 		var min_x = (-level_width / 2) + (level_tile_size.x / 3)
 		if target_position.x <= min_x: 
 			return null
-		if last_direction == direction:
-			player.queue("left")
-			player.queue("run")
 	elif direction == Vector2.RIGHT:
+		player.stop(true)
 		player.play("right")
 		target_position = Vector2(
 			position.x + level_tile_size.x, 
@@ -177,15 +176,13 @@ func _start_move(direction: Vector2) -> Tween:
 		var max_x = (level_width / 2) - (level_tile_size.x / 3)
 		if target_position.x >= max_x:
 			return null
-		if last_direction == direction:
-			player.queue("right")
-			player.queue("run")
 	else:
 		return null
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	tween.tween_property(self, "position", target_position, player.current_animation_length)
 	tween.finished.connect(_end_move)
 	return tween
+
 
 func _end_move():
 	if next_move:
@@ -193,6 +190,9 @@ func _end_move():
 		next_move = Vector2.ZERO
 	else:
 		movement_tween = null
+		player.stop(true)
+		player.play("run")
+
 
 
 ## Jetpack ability
@@ -240,7 +240,7 @@ func _set_shield_invisible():
 	tween.set_ease(Tween.EASE_IN)
 	tween.finished.connect(_on_shield_timeout)
 	tween.tween_method(animations.set_modulate, Color(1, 1, 1, 1), Color(1, 1, 1, 0), shield_length)
-	
+
 
 ## Прыжок с парашютом по окончании уровня и если health = 0
 func parachute_jump():
