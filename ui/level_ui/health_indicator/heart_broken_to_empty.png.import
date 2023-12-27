@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd56tyn6xk8uf"
-path="res://.godot/imported/heart_broken_to_empty_2.png-f6077dd350bbfa3861cac21cd33f5be1.ctex"
+uid="uid://ccf24km218mhp"
+path="res://.godot/imported/heart_broken_to_empty.png-e4b556ad6abdc0f50731e29481da75fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/level_ui/health_indicator/heart_broken_to_empty_2.png"
-dest_files=["res://.godot/imported/heart_broken_to_empty_2.png-f6077dd350bbfa3861cac21cd33f5be1.ctex"]
+source_file="res://ui/level_ui/health_indicator/heart_broken_to_empty.png"
+dest_files=["res://.godot/imported/heart_broken_to_empty.png-e4b556ad6abdc0f50731e29481da75fa.ctex"]
 
 [params]
 
