@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpwuqbql07ixw"]
+[gd_scene load_steps=4 format=3 uid="uid://bpwuqbql07ixw"]
 
 [ext_resource type="Script" path="res://ui/menu/phone_menu/task_list/task_list.gd" id="1_5ssps"]
+[ext_resource type="Theme" uid="uid://cjb3iii3t3n56" path="res://ui/themes/main_theme.tres" id="1_u41uu"]
 [ext_resource type="PackedScene" uid="uid://blcm1i8hgyngr" path="res://ui/menu/phone_menu/task_list/task_list_item.tscn" id="2_5n7rf"]
 
 [node name="TaskList" type="ScrollContainer"]
@@ -11,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_u41uu")
 follow_focus = true
 horizontal_scroll_mode = 0
 script = ExtResource("1_5ssps")
@@ -20,7 +22,7 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 0
+theme_override_constants/separation = 1
 
 [node name="TaskListItem" parent="VBoxContainer" instance=ExtResource("2_5n7rf")]
 layout_mode = 2

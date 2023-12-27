@@ -2,26 +2,26 @@
 
 [ext_resource type="Script" path="res://ui/menu/phone_menu/task_list/task_bid.gd" id="1_cfmwg"]
 
-[node name="TaskBid" type="HBoxContainer"]
-anchors_preset = 1
+[node name="Text" type="Label"]
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -99.0
-offset_bottom = 64.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -64.0
 grow_horizontal = 0
+grow_vertical = 0
 size_flags_horizontal = 8
 theme_type_variation = &"HeaderLarge"
-script = ExtResource("1_cfmwg")
-
-[node name="Text" type="Label" parent="."]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.67451, 0.760784, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 80
 text = "128"
 horizontal_alignment = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-custom_minimum_size = Vector2(7, 50)
-layout_mode = 2
-fill_mode = 3
-show_percentage = false
+vertical_alignment = 2
+script = ExtResource("1_cfmwg")
