@@ -13,7 +13,6 @@ signal task_accepted(task: Task)
 signal new_client(position: Vector2i)
 signal shield_activate()
 signal jetpack_activate()
-signal hook_activate()
 signal package_max_count(int)
 
 const MAIN_SCREEN = preload("res://ui/main_screen/main_screen.tscn")
