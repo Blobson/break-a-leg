@@ -11,8 +11,8 @@ colors = PackedColorArray(0.517647, 0.027451, 0.027451, 1, 1, 0.6, 0, 1)
 gradient = SubResource("Gradient_yfilh")
 
 [sub_resource type="Curve" id="Curve_17yu0"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0.766512), 0.0, 2.14148, 0, 0, Vector2(0.241888, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_jdoo2"]
 curve = SubResource("Curve_17yu0")
@@ -21,20 +21,18 @@ curve = SubResource("Curve_17yu0")
 particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
 spread = 0.0
-gravity = Vector3(0, 10, 0)
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+gravity = Vector3(0, 10, 0)
 radial_accel_min = -35.0
 radial_accel_max = -5.0
-scale_min = 10.0
-scale_max = 10.0
+scale_min = 20.0
+scale_max = 20.0
 scale_curve = SubResource("CurveTexture_jdoo2")
 color_ramp = SubResource("GradientTexture1D_tsd5p")
 
 [node name="ClientPointer" type="Sprite2D"]
-scale = Vector2(2, 2)
+scale = Vector2(4, 4)
 texture = ExtResource("1_1xq7l")
 hframes = 5
 frame = 2

@@ -2,7 +2,7 @@ extends Sprite2D
 
 ## Расстояние до клиента в экранах для начала показа указателя
 const SCREENS_TO_CLIENT = 2.5
-const INITIAL_SCALE = 4
+const INITIAL_SCALE = 2
 const INITIAL_CENTER_OFFSET = -200
 const CURVE_SMOOTHNESS = 100
 const APPEAR_TIMEOUT = 3
