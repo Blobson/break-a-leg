@@ -34,8 +34,8 @@ func _on_body_exited_proximity_zone(body: Node):
 		courier_nearby = null
 
 
-func _on_damage_apply(_courier: Courier):
-	if _courier.invulnerability:
+func _on_damage_apply(courier: Courier):
+	if courier.invulnerability:
 		return
 	$ProximityZone.set_deferred("monitoring", false)
 	$Area2D.set_deferred("monitoring", false)
