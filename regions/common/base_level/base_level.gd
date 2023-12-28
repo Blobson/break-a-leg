@@ -8,6 +8,7 @@ const LEVEL_FINISH_SCENE = preload("res://ui/level_finish/level_finish.tscn")
 func _ready():
 	$Courier.courier_dead.connect(_on_courier_dead)
 	Game.delivery.connect(_on_delivery)
+	Game.package_max_count.emit(task.packages)
 
 func init(new_task: Task):
 	task = new_task
