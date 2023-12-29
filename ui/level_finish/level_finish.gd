@@ -31,6 +31,7 @@ func on_level_end(status: LevelStatus):
 	self.level_status = status
 
 func _on_phone_pressed():
+	$BackButton.play()
 	var tween = create_tween()
 	tween.tween_property(phone_sprite, "scale", Vector2(70, 70), 0.5)
 	tween.finished.connect(_show_menu)
@@ -40,6 +41,7 @@ func _show_menu():
 
 func stars_updater(new_stars):
 	if success:
+		$Success/SuccessPlayer.play()
 		var tween = create_tween() \
 		.set_trans(Tween.TRANS_BOUNCE) \
 		.set_ease(Tween.EASE_OUT)
@@ -48,6 +50,7 @@ func stars_updater(new_stars):
 			tween.tween_property(stars_array[star], "position", Vector2(stars_array[star].position.x, stars_array[star].position.y + 250), TWEEN_DURATION).from(stars_array[star].position)
 			stars_array[star].set_visible(true)	
 	else:
+		$Failure/FailurePlayer.play()
 		_set_empty_stars_visibility()
 
 func _set_empty_stars_visibility():
