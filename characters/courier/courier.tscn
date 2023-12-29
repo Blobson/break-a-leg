@@ -1,10 +1,11 @@
-[gd_scene load_steps=52 format=3 uid="uid://cqrdsna5moeu0"]
+[gd_scene load_steps=56 format=3 uid="uid://cqrdsna5moeu0"]
 
 [ext_resource type="PackedScene" uid="uid://cc87qxoc5va67" path="res://characters/common/base_character/character.tscn" id="1_y42yc"]
 [ext_resource type="Texture2D" uid="uid://3mklfrvjm4v5" path="res://characters/courier/courier_animation.png" id="2_k6816"]
 [ext_resource type="Texture2D" uid="uid://0ddjy1nb0ke6" path="res://characters/courier/effects/bird-hit/bird_hit.png" id="3_u6m6o"]
 [ext_resource type="Texture2D" uid="uid://bfesihjgdntwo" path="res://characters/courier/effects/fight/fight.png" id="3_vay3k"]
 [ext_resource type="Texture2D" uid="uid://7aytmbuj186o" path="res://characters/courier/effects/shield/shield.png" id="5_0pncg"]
+[ext_resource type="Texture2D" uid="uid://byp2k24t17elx" path="res://characters/courier/effects/plant-bite/plant_bite.png" id="5_jawku"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g07og"]
 radius = 6.0
@@ -427,6 +428,18 @@ region = Rect2(768, 0, 64, 60)
 atlas = ExtResource("3_vay3k")
 region = Rect2(832, 0, 64, 60)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnhxf"]
+atlas = ExtResource("5_jawku")
+region = Rect2(0, 0, 27, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us357"]
+atlas = ExtResource("5_jawku")
+region = Rect2(27, 0, 27, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gleav"]
+atlas = ExtResource("5_jawku")
+region = Rect2(54, 0, 27, 30)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvxhh"]
 atlas = ExtResource("5_0pncg")
 region = Rect2(112, 0, 56, 56)
@@ -521,6 +534,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pnhxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us357")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gleav")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"plant-bite",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cvxhh")
 }, {
 "duration": 1.0,
@@ -560,7 +590,6 @@ libraries = {
 "": SubResource("AnimationLibrary_8mrh4")
 }
 autoplay = "run"
-next/electrocute = &"run"
 next/jetpack_start = &"jetpack_fly"
 next/jetpack_stop = &"run"
 next/jump_up = &"run"
@@ -576,8 +605,9 @@ autostart = true
 visible = false
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_mgkdk")
-animation = &"shield"
-frame_progress = 0.788433
+animation = &"plant-bite"
+frame = 3
+frame_progress = 1.0
 
 [node name="CourierFeet" type="CharacterBody2D" parent="." index="5"]
 position = Vector2(0, 9)
