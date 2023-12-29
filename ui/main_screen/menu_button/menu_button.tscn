@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3d7a0uwnbdnc"]
+[gd_scene load_steps=10 format=3 uid="uid://b3d7a0uwnbdnc"]
 
 [ext_resource type="Texture2D" uid="uid://dt54fy8qm8mb0" path="res://ui/main_screen/menu_button/menu-dark-btn.png" id="1_irb2g"]
 [ext_resource type="Script" path="res://ui/main_screen/menu_button/menu_button.gd" id="2_5jk45"]
+[ext_resource type="AudioStream" uid="uid://qk2sd1wm42l7" path="res://ui/audio/select.ogg" id="3_agbyg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wor0"]
 atlas = ExtResource("1_irb2g")
@@ -71,7 +72,12 @@ autoplay = "default"
 script = ExtResource("2_5jk45")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "rotate"
 libraries = {
 "": SubResource("AnimationLibrary_khg7y")
 }
+autoplay = "rotate"
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_agbyg")
+volume_db = -2.0
+bus = &"Effects"

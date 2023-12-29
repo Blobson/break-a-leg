@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://blcm1i8hgyngr"]
+[gd_scene load_steps=10 format=3 uid="uid://blcm1i8hgyngr"]
 
 [ext_resource type="Theme" uid="uid://cjb3iii3t3n56" path="res://ui/themes/main_theme.tres" id="1_agf5k"]
 [ext_resource type="Script" path="res://ui/menu/phone_menu/task_list/task_list_item.gd" id="1_cm1hx"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dlpr87nkl7bw6" path="res://ui/menu/phone_menu/task_list/difficulty_icon.tscn" id="4_8r3on"]
 [ext_resource type="PackedScene" uid="uid://fbdkffncwglq" path="res://ui/menu/phone_menu/task_list/task_bid.tscn" id="4_31eu8"]
 [ext_resource type="Texture2D" uid="uid://2h72c0u0cpkd" path="res://ui/menu/phone_menu/task_list/packages.png" id="4_g2vfm"]
+[ext_resource type="AudioStream" uid="uid://qk2sd1wm42l7" path="res://ui/audio/select.ogg" id="8_mr6af"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wsya"]
 
@@ -157,3 +158,10 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 52
 text = "CANCELLED BY USER!"
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_mr6af")
+volume_db = -2.0
+bus = &"Effects"
+
+[connection signal="finished" from="ButtonPressed" to="." method="_on_button_pressed_finished"]
