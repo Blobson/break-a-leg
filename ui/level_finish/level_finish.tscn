@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://d0cg45u6bvkig"]
+[gd_scene load_steps=94 format=3 uid="uid://d0cg45u6bvkig"]
 
 [ext_resource type="Script" path="res://ui/level_finish/level_finish.gd" id="1_0the0"]
 [ext_resource type="Texture2D" uid="uid://bwskergxh8ylp" path="res://ui/level_finish/images/success/board.png" id="2_thiv2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bon0bd50fbckq" path="res://ui/level_finish/images/success/phone.png" id="12_6ekgv"]
 [ext_resource type="Texture2D" uid="uid://umgys5ct165r" path="res://ui/level_finish/images/failure/board.png" id="12_ns3wg"]
 [ext_resource type="Texture2D" uid="uid://bjllhqo6ptd50" path="res://ui/level_finish/images/success/cursor.png" id="12_vt51n"]
+[ext_resource type="AudioStream" uid="uid://cvspibiv28gjt" path="res://ui/level_finish/audio/success.ogg" id="13_at7j4"]
 [ext_resource type="Texture2D" uid="uid://ohnoohlwj0cq" path="res://ui/level_finish/images/failure/courier_icon.png" id="13_og11s"]
 [ext_resource type="Texture2D" uid="uid://cm5xdbrr6fq5k" path="res://ui/level_finish/images/failure/coin.png" id="14_8kmr3"]
 [ext_resource type="Texture2D" uid="uid://b26r4wlihvcq5" path="res://ui/level_finish/images/failure/package.png" id="15_sslr1"]
@@ -20,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://c30l3fl8blwei" path="res://ui/level_finish/images/failure/star.png" id="17_x3cqh"]
 [ext_resource type="Texture2D" uid="uid://bvh3swg387b3h" path="res://ui/level_finish/images/failure/cursor.png" id="18_27xd0"]
 [ext_resource type="Texture2D" uid="uid://b1ipmsjlqyte8" path="res://ui/level_finish/images/failure/phone.png" id="19_iwg5l"]
+[ext_resource type="AudioStream" uid="uid://cu4ldp27ktevl" path="res://ui/level_finish/audio/fail.ogg" id="22_hk2a5"]
+[ext_resource type="AudioStream" uid="uid://ct8825ceb7qsb" path="res://ui/audio/select-back.ogg" id="23_nd0e2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x04mj"]
 bg_color = Color(0.454902, 0.262745, 0.360784, 1)
@@ -700,6 +703,10 @@ offset_right = 20.0
 offset_bottom = 33.0
 action_mode = 0
 
+[node name="SuccessPlayer" type="AudioStreamPlayer" parent="Success"]
+stream = ExtResource("13_at7j4")
+bus = &"Music"
+
 [node name="Failure" type="Node2D" parent="."]
 
 [node name="Board" type="Sprite2D" parent="Failure"]
@@ -841,3 +848,11 @@ offset_top = -32.0762
 offset_right = 20.0885
 offset_bottom = 32.9238
 action_mode = 0
+
+[node name="FailurePlayer" type="AudioStreamPlayer" parent="Failure"]
+stream = ExtResource("22_hk2a5")
+bus = &"Music"
+
+[node name="BackButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_nd0e2")
+bus = &"Effects"
