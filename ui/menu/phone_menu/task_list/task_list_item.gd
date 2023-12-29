@@ -44,6 +44,7 @@ func _ready():
 
 
 func _on_deliver_pressed():
+	$ButtonPressed.play()
 	_place_player_bid(next_bid)
 	_sold()
 

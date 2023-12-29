@@ -15,10 +15,15 @@ func _ready():
 
 
 func _exit_menu():
+	$ButtonBackPressed.play()
+
+
+func _on_button_back_pressed_finished():
 	Game.call_deferred("show_main_screen")
 
 
 func _show_pane(index: int):
+	$ButtonPressed.play()
 	var panes_count = contents.get_child_count()
 	if tween and tween.is_running():
 		tween.kill()

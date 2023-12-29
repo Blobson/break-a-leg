@@ -2,9 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://b2vfurdxvhdr5" path="res://ui/level_ui/health_indicator/heart_indicator.tscn" id="2_e3ela"]
 [ext_resource type="PackedScene" uid="uid://b3fshelm37s53" path="res://ui/level_ui/energy_indicator/energy_indicator.tscn" id="2_pkdam"]
-[ext_resource type="PackedScene" uid="uid://1rh4e072q1qf" path="res://ui/level_ui/ability_buttons/jetpack/jetpack_button.tscn" id="4_1syho"]
 [ext_resource type="PackedScene" uid="uid://jvxleotxjjti" path="res://ui/level_ui/task_counter/task_counter.tscn" id="3_e31xh"]
-[ext_resource type="PackedScene" uid="uid://1rh4e072q1qf" path="res://ui/level_ui/ability_buttons/hook/hook_button.tscn" id="4_1syho"]
+[ext_resource type="PackedScene" uid="uid://1rh4e072q1qf" path="res://ui/level_ui/ability_buttons/jetpack/jetpack_button.tscn" id="4_1syho"]
 [ext_resource type="PackedScene" uid="uid://3trbocygjwhe" path="res://ui/level_ui/client_pointer/client_pointer.tscn" id="4_j0cxo"]
 [ext_resource type="PackedScene" uid="uid://nvr1s2tb73hm" path="res://ui/level_ui/ability_buttons/shield/shield_button.tscn" id="5_ksxc6"]
 [ext_resource type="Script" path="res://ui/level_ui/ability_buttons/jetpack/jetpack_button.gd" id="5_oruup"]

@@ -32,25 +32,10 @@ tile_set = ExtResource("4_inkkf")
 layer_0/name = "Background"
 layer_0/tile_data = PackedInt32Array(-65543, 196608, 0, -7, 196608, 0, -65542, 65536, 0, -6, 65536, 0, -65541, 65536, 0, -5, 65536, 0, -65540, 65536, 0, -4, 65536, 0, -65539, 65536, 0, -3, 65536, 0, -65538, 65536, 0, -2, 65536, 0, -65537, 65536, 0, -1, 65536, 0, -131072, 65536, 0, -65536, 65536, 0, -131071, 65536, 0, -65535, 65536, 0, -131070, 65536, 0, -65534, 65536, 0, -131069, 65536, 0, -65533, 65536, 0, -131068, 65536, 0, -65532, 65536, 0, -131067, 65536, 0, -65531, 65536, 0, -131066, 65536, 0, -65530, 65536, 0, -131065, 131072, 0, -65529, 131072, 0)
 layer_1/name = "Edging"
-layer_1/enabled = true
-layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = false
-layer_1/y_sort_origin = 0
-layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(-7, 458752, 0, -6, 458752, 0, -5, 458752, 0, -4, 458752, 0, -3, 458752, 0, -2, 458752, 0, -1, 458752, 0, -65536, 458752, 0, -65535, 458752, 0, -65534, 458752, 0, -65533, 458752, 0, -65532, 458752, 0, -65531, 458752, 0, -65530, 458752, 0, -65529, 458752, 0)
 layer_2/name = "Statues"
-layer_2/enabled = true
-layer_2/modulate = Color(1, 1, 1, 1)
-layer_2/y_sort_enabled = false
-layer_2/y_sort_origin = 0
-layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(-65542, 1, 0, -6, 1, 1, -65541, 65537, 0, -5, 65537, 1, -131067, 131073, 0, -65531, 131073, 1, -131066, 196609, 0, -65530, 196609, 1)
 layer_3/name = "Columns"
-layer_3/enabled = true
-layer_3/modulate = Color(1, 1, 1, 1)
-layer_3/y_sort_enabled = false
-layer_3/y_sort_origin = 0
-layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array(-131079, 393216, 0, -131078, 393216, 0, -131077, 393216, 0, -131076, 393216, 0, -131075, 393216, 0, -131074, 393216, 0, -131073, 393216, 0, -196608, 393216, 0, -196607, 393216, 0, -196606, 393216, 0, -196605, 393216, 0, -196604, 393216, 0, -196603, 393216, 0, -196602, 393216, 0, -65543, 327680, 0, -7, 262144, 0, -65540, 327680, 0, -4, 262144, 0, -65538, 327680, 0, -2, 262144, 0, -131070, 327680, 0, -65534, 262144, 0, -131068, 327680, 0, -65532, 262144, 0, -196601, 393216, 0, -131065, 327680, 0, -65529, 262144, 0)
 
 [node name="Background" type="Sprite2D" parent="Bottom" index="1"]
@@ -79,10 +64,11 @@ texture = ExtResource("29_brn5k")
 position = Vector2(-145, -116)
 texture = ExtResource("30_c12fr")
 
-[node name="Camera2D" parent="Courier" index="6"]
+[node name="Camera2D" parent="Courier" index="7"]
 limit_left = -325
 limit_right = 325
 limit_smoothed = true
 
 [node name="BackgroundAudio" parent="." index="5"]
 stream = SubResource("AudioStreamOggVorbis_ihmss")
+bus = &"Music"

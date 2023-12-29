@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7hor218yg6nl"]
+[gd_scene load_steps=13 format=3 uid="uid://c7hor218yg6nl"]
 
 [ext_resource type="Texture2D" uid="uid://babgqss7o14q0" path="res://ui/menu/phone_menu/bg_violet.png" id="1_b1gdd"]
 [ext_resource type="Script" path="res://ui/menu/phone_menu/phone_menu.gd" id="2_ncw2f"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dt32m5rthd35v" path="res://ui/menu_audio/menu_audio.tscn" id="5_ofuaa"]
 [ext_resource type="Texture2D" uid="uid://dyknifbpcieg4" path="res://ui/menu/phone_menu/phone_toolbar/btn_back.png" id="5_rnslo"]
 [ext_resource type="Texture2D" uid="uid://2oqyngbvnpfo" path="res://ui/menu/phone_menu/phone_toolbar/btn_back_pressed.png" id="6_0n403"]
+[ext_resource type="AudioStream" uid="uid://qk2sd1wm42l7" path="res://ui/audio/select.ogg" id="9_7ryc3"]
+[ext_resource type="AudioStream" uid="uid://ct8825ceb7qsb" path="res://ui/audio/select-back.ogg" id="10_xu1dk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c7fgt"]
 texture = ExtResource("1_b1gdd")
@@ -184,6 +186,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MenuAudio" parent="." instance=ExtResource("5_ofuaa")]
+bus = &"Music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -191,3 +194,15 @@ vertical_alignment = 1
 offset_top = -102.0
 size_flags_horizontal = 3
 size_flags_vertical = 8
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7ryc3")
+volume_db = -2.0
+bus = &"Effects"
+
+[node name="ButtonBackPressed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_xu1dk")
+volume_db = -2.0
+bus = &"Effects"
+
+[connection signal="finished" from="ButtonBackPressed" to="." method="_on_button_back_pressed_finished"]
