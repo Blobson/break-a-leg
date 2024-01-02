@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://05863htk2u4o"]
+[gd_scene load_steps=13 format=3 uid="uid://05863htk2u4o"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_m2e27"]
 [ext_resource type="Script" path="res://regions/residential_region/static_obstacles/window/window.gd" id="2_wj24y"]
 [ext_resource type="Texture2D" uid="uid://vojmnsevcg0j" path="res://regions/residential_region/static_obstacles/window/window_edge.png" id="3_ba7a1"]
+[ext_resource type="AudioStream" uid="uid://bl54o3k3vijgl" path="res://regions/residential_region/static_obstacles/window/audio/window_1.ogg" id="4_jlanf"]
+[ext_resource type="AudioStream" uid="uid://cfyggiyxuxfnt" path="res://regions/residential_region/static_obstacles/window/audio/window_2.ogg" id="5_u7onp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svqjf"]
 size = Vector2(13, 22)
@@ -112,3 +114,9 @@ shape = SubResource("RectangleShape2D_svqjf")
 libraries = {
 "": SubResource("AnimationLibrary_hf3b5")
 }
+
+[node name="SoundFX1" parent="." index="3"]
+stream = ExtResource("4_jlanf")
+
+[node name="SoundFX2" parent="." index="4"]
+stream = ExtResource("5_u7onp")

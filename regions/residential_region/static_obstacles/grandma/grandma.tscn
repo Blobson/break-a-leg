@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bu1hhlsmhdket"]
+[gd_scene load_steps=13 format=3 uid="uid://bu1hhlsmhdket"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_0ws32"]
 [ext_resource type="Script" path="res://regions/residential_region/static_obstacles/grandma/grandma.gd" id="2_c8kgm"]
 [ext_resource type="Texture2D" uid="uid://cf0x8pahkhb0a" path="res://regions/residential_region/static_obstacles/grandma/grandma.png" id="3_udler"]
+[ext_resource type="AudioStream" uid="uid://dptevmjx71o6r" path="res://regions/residential_region/static_obstacles/grandma/audio/carpet.ogg" id="4_8lqt1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_im26w"]
 size = Vector2(24, 22)
@@ -132,6 +133,7 @@ next/grandma_is_shaking_the_rug = &"idle"
 
 [node name="DustDamageArea" type="Area2D" parent="." index="3"]
 collision_mask = 4
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DustDamageArea" index="0"]
 shape = SubResource("RectangleShape2D_0m7y1")
@@ -139,3 +141,7 @@ shape = SubResource("RectangleShape2D_0m7y1")
 [node name="ActivateTimer" type="Timer" parent="." index="4"]
 wait_time = 5.0
 autostart = true
+
+[node name="SoundFX1" parent="." index="5"]
+stream = ExtResource("4_8lqt1")
+max_distance = 200.0

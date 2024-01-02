@@ -13,3 +13,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="SoundFX1" type="AudioStreamPlayer2D" parent="."]
+bus = &"Effects"
+
+[node name="SoundFX2" type="AudioStreamPlayer2D" parent="."]
+bus = &"Effects"

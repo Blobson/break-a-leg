@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2kr5335j608r"]
+[gd_scene load_steps=17 format=3 uid="uid://d2kr5335j608r"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_17185"]
 [ext_resource type="Script" path="res://regions/residential_region/static_obstacles/cat/cat.gd" id="2_0kfg6"]
+[ext_resource type="AudioStream" uid="uid://cbqwp4x0svldq" path="res://regions/residential_region/static_obstacles/cat/audio/cat-hiss.ogg" id="3_fg4l4"]
+[ext_resource type="AudioStream" uid="uid://blhby6bubqqd" path="res://regions/residential_region/static_obstacles/cat/audio/cat-meow.ogg" id="4_rqrov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2mfr"]
 size = Vector2(96, 96)
@@ -202,13 +204,19 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_l24lm")
 
 [node name="AnimationPlayer" parent="." index="3"]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_fxl4n")
 }
+autoplay = "idle"
 
 [node name="FightZone" type="Area2D" parent="." index="4"]
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FightZone" index="0"]
 shape = SubResource("CircleShape2D_iwdqr")
+
+[node name="SoundFX1" parent="." index="5"]
+stream = ExtResource("3_fg4l4")
+
+[node name="SoundFX2" parent="." index="6"]
+stream = ExtResource("4_rqrov")

@@ -9,6 +9,7 @@ signal courier_dead
 @onready var sprite = $Sprite2D
 @onready var player = $AnimationPlayer
 @onready var animations = $Animations
+@onready var soundfx1 = $SoundFX1
 
 ## Скорость движения
 @export var move_speed: int = 0
@@ -148,6 +149,7 @@ func _start_move(direction: Vector2) -> Tween:
 	if direction == Vector2.UP and energy >= ENERGY_PER_SPRINT:
 		player.stop(true)
 		player.play("jump_up")
+		play_jump_sound("up")
 		target_position = Vector2(
 			position.x, 
 			position.y - level_tile_size.y * jump_length
@@ -157,6 +159,7 @@ func _start_move(direction: Vector2) -> Tween:
 	elif direction == Vector2.LEFT:
 		player.stop(true)
 		player.play("left")
+		play_jump_sound("left")
 		target_position = Vector2(
 			position.x - level_tile_size.x, 
 			position.y - move_speed * player.current_animation_length
@@ -168,6 +171,7 @@ func _start_move(direction: Vector2) -> Tween:
 	elif direction == Vector2.RIGHT:
 		player.stop(true)
 		player.play("right")
+		play_jump_sound("right")
 		target_position = Vector2(
 			position.x + level_tile_size.x, 
 			position.y - move_speed * player.current_animation_length
@@ -193,6 +197,13 @@ func _end_move():
 		player.stop(true)
 		player.play("run")
 
+
+func play_jump_sound(direction):
+	if direction == "up":
+		$JumpSound.set_pitch_scale(randf_range(1.1, 1.2))
+	else: 
+		$JumpSound.set_pitch_scale(randf_range(0.95, 1.05))
+	$JumpSound.play()
 
 
 ## Jetpack ability

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://mu8408gtwp6e"]
+[gd_scene load_steps=8 format=3 uid="uid://mu8408gtwp6e"]
 
 [ext_resource type="PackedScene" uid="uid://b1kfj4yaq0t0r" path="res://regions/common/base_falling_object/base_falling_object.tscn" id="1_0ttwt"]
+[ext_resource type="AudioStream" uid="uid://b8nrvj5eaunf2" path="res://regions/residential_region/dynamic_obstacles/falling_shoe_base_scene/audio/shoe.ogg" id="2_4eahd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ir3t"]
 radius = 7.0
@@ -71,7 +72,10 @@ position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_6ir3t")
 
 [node name="AnimationPlayer" parent="." index="2"]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_1aoxx")
 }
+autoplay = "idle"
+
+[node name="SoundFX1" parent="." index="4"]
+stream = ExtResource("2_4eahd")

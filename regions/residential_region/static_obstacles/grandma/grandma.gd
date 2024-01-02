@@ -10,6 +10,8 @@ func _ready():
 
 func _on_activate_timer_timeout():
 	player.play('grandma_is_shaking_the_rug')
+	$SoundFX1.set_pitch_scale(randf_range(0.9, 1.2))
+	$SoundFX1.play()
 
 
 func _on_body_entered(body: Node):

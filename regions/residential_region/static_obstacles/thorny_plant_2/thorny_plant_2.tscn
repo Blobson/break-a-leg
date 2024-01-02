@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgka0pjxh155n"]
+[gd_scene load_steps=10 format=3 uid="uid://cgka0pjxh155n"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_aej2y"]
+[ext_resource type="Script" path="res://regions/residential_region/static_obstacles/thorny_plant_common/thorny_plant.gd" id="2_5g0it"]
 [ext_resource type="Texture2D" uid="uid://jo2tapx0ofs2" path="res://regions/residential_region/static_obstacles/thorny_plant_2/thorny_plant_2.png" id="2_xv85m"]
+[ext_resource type="AudioStream" uid="uid://0enxugp8h30x" path="res://regions/residential_region/static_obstacles/thorny_plant_common/audio/plant_ceramic_break.ogg" id="3_lwni2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5wbw"]
 size = Vector2(29.5, 10.5)
@@ -60,7 +62,7 @@ _data = {
 }
 
 [node name="WindowWithThornyPlant2" instance=ExtResource("1_aej2y")]
-reusable = false
+script = ExtResource("2_5g0it")
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, 14)
@@ -75,3 +77,6 @@ shape = SubResource("RectangleShape2D_v5wbw")
 libraries = {
 "": SubResource("AnimationLibrary_vfhvn")
 }
+
+[node name="SoundFX1" parent="." index="3"]
+stream = ExtResource("3_lwni2")

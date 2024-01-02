@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://wytj52ajpkeu"]
+[gd_scene load_steps=10 format=3 uid="uid://wytj52ajpkeu"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_5h3tk"]
 [ext_resource type="Texture2D" uid="uid://du8dj3k2d7kpl" path="res://regions/residential_region/static_obstacles/conditioner/conditioner.png" id="2_3el5v"]
 [ext_resource type="Script" path="res://regions/residential_region/static_obstacles/conditioner/conditioner.gd" id="2_p6y4v"]
+[ext_resource type="AudioStream" uid="uid://ylgj117t2daj" path="res://regions/residential_region/static_obstacles/conditioner/audio/conditioner.ogg" id="4_e6cvl"]
+[ext_resource type="AudioStream" uid="uid://dk00hlp6ean2c" path="res://regions/residential_region/static_obstacles/conditioner/audio/conditioner_crashed.ogg" id="5_v14r2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ef6k"]
 size = Vector2(29, 20)
@@ -53,6 +55,7 @@ reusable = false
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_3el5v")
 hframes = 12
+frame = 2
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(0.5, 0)
@@ -62,3 +65,11 @@ shape = SubResource("RectangleShape2D_3ef6k")
 libraries = {
 "": SubResource("AnimationLibrary_p0j5r")
 }
+
+[node name="SoundFX1" parent="." index="3"]
+stream = ExtResource("4_e6cvl")
+max_distance = 120.0
+
+[node name="SoundFX2" parent="." index="4"]
+stream = ExtResource("5_v14r2")
+volume_db = -4.0
