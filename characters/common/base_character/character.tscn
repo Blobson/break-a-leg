@@ -12,3 +12,8 @@ hframes = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="SoundFX1" type="AudioStreamPlayer" parent="."]
+bus = &"Effects"

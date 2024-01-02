@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cqrdsna5moeu0"]
+[gd_scene load_steps=57 format=3 uid="uid://cqrdsna5moeu0"]
 
 [ext_resource type="PackedScene" uid="uid://cc87qxoc5va67" path="res://characters/common/base_character/character.tscn" id="1_y42yc"]
 [ext_resource type="Texture2D" uid="uid://3mklfrvjm4v5" path="res://characters/courier/courier_animation.png" id="2_k6816"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bfesihjgdntwo" path="res://characters/courier/effects/fight/fight.png" id="3_vay3k"]
 [ext_resource type="Texture2D" uid="uid://7aytmbuj186o" path="res://characters/courier/effects/shield/shield.png" id="5_0pncg"]
 [ext_resource type="Texture2D" uid="uid://byp2k24t17elx" path="res://characters/courier/effects/plant-bite/plant_bite.png" id="5_jawku"]
+[ext_resource type="AudioStream" uid="uid://dbrdxkghpe38w" path="res://characters/courier/audio/jump.ogg" id="7_odat8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g07og"]
 radius = 6.0
@@ -619,5 +620,9 @@ shape = SubResource("CircleShape2D_bfgmq")
 [node name="JetpackTimer" type="Timer" parent="." index="6"]
 wait_time = 4.0
 one_shot = true
+
+[node name="JumpSound" parent="." index="7"]
+stream = ExtResource("7_odat8")
+bus = &"Effects"
 
 [connection signal="timeout" from="JetpackTimer" to="." method="_on_jetpack_timer_timeout"]

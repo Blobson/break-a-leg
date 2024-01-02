@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4ubrv6mxns6k"]
+[gd_scene load_steps=10 format=3 uid="uid://c4ubrv6mxns6k"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_kcd8i"]
 [ext_resource type="Texture2D" uid="uid://bvv5ve1ea3lyu" path="res://regions/residential_region/static_obstacles/thorny_plant_1/thorny_plant_1.png" id="2_kit0q"]
+[ext_resource type="Script" path="res://regions/residential_region/static_obstacles/thorny_plant_common/thorny_plant.gd" id="2_x128c"]
+[ext_resource type="AudioStream" uid="uid://0enxugp8h30x" path="res://regions/residential_region/static_obstacles/thorny_plant_common/audio/plant_ceramic_break.ogg" id="3_7oyjt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqm1h"]
 size = Vector2(34, 13)
 
-[sub_resource type="Animation" id="Animation_xltbo"]
-resource_name = "idle"
-loop_mode = 2
+[sub_resource type="Animation" id="Animation_iqjwi"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16,10 +17,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 1]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_cmon6"]
@@ -38,8 +39,9 @@ tracks/0/keys = {
 "values": [2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_iqjwi"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_xltbo"]
+resource_name = "idle"
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -47,10 +49,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdxwx"]
@@ -61,7 +63,7 @@ _data = {
 }
 
 [node name="WindowWithThornyPlant1" instance=ExtResource("1_kcd8i")]
-reusable = false
+script = ExtResource("2_x128c")
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, 16)
@@ -78,3 +80,6 @@ libraries = {
 "": SubResource("AnimationLibrary_bdxwx")
 }
 next/idle = &"idle"
+
+[node name="SoundFX1" parent="." index="3"]
+stream = ExtResource("3_7oyjt")

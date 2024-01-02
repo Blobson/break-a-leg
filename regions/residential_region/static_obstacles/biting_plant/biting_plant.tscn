@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://53shlo64r24w"]
+[gd_scene load_steps=15 format=3 uid="uid://53shlo64r24w"]
 
 [ext_resource type="PackedScene" uid="uid://buphy8bxp5osq" path="res://regions/common/base_static_obstacle/base_static_obstacle.tscn" id="1_y024m"]
 [ext_resource type="Texture2D" uid="uid://dxpg05wkpmp64" path="res://regions/residential_region/static_obstacles/biting_plant/biting_plant.png" id="2_5tybo"]
 [ext_resource type="Script" path="res://regions/residential_region/static_obstacles/biting_plant/biting_plant.gd" id="2_cqstd"]
+[ext_resource type="AudioStream" uid="uid://b5hfkekvp6aho" path="res://regions/residential_region/static_obstacles/biting_plant/audio/bite.ogg" id="4_w3cyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtutc"]
 size = Vector2(96, 16)
@@ -32,6 +33,63 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0wxop"]
+resource_name = "bite_left"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 6, 5, 4, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BiteZone:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-5, -6), Vector2(-2, -15), Vector2(-19, -10), Vector2(-27, -2), Vector2(-19, -10), Vector2(-2, -15), Vector2(-5, -6), Vector2(-10, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_eqnq2"]
+resource_name = "bite_right"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 6, 5, 4, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BiteZone:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, -6), Vector2(3, -15), Vector2(20, -9), Vector2(27, -2), Vector2(20, -10), Vector2(4, -15), Vector2(5, -6), Vector2(10, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_3g0sb"]
@@ -94,63 +152,6 @@ tracks/1/keys = {
 "values": [false, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_0wxop"]
-resource_name = "bite_left"
-length = 0.7
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [4, 5, 6, 7, 6, 5, 4, 8]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BiteZone:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-5, -6), Vector2(-2, -15), Vector2(-19, -10), Vector2(-27, -2), Vector2(-19, -10), Vector2(-2, -15), Vector2(-5, -6), Vector2(-10, 3)]
-}
-
-[sub_resource type="Animation" id="Animation_eqnq2"]
-resource_name = "bite_right"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [4, 5, 6, 7, 6, 5, 4, 8]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BiteZone:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(5, -6), Vector2(3, -15), Vector2(20, -9), Vector2(27, -2), Vector2(20, -10), Vector2(4, -15), Vector2(5, -6), Vector2(10, 4)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s2m5p"]
 _data = {
 "RESET": SubResource("Animation_h7c27"),
@@ -198,3 +199,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BiteZone" index="0"]
 shape = SubResource("CircleShape2D_h6v4y")
+
+[node name="SoundFX1" parent="." index="5"]
+stream = ExtResource("4_w3cyx")
+pitch_scale = 1.32

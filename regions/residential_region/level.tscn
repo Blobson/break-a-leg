@@ -64,11 +64,12 @@ texture = ExtResource("29_brn5k")
 position = Vector2(-145, -116)
 texture = ExtResource("30_c12fr")
 
-[node name="Camera2D" parent="Courier" index="7"]
+[node name="Camera2D" parent="Courier" index="9"]
 limit_left = -325
 limit_right = 325
 limit_smoothed = true
 
 [node name="BackgroundAudio" parent="." index="5"]
 stream = SubResource("AudioStreamOggVorbis_ihmss")
+volume_db = -2.0
 bus = &"Music"

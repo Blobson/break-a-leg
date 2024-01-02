@@ -33,6 +33,8 @@ func _on_damage_apply(courier: Courier):
 		return
 	$ProximityZone.set_deferred("monitoring", false)
 	$Area2D.set_deferred("monitoring", false)
+	$SoundFX1.set_pitch_scale(randf_range(1.1, 1.35))
+	$SoundFX1.play()
 	if sprite.flip_h:
 		player.play("bite_right")
 	else:

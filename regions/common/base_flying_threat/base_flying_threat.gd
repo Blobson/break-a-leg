@@ -59,6 +59,9 @@ func get_damage_effect() -> DamageEffect:
 func _on_damage_apply(courier: Courier):
 	super(courier)
 	
+	$SoundFX1.set_pitch_scale(randf_range(0.9, 1.2))
+	$SoundFX1.play()
+	
 	# Проверяем относительное расположение курьера и птицы
 	if (courier.global_position.x < global_position.x and velocity.x < 0) or \
 			(courier.global_position.x > global_position.x and velocity.x > 0):

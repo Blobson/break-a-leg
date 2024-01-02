@@ -27,6 +27,8 @@ func _on_body_entered_proximity_zone(body: Node):
 		player.play("awake")
 		if player.has_animation("alert"):
 			player.queue("alert")
+			$SoundFX1.set_pitch_scale(randf_range(0.9, 1.2))
+			$SoundFX1.play()
 
 
 func _on_body_exited_proximity_zone(body: Node):
@@ -39,6 +41,8 @@ func _on_damage_apply(courier: Courier):
 		return
 	$ProximityZone.set_deferred("monitoring", false)
 	$Area2D.set_deferred("monitoring", false)
+	$SoundFX2.set_pitch_scale(randf_range(0.9, 1.2))
+	$SoundFX2.play()
 	if sprite.flip_h:
 		player.play("jump_right")
 	else:

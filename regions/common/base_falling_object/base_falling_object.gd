@@ -14,6 +14,8 @@ func _physics_process(delta):
 
 func _on_damage_apply(courier: Courier):
 	super(courier)
+	$SoundFX1.set_pitch_scale(randf_range(0.9, 1.2))
+	$SoundFX1.play()
 	speed = -courier.move_speed
 
 
