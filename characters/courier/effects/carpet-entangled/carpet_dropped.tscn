@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsjdrsu1cdo4r"]
+
+[ext_resource type="Texture2D" uid="uid://b7asx38i7n2bm" path="res://characters/courier/effects/carpet-entangled/carpet_dropped.png" id="1_f4d4o"]
+[ext_resource type="Script" path="res://characters/courier/effects/carpet-entangled/carpet_dropped.gd" id="2_qvuw3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gomqm"]
+atlas = ExtResource("1_f4d4o")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaymo"]
+atlas = ExtResource("1_f4d4o")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uck40"]
+atlas = ExtResource("1_f4d4o")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6pjop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gomqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaymo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uck40")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CarpetDropped" type="AnimatedSprite2D"]
+z_index = 6
+position = Vector2(0, 10)
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_6pjop")
+autoplay = "default"
+frame_progress = 0.805797
+script = ExtResource("2_qvuw3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.6, 0.6)

@@ -57,7 +57,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DustDamageArea:monitoring")
+tracks/1/path = NodePath("DustArea:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -122,6 +122,9 @@ hframes = 17
 vframes = 5
 frame = 17
 
+[node name="Area2D" parent="." index="1"]
+collision_mask = 4
+
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource("RectangleShape2D_im26w")
 
@@ -131,16 +134,14 @@ libraries = {
 }
 next/grandma_is_shaking_the_rug = &"idle"
 
-[node name="DustDamageArea" type="Area2D" parent="." index="3"]
+[node name="DustArea" type="Area2D" parent="." index="3"]
 collision_mask = 4
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DustDamageArea" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DustArea" index="0"]
 shape = SubResource("RectangleShape2D_0m7y1")
 
 [node name="ActivateTimer" type="Timer" parent="." index="4"]
-wait_time = 5.0
-autostart = true
 
 [node name="SoundFX1" parent="." index="5"]
 stream = ExtResource("4_8lqt1")
