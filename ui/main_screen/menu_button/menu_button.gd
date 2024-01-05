@@ -3,9 +3,9 @@ extends AnimatedSprite2D
 
 func _unhandled_input(event):
 	if event is InputEventScreenTouch and event.pressed:
-		$ButtonPressed.play()
 		if get_rect().has_point(to_local(event.position)):
 			_show_menu()
+			$ButtonPressed.play()
 
 
 func get_rect() -> Rect2:
