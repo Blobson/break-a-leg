@@ -194,8 +194,6 @@ func _end_move():
 		next_move = Vector2.ZERO
 	else:
 		movement_tween = null
-		player.stop(true)
-		player.play("run")
 
 
 func play_jump_sound(direction):

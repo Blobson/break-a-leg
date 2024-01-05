@@ -11,10 +11,14 @@ func _init():
 
 func apply(courier: Courier):
 	courier.enable_slowdown()
-	finished.emit(courier)
+	if courier.player.current_animation in ["run", "left", "right"]:
+		finished.emit(courier)
 
 
 func recover(courier: Courier):
-	courier.player.play("recovery")
-	courier.player.queue("run")
+	courier.player.clear_queue()
+	if courier.player.current_animation == "run":
+		courier.player.play("recovery")
+	else:
+		courier.player.queue("recovery")
 	courier.recover_speed(speed_recovery_time)
