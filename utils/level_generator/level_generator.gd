@@ -1,7 +1,5 @@
 extends TileMap
 
-enum Layer {WALLS, DECOR, WINDOWS, OBSTACLES}
-
 # NOTE: Параметры task и level_template проставляются в LevelTemplate.instantiate(...)
 var task: Task
 var level_template: LevelTemplate
@@ -81,36 +79,36 @@ func generate_tile(x: int, y: int):
 	var wall_tile = tile_generator.select_wall_tile(x, y)
 	if not wall_tile:
 		return
-	set_cell(Layer.WALLS, Vector2i(x, y), wall_tile.atlas_id, wall_tile.coords, wall_tile.scene_id)
+	set_cell(Tile.Layer.WALLS, Vector2i(x, y), wall_tile.atlas_id, wall_tile.coords, wall_tile.scene_id)
 
 	# try generating client window
 	var client_tile = tile_generator.select_client_tile(x, y)
 	if client_tile:
-		set_cell(Layer.WINDOWS, Vector2i(x, y), client_tile.atlas_id, client_tile.coords, client_tile.scene_id)
+		set_cell(Tile.Layer.WINDOWS, Vector2i(x, y), client_tile.atlas_id, client_tile.coords, client_tile.scene_id)
 		Game.new_client.emit(get_global_transform() * tile_generator.get_tile_center(x, y))
 		return
 
 	# generate window tile
 	var window_tile = tile_generator.select_window_tile(x, y)
 	if window_tile:
-		set_cell(Layer.WINDOWS, Vector2i(x, y), window_tile.atlas_id, window_tile.coords, window_tile.scene_id)
+		set_cell(Tile.Layer.WINDOWS, Vector2i(x, y), window_tile.atlas_id, window_tile.coords, window_tile.scene_id)
 		# place window obstacle
 		if window_tile.is_obstacle_allowed:
 			var window_obstacle_tile = tile_generator.select_window_obstacle_tile(x, y)
 			if window_obstacle_tile:
-				set_cell(Layer.OBSTACLES, Vector2i(x, y), window_obstacle_tile.atlas_id, window_obstacle_tile.coords, window_obstacle_tile.scene_id)
+				set_cell(Tile.Layer.OBSTACLES, Vector2i(x, y), window_obstacle_tile.atlas_id, window_obstacle_tile.coords, window_obstacle_tile.scene_id)
 		return
 
 	# place wall mounted obstacle
 	var wall_obstacle_tile = tile_generator.select_wall_obstacle_tile(x, y)
 	if wall_obstacle_tile:
-		set_cell(Layer.OBSTACLES, Vector2i(x, y), wall_obstacle_tile.atlas_id, wall_obstacle_tile.coords, wall_obstacle_tile.scene_id)
+		set_cell(Tile.Layer.OBSTACLES, Vector2i(x, y), wall_obstacle_tile.atlas_id, wall_obstacle_tile.coords, wall_obstacle_tile.scene_id)
 		return
 
 	# generate decor if no obstacle was placed on the tile
 	var decor_tile = tile_generator.select_decor_tile(x, y)
 	if decor_tile:
-		set_cell(Layer.DECOR, Vector2i(x, y), decor_tile.atlas_id, decor_tile.coords, decor_tile.scene_id)
+		set_cell(Tile.Layer.DECOR, Vector2i(x, y), decor_tile.atlas_id, decor_tile.coords, decor_tile.scene_id)
 
 
 func generate_flying_threat(view_rect: Rect2i, y: int):
